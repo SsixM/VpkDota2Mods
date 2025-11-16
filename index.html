@@ -4,16 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VPK MODS</title>
-    <!-- Tailwind CSS CDN для современных стилей -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- JSZip CDN для ZIP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <!-- Google Fonts для премиум шрифта 2025 стиля -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet"> <!-- Современный футуристический шрифт -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #ffffff; /* Неоновый розовый */
-            --secondary-color: #000000; /* Неоновый зелёный */
+            --primary-color: #ffffff;
+            --secondary-color: #000000;
             --bg-gradient: linear-gradient(135deg, #0a0a0a, #1a1a1a);
             --neon-glow: 0 0 15px var(--primary-color), 0 0 30px var(--secondary-color);
         }
@@ -22,7 +19,7 @@
             background-position: center;
             background-attachment: fixed;
             color: #e5e5e5;
-            font-family: 'Orbitron', sans-serif; /* Футуристический шрифт для 2025 */
+            font-family: 'Orbitron', sans-serif;
             position: relative;
             overflow-x: hidden;
         }
@@ -33,24 +30,24 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #ffffff, #5e0000); /* Начальный градиент */
+            background: linear-gradient(135deg, #ffffff, #5e0000);
             opacity: 0.15;
             z-index: -1;
-            transition: background-position 10s ease-in-out; /* Анимируем position */
-            background-size: 200% 200%; /* Делаем градиент большим для сдвига */
+            transition: background-position 10s ease-in-out;
+            background-size: 200% 200%;
         }
 
-        body:hover::before { /* Или добавь класс JS для цикла */
-            background-position: 100% 100%; /* Сдвиг для "анимации" */
+        body:hover::before {
+            background-position: 100% 100%;
         }
         .card {
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, opacity 0.3s ease;
             animation: fadeInUp 1.2s ease-out forwards;
-            opacity: 1; /* Убедимся, что видимы всегда */
+            opacity: 1;
             background: rgba(10, 10, 10, 0.7);
-            backdrop-filter: blur(10px); /* Современный эффект размытия для 2025 */
+            backdrop-filter: blur(10px);
             border: 1px solid transparent;
-            position: relative; /* Для позиционирования иконки */
+            position: relative;
         }
         .card:hover {
             transform: scale(1.08) rotate(1deg);
@@ -58,11 +55,11 @@
             border-color: var(--secondary-color);
         }
         .selected {
-            transform: scale(1.05) rotate(-1deg); /* Увеличение и лёгкий наклон для динамики */
+            transform: scale(1.05) rotate(-1deg);
             box-shadow: 0 0 25px var(--secondary-color), 0 0 50px var(--primary-color);
             animation: neonPulse 5s infinite alternate;
             border-color: var(--primary-color);
-            opacity: 1 !important; /* Предотвращаем исчезновение */
+            opacity: 1 !important;
         }
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(50px); }
@@ -106,7 +103,7 @@
             box-shadow: var(--neon-glow);
             width: 90%;
             max-width: 700px;
-            transform: perspective(1000px) rotateX(10deg); /* 3D-эффект для 2025 */
+            transform: perspective(1000px) rotateX(10deg);
             transition: transform 0.5s;
         }
         .modal-content:hover {
@@ -135,7 +132,6 @@
         .info-icon:hover {
             transform: scale(1.05);
         }
-        /* Задержка анимаций для карточек будет добавлена через JS */
     </style>
 </head>
 <body class="min-h-screen flex flex-col items-center justify-center">
@@ -145,14 +141,12 @@
     </header>
 
     <main id="modsContainer" class="w-full max-w-7xl px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 relative z-10">
-        <!-- Карточки генерируются динамически из JS -->
     </main>
 
     <footer class="w-full py-8 text-center relative z-10">
         <button id="downloadButton" onclick="downloadZip()" class="btn-neon text-white px-10 py-5 rounded-2xl font-bold text-xl"></button>
     </footer>
 
-    <!-- Модал инструкций -->
     <div id="instructionsModal" class="modal">
         <div class="modal-content">
             <span onclick="closeModal('instructionsModal')" class="close cursor-pointer float-right text-4xl text-var(--primary-color)">&times;</span>
@@ -161,7 +155,6 @@
         </div>
     </div>
 
-    <!-- Модал информации о моде -->
     <div id="modInfoModal" class="modal">
         <div class="modal-content">
             <span onclick="closeModal('modInfoModal')" class="close cursor-pointer float-right text-4xl text-var(--primary-color)">&times;</span>
@@ -172,10 +165,8 @@
     </div>
 
     <script>
-        // Определение языка по navigator.language (основан на настройках браузера, часто соответствует местоположению)
         const userLang = navigator.language.toLowerCase().startsWith('ru') ? 'ru' : 'en';
 
-        // Переводы
         const translations = {
             ru: {
                 title: 'Конструктор VPK Модов для Dota 2',
@@ -187,7 +178,6 @@
                     2. Поместите VPK-файлы в папку: {папка Dota}\\game\\dota_russian(если вы используете другой язык, то выбирайте именно его).<br>
                     3. Запустите игру и наслаждайтесь будущим Dota 2!
                 `,
-                modDescription: 'Улучшите игру с этим модом!',
                 alertNoMod: 'Выберите хотя бы один мод!',
                 errorDownload: (name) => `Ошибка скачивания ${name}`,
                 progressText: 'Скачивание и упаковка... Подождите.'
@@ -202,193 +192,182 @@
                     2. Place VPK files in folder: {Dota folder}\\game\\dota.<br>
                     3. Launch the game and enjoy the future of Dota 2!
                 `,
-                modDescription: 'Improve your game with this mod!',
                 alertNoMod: 'Select at least one mod!',
                 errorDownload: (name) => `Error downloading ${name}`,
                 progressText: 'Downloading and packing... Please wait.'
             }
         };
 
-        const t = translations[userLang]; // Текущий перевод
+        const t = translations[userLang];
 
-        // Одна конфигурационная переменная с добавлением description и media
         const config = {
             mods: [
                 {
                     id: '1',
-                    name: userLang === 'ru' ? 'Озвучка папича' : 'Hero Cosmetics',
+                    name: userLang === 'ru' ? 'Озвучка папича' : 'Papich Voiceover',
                     vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/Papich.vpk',
                     image: 'https://ssixm.github.io/VpkDota2Mods/src/Papich.jpg',
-                    description: userLang === 'ru' ? 'Этот мод добавляет новые скины и косметику для героев Dota 2.' : 'This mod adds new skins and cosmetics for Dota 2 heroes.',
-                    media: 'https://example.com/mod1-video.mp4' // Или изображение: 'https://example.com/mod1-practice.jpg'
+                    description: userLang === 'ru' ? 'Этот мод заменяет стандартную озвучку на голосовые линии от популярного стримера Папича, добавляя юмор и уникальный стиль в игру.' : 'This mod replaces the standard voiceover with lines from popular streamer Papich, adding humor and unique style to the game.',
+                    media: 'https://ssixm.github.io/VpkDota2Mods/src/Papich.jpg'
                 },
                 {
                     id: '2',
-                    name: userLang === 'ru' ? 'Белый сф' : 'Mod 2: New Sounds',
+                    name: userLang === 'ru' ? 'Белый сф' : 'White Shadow Fiend',
                     vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/white_sf.vpk',
                     image: 'https://ssixm.github.io/VpkDota2Mods/src/white_sf.jpg',
-                    description: userLang === 'ru' ? 'Мод изменяет звуковые эффекты для более immersive опыта.' : 'Mod changes sound effects for a more immersive experience.',
-                    media: 'https://example.com/mod2-practice.jpg' // Изображение или видео
+                    description: userLang === 'ru' ? 'Мод изменяет внешний вид героя Shadow Fiend на белую версию, улучшая видимость и эстетику в бою.' : 'This mod changes the appearance of Shadow Fiend to a white version, improving visibility and aesthetics in battles.',
+                    media: 'https://ssixm.github.io/VpkDota2Mods/src/white_sf.jpg'
                 },
                 {
                     id: '3',
-                    name: userLang === 'ru' ? 'Озвучка лены головача' : 'Mod 3: Localization',
+                    name: userLang === 'ru' ? 'Озвучка лены головача' : 'Lena Golovach Voiceover',
                     vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/Golovach.vpk',
                     image: 'https://ssixm.github.io/VpkDota2Mods/src/Golovach.jpg',
-                    description: userLang === 'ru' ? 'Полная локализация интерфейса и текстов на русский.' : 'Full localization of interface and texts to English.',
-                    media: 'https://example.com/mod3-video.mp4'
+                    description: userLang === 'ru' ? 'Добавляет озвучку от Лены Головача, с мемными фразами и забавными комментариями для более веселого геймплея.' : 'Adds voiceover from Lena Golovach, with meme phrases and funny comments for more fun gameplay.',
+                    media: 'https://ssixm.github.io/VpkDota2Mods/src/Golovach.jpg'
                 },
                 {
                     id: '4',
-                    name: userLang === 'ru' ? 'Минимизация тычек' : '',
+                    name: userLang === 'ru' ? 'Минимизация тычек' : 'Minimization of Base Attacks',
                     vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/minifyBaseattack.vpk',
                     image: 'https://ssixm.github.io/VpkDota2Mods/src/minifybaseattack.jpg',
-                    description: userLang === 'ru' ? '' : '',
-                    media: ''
+                    description: userLang === 'ru' ? 'Уменьшает визуальные и звуковые эффекты базовых атак, помогая сосредоточиться на стратегии без отвлекающих элементов.' : 'Reduces visual and sound effects of base attacks, helping focus on strategy without distractions.',
+                    media: 'https://ssixm.github.io/VpkDota2Mods/src/minifybaseattack.jpg'
                 },
                 {
                     id: '5',
-                    name: userLang === 'ru' ? 'Минимизация скилов' : '',
+                    name: userLang === 'ru' ? 'Минимизация скилов' : 'Minimization of Skills',
                     vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/minifyspells.vpk',
                     image: 'https://ssixm.github.io/VpkDota2Mods/src/minifyspells.jpg',
-                    description: userLang === 'ru' ? '' : '',
-                    media: ''
+                    description: userLang === 'ru' ? 'Сокращает анимации и эффекты способностей героев, оптимизируя производительность и снижая визуальный шум.' : 'Shortens animations and effects of hero abilities, optimizing performance and reducing visual noise.',
+                    media: 'https://ssixm.github.io/VpkDota2Mods/src/minifyspells.jpg'
                 },
                 {
                     id: '6',
-                    name: userLang === 'ru' ? 'Оптимизация' : '',
+                    name: userLang === 'ru' ? 'Оптимизация' : 'Optimization',
                     vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/optimization.vpk',
                     image: 'https://ssixm.github.io/VpkDota2Mods/src/optimization.jpg',
-                    description: userLang === 'ru' ? '' : '',
-                    media: ''
+                    description: userLang === 'ru' ? 'Общая оптимизация игры, включая улучшение FPS, снижение лагов и упрощение графики для слабых ПК.' : 'General game optimization, including FPS improvement, lag reduction, and graphics simplification for low-end PCs.',
+                    media: 'https://ssixm.github.io/VpkDota2Mods/src/optimization.jpg'
                 },
                 {
                     id: '7',
-                    name: userLang === 'ru' ? 'Мут эмбиента' : '',
+                    name: userLang === 'ru' ? 'Мут эмбиента' : 'Mute Ambient',
                     vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/muteambient.vpk',
                     image: 'https://ssixm.github.io/VpkDota2Mods/src/Muteembient.jpg',
-                    description: userLang === 'ru' ? '' : '',
-                    media: ''
+                    description: userLang === 'ru' ? 'Отключает фоновые звуки окружающей среды, создавая более тихую атмосферу для концентрации.' : 'Disables ambient background sounds, creating a quieter atmosphere for better focus.',
+                    media: 'https://ssixm.github.io/VpkDota2Mods/src/Muteembient.jpg'
                 },
                 {
                     id: '8',
-                    name: userLang === 'ru' ? 'Мут комментаторов' : '',
+                    name: userLang === 'ru' ? 'Мут комментаторов' : 'Mute Announcers',
                     vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/muteannouncers.vpk',
                     image: 'https://ssixm.github.io/VpkDota2Mods/src/mutevoicers.jpg',
-                    description: userLang === 'ru' ? '' : '',
-                    media: ''
+                    description: userLang === 'ru' ? 'Заглушает голоса комментаторов, позволяя играть без ненужных нарративов.' : 'Mutes announcer voices, allowing play without unnecessary narratives.',
+                    media: 'https://ssixm.github.io/VpkDota2Mods/src/mutevoicers.jpg'
                 },
                 {
                     id: '9',
-                    name: userLang === 'ru' ? 'Мут реплик и звуки насмешек' : '',
+                    name: userLang === 'ru' ? 'Мут реплик и звуки насмешек' : 'Mute Replicas and Taunt Sounds',
                     vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/mutetaunt.vpk',
                     image: 'https://ssixm.github.io/VpkDota2Mods/src/mutevoiceline.jpg',
-                    description: userLang === 'ru' ? '' : '',
-                    media: ''
+                    description: userLang === 'ru' ? 'Удаляет звуки насмешек и реплик героев, минимизируя отвлекающие аудиоэлементы.' : 'Removes taunt sounds and hero replicas, minimizing distracting audio elements.',
+                    media: 'https://ssixm.github.io/VpkDota2Mods/src/mutevoiceline.jpg'
                 },
                 {
                     id: '10',
-                    name: userLang === 'ru' ? 'Мут фраз героев' : '',
+                    name: userLang === 'ru' ? 'Мут фраз героев' : 'Mute Hero Phrases',
                     vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/mutevoiceline.vpk',
                     image: 'https://ssixm.github.io/VpkDota2Mods/src/mutevoiceliine.jpg',
-                    description: userLang === 'ru' ? '' : '',
-                    media: ''
+                    description: userLang === 'ru' ? 'Отключает все фразы героев, обеспечивая тишину во время матчей.' : 'Disables all hero phrases, ensuring silence during matches.',
+                    media: 'https://ssixm.github.io/VpkDota2Mods/src/mutevoiceliine.jpg'
                 },
                 {
                     id: '11',
-                    name: userLang === 'ru' ? 'Деревья-таблетки' : '',
+                    name: userLang === 'ru' ? 'Деревья-таблетки' : 'Pill Trees',
                     vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/pilltree.vpk',
                     image: 'https://ssixm.github.io/VpkDota2Mods/src/pilltree.jpg',
-                    description: userLang === 'ru' ? '' : '',
-                    media: ''
+                    description: userLang === 'ru' ? 'Превращает деревья на карте в таблетки, упрощая видимость и добавляя забавный визуальный эффект.' : 'Transforms trees on the map into pills, simplifying visibility and adding a fun visual effect.',
+                    media: 'https://ssixm.github.io/VpkDota2Mods/src/pilltree.jpg'
                 },
                 {
                     id: '12',
-                    name: userLang === 'ru' ? 'Удаление растительности' : '',
+                    name: userLang === 'ru' ? 'Удаление растительности' : 'Remove Foliage',
                     vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/removefolage.vpk',
                     image: 'https://ssixm.github.io/VpkDota2Mods/src/Removefolage.jpg',
-                    description: userLang === 'ru' ? '' : '',
-                    media: ''
+                    description: userLang === 'ru' ? 'Удаляет всю растительность с карты, улучшая производительность и обзор.' : 'Removes all foliage from the map, improving performance and visibility.',
+                    media: 'https://ssixm.github.io/VpkDota2Mods/src/Removefolage.jpg'
                 },
                 {
                     id: '13',
-                    name: userLang === 'ru' ? 'Удаление пингов' : '',
+                    name: userLang === 'ru' ? 'Удаление пингов' : 'Remove Pings',
                     vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/removepings.vpk',
                     image: 'https://ssixm.github.io/VpkDota2Mods/src/removepings.jpg',
-                    description: userLang === 'ru' ? '' : '',
-                    media: ''
+                    description: userLang === 'ru' ? 'Отключает отображение пингов на карте, уменьшая визуальный беспорядок.' : 'Disables ping display on the map, reducing visual clutter.',
+                    media: 'https://ssixm.github.io/VpkDota2Mods/src/removepings.jpg'
                 },
                 {
                     id: '14',
-                    name: userLang === 'ru' ? 'Удаление реки' : '',
+                    name: userLang === 'ru' ? 'Удаление реки' : 'Remove River',
                     vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/removeriver.vpk',
                     image: 'https://ssixm.github.io/VpkDota2Mods/src/removeriver.jpg',
-                    description: userLang === 'ru' ? '' : '',
-                    media: ''
+                    description: userLang === 'ru' ? 'Удаляет реку с карты, упрощая навигацию и графику.' : 'Removes the river from the map, simplifying navigation and graphics.',
+                    media: 'https://ssixm.github.io/VpkDota2Mods/src/removeriver.jpg'
                 },
                 {
                     id: '15',
-                    name: userLang === 'ru' ? 'Удаление спреев' : '',
+                    name: userLang === 'ru' ? 'Удаление спреев' : 'Remove Sprays',
                     vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/removesprays.vpk',
                     image: 'https://ssixm.github.io/VpkDota2Mods/src/removestickers.jpg',
-                    description: userLang === 'ru' ? '' : '',
-                    media: ''
+                    description: userLang === 'ru' ? 'Убирает спреи и стикеры, очищая поле боя от лишних элементов.' : 'Removes sprays and stickers, clearing the battlefield of extra elements.',
+                    media: 'https://ssixm.github.io/VpkDota2Mods/src/removestickers.jpg'
                 },
                 {
                     id: '16',
-                    name: userLang === 'ru' ? 'Нетворс без Dotaplus' : '',
+                    name: userLang === 'ru' ? 'Нетворс без Dotaplus' : 'Networth without Dota Plus',
                     vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/shownetworth.vpk',
                     image: 'https://ssixm.github.io/VpkDota2Mods/src/shownetworth.jpg',
-                    description: userLang === 'ru' ? '' : '',
-                    media: ''
+                    description: userLang === 'ru' ? 'Показывает нетворс без подписки Dota Plus, давая доступ к этой информации всем игрокам.' : 'Shows networth without Dota Plus subscription, giving access to this info for all players.',
+                    media: 'https://ssixm.github.io/VpkDota2Mods/src/shownetworth.jpg'
                 },
                 {
                     id: '17',
-                    name: userLang === 'ru' ? 'Звук старых пингов' : '',
+                    name: userLang === 'ru' ? 'Звук старых пингов' : 'Old Ping Sound',
                     vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/oldpingsound.vpk',
                     image: 'https://ssixm.github.io/VpkDota2Mods/src/removepings.jpg',
-                    description: userLang === 'ru' ? '' : '',
-                    media: ''
+                    description: userLang === 'ru' ? 'Возвращает старые звуки пингов для ностальгического опыта.' : 'Restores old ping sounds for a nostalgic experience.',
+                    media: 'https://ssixm.github.io/VpkDota2Mods/src/removepings.jpg'
                 },
                 {
                     id: '18',
-                    name: userLang === 'ru' ? 'Авто принятие матча' : '',
+                    name: userLang === 'ru' ? 'Авто принятие матча' : 'Auto Accept Match',
                     vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/autoacceptmatch.vpk',
                     image: 'https://ssixm.github.io/VpkDota2Mods/src/autoacceptmatch.jpg',
-                    description: userLang === 'ru' ? '' : '',
-                    media: ''
+                    description: userLang === 'ru' ? 'Автоматически принимает матч, ускоряя вход в игру.' : 'Automatically accepts matches, speeding up game entry.',
+                    media: 'https://ssixm.github.io/VpkDota2Mods/src/autoacceptmatch.jpg'
                 },
                 {
                     id: '19',
-                    name: userLang === 'ru' ? 'Все фразы разблокировка' : '',
+                    name: userLang === 'ru' ? 'Все фразы разблокировка' : 'Unlock All Phrases',
                     vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/Chat_wheels.vpk',
                     image: 'https://ssixm.github.io/VpkDota2Mods/src/Chat_wheel.jpg',
-                    description: userLang === 'ru' ? '' : '',
-                    media: ''
+                    description: userLang === 'ru' ? 'Разблокирует все фразы в чат-колесе без ограничений.' : 'Unlocks all phrases in the chat wheel without restrictions.',
+                    media: 'https://ssixm.github.io/VpkDota2Mods/src/Chat_wheel.jpg'
                 },
                 {
                     id: '20',
-                    name: userLang === 'ru' ? 'Черная карта' : '',
+                    name: userLang === 'ru' ? 'Черная карта' : 'Black Map',
                     vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/DarkTerrain.vpk',
                     image: 'https://ssixm.github.io/VpkDota2Mods/src/Muteembient.jpg',
-                    description: userLang === 'ru' ? '' : '',
-                    media: ''
-                }/*,
-                {
-                    id: '4',
-                    name: userLang === 'ru' ? '' : '',
-                    vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/.vpk',
-                    image: '',
-                    description: userLang === 'ru' ? '' : '',
-                    media: ''
-                }*/
+                    description: userLang === 'ru' ? 'Делает карту черной, повышая контраст и улучшая видимость объектов.' : 'Makes the map black, increasing contrast and improving object visibility.',
+                    media: 'https://ssixm.github.io/VpkDota2Mods/src/Muteembient.jpg'
+                }
             ],
             backgroundImage: 'https://images8.alphacoders.com/400/thumb-1920-400614.jpg',
             fontFamily: 'Orbitron',
-            dotaLang: userLang === 'ru' ? 'russian' : 'english' // Для папки Dota
+            dotaLang: userLang === 'ru' ? 'russian' : 'english'
         };
 
-        // Установка фона и лого из config
         document.body.style.backgroundImage = `url('${config.backgroundImage}')`;
         document.getElementById('title').textContent = t.title;
         document.getElementById('subtitle').textContent = t.subtitle;
@@ -398,18 +377,17 @@
             document.body.classList.toggle('animate-gradient');
         }, 10000);
         function animateGradient() {
-            const element = document.querySelector('body::before'); // Но ::before не доступен, так что используй реальный div
-            // Лучше добавь <div id="gradient-bg"></div> в body
+            const element = document.querySelector('body::before');
             const bgElement = document.getElementById('gradient-bg');
             let progress = 0;
-            const duration = 10000; // 10 сек
+            const duration = 10000;
             let startTime = null;
 
             function step(timestamp) {
                 if (!startTime) startTime = timestamp;
                 const elapsed = timestamp - startTime;
-                progress = (elapsed / duration) % 2; // Для alternate (вперёд-назад)
-                if (progress > 1) progress = 2 - progress; // Обратный ход
+                progress = (elapsed / duration) % 2;
+                if (progress > 1) progress = 2 - progress;
 
                 const whiteShade = Math.floor(255 * (1 - progress)).toString(16).padStart(2, '0');
                 const redShade = Math.floor(94 * progress).toString(16).padStart(2, '0');
@@ -423,7 +401,6 @@
 
         animateGradient();
 
-        // Генерация карточек модов из config и добавление CSS для каждой через JS (в зависимости от количества модов)
         const modsContainer = document.getElementById('modsContainer');
         config.mods.forEach((mod, index) => {
             const card = document.createElement('div');
@@ -434,20 +411,19 @@
             card.dataset.vpkUrl = mod.vpkUrl;
             card.dataset.description = mod.description;
             card.dataset.media = mod.media;
+            const truncatedDescription = mod.description.length > 100 ? mod.description.substring(0, 100) + '...' : mod.description;
             card.innerHTML = `
                 <span class="info-icon" style="color: #000;" onclick="showModInfo(event, '${mod.id}')">info</span>
                 <img src="${mod.image}" alt="${mod.name}" class="w-full h-56 object-cover rounded-2xl mb-4 shadow-inner">
                 <h3 class="text-2xl font-bold text-var(--primary-color) mb-2">${mod.name}</h3>
-                <p class="text-lg text-gray-300">${t.modDescription}</p>
+                <p class="text-lg text-gray-300">${truncatedDescription}</p>
             `;
 
-            // Добавляем индивидуальный CSS для каждой карточки через JS (например, задержка анимации зависит от индекса и общего количества модов)
             const numMods = config.mods.length;
-            const baseDelay = 0; // Базовая задержка
-            const dynamicDelay = (index * baseDelay) + (numMods * 0.05); // Динамическая задержка на основе количества модов
+            const baseDelay = 0;
+            const dynamicDelay = (index * baseDelay) + (numMods * 0.05);
             card.style.animationDelay = `${dynamicDelay}s`;
 
-            // Если нужно больше CSS, можно добавить через inline или глобальный style
             modsContainer.appendChild(card);
         });
 
@@ -470,7 +446,7 @@
         }
 
         function showModInfo(event, modId) {
-            event.stopPropagation(); // Предотвращаем выбор мода при клике на i
+            event.stopPropagation();
             const mod = config.mods.find(m => m.id === modId);
             if (!mod) return;
 
@@ -514,7 +490,7 @@
                     const response = await fetch(mod.url);
                     if (!response.ok) throw new Error(t.errorDownload(mod.name));
                     const blob = await response.blob();
-                    const pakNumber = (i + 1).toString().padStart(2, '0'); // 01, 02, 03 и т.д.
+                    const pakNumber = (i + 1).toString().padStart(2, '0');
                     zip.file(`pak${pakNumber}_dir.vpk`, blob);
                 }
 
@@ -546,7 +522,6 @@
             document.getElementById(modalId).style.display = 'none';
         }
 
-        // Добавляем обработчик клика вне модального окна для закрытия
         window.addEventListener('click', (event) => {
             const instructionsModal = document.getElementById('instructionsModal');
             const modInfoModal = document.getElementById('modInfoModal');
