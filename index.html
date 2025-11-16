@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Конструктор VPK Модов для Dota 2</title>
+    <title>VPK MODS</title>
     <!-- Tailwind CSS CDN для современных стилей -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- JSZip CDN для ZIP -->
@@ -140,7 +140,6 @@
 </head>
 <body class="min-h-screen flex flex-col items-center justify-center">
     <header class="w-full py-8 text-center relative z-10">
-        <img id="logo" alt="Dota 2 Logo" class="w-32 mx-auto mb-6 animate-pulse"> <!-- Анимация пульсации -->
         <h1 id="title" class="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-var(--primary-color) to-var(--secondary-color) drop-shadow-2xl"></h1>
         <p id="subtitle" class="text-2xl mt-3 text-gray-200 tracking-wide"></p>
     </header>
@@ -180,14 +179,13 @@
         const translations = {
             ru: {
                 title: 'Конструктор VPK Модов для Dota 2',
-                subtitle: 'Выберите моды будущего и скачайте ZIP для эпических сражений!',
-                downloadButton: 'Скачать выбранные моды в ZIP',
+                subtitle: 'Выберите все интересующие вас моды!',
+                downloadButton: "Скачать vpks(zip)",
                 instructionsTitle: 'Инструкции по установке',
                 instructions: (lang) => `
                     1. Распакуйте ZIP-архив.<br>
-                    2. Поместите VPK-файлы в папку: {папка Dota}\\game\\dota_${lang}.<br>
-                    3. В Steam: Правой кнопкой на Dota 2 → Свойства → Параметры запуска → Добавьте "-override_vpk".<br>
-                    4. Запустите игру и наслаждайтесь будущим Dota 2!
+                    2. Поместите VPK-файлы в папку: {папка Dota}\\game\\dota_russian(если вы используете другой язык, то выбирайте именно его).<br>
+                    3. Запустите игру и наслаждайтесь будущим Dota 2!
                 `,
                 modDescription: 'Улучшите игру с этим модом!',
                 alertNoMod: 'Выберите хотя бы один мод!',
@@ -201,9 +199,8 @@
                 instructionsTitle: 'Installation Instructions',
                 instructions: (lang) => `
                     1. Unpack the ZIP archive.<br>
-                    2. Place VPK files in folder: {Dota folder}\\game\\dota_${lang}.<br>
-                    3. In Steam: Right-click on Dota 2 → Properties → Launch Options → Add "-override_vpk".<br>
-                    4. Launch the game and enjoy the future of Dota 2!
+                    2. Place VPK files in folder: {Dota folder}\\game\\dota.<br>
+                    3. Launch the game and enjoy the future of Dota 2!
                 `,
                 modDescription: 'Improve your game with this mod!',
                 alertNoMod: 'Select at least one mod!',
@@ -219,45 +216,43 @@
             mods: [
                 {
                     id: '1',
-                    name: userLang === 'ru' ? 'Мод 1: Косметика героев' : 'Mod 1: Hero Cosmetics',
-                    vpkUrl: 'https://example.com/mod1.vpk',
+                    name: userLang === 'ru' ? 'Озвучка папича' : 'Hero Cosmetics',
+                    vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/Papich.vpk',
                     image: 'https://admin.esports.gg/wp-content/uploads/2023/08/Dota-2-Armory-revamped-in-the-Summer-Client-Update.jpg',
                     description: userLang === 'ru' ? 'Этот мод добавляет новые скины и косметику для героев Dota 2.' : 'This mod adds new skins and cosmetics for Dota 2 heroes.',
                     media: 'https://example.com/mod1-video.mp4' // Или изображение: 'https://example.com/mod1-practice.jpg'
                 },
                 {
                     id: '2',
-                    name: userLang === 'ru' ? 'Мод 2: Новые звуки' : 'Mod 2: New Sounds',
-                    vpkUrl: 'https://example.com/mod2.vpk',
+                    name: userLang === 'ru' ? 'Белый сф' : 'Mod 2: New Sounds',
+                    vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/white_sf.vpk',
                     image: 'https://i.ytimg.com/vi/Wsbby0D4MUE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBdSTBvc8--JIjrb6yzq7VxKm-y3A',
                     description: userLang === 'ru' ? 'Мод изменяет звуковые эффекты для более immersive опыта.' : 'Mod changes sound effects for a more immersive experience.',
                     media: 'https://example.com/mod2-practice.jpg' // Изображение или видео
                 },
                 {
                     id: '3',
-                    name: userLang === 'ru' ? 'Мод 3: Локализация' : 'Mod 3: Localization',
-                    vpkUrl: 'https://example.com/mod3.vpk',
+                    name: userLang === 'ru' ? 'Озвучка лены головача' : 'Mod 3: Localization',
+                    vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/Golovach.vpk',
                     image: 'https://images.steamusercontent.com/ugc/703983937065332889/7F8C31C3B27D541E461DB34FDF60940077A66346/',
                     description: userLang === 'ru' ? 'Полная локализация интерфейса и текстов на русский.' : 'Full localization of interface and texts to English.',
                     media: 'https://example.com/mod3-video.mp4'
                 }
             ],
             backgroundImage: 'https://images8.alphacoders.com/400/thumb-1920-400614.jpg',
-            logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Dota_2_logo.svg/512px-Dota_2_logo.svg.png',
             fontFamily: 'Orbitron',
             dotaLang: userLang === 'ru' ? 'russian' : 'english' // Для папки Dota
         };
 
         // Установка фона и лого из config
         document.body.style.backgroundImage = `url('${config.backgroundImage}')`;
-        document.getElementById('logo').src = config.logo;
         document.getElementById('title').textContent = t.title;
         document.getElementById('subtitle').textContent = t.subtitle;
         document.getElementById('downloadButton').textContent = t.downloadButton;
         document.getElementById('instructionsTitle').textContent = t.instructionsTitle;
-setInterval(() => {
-    document.body.classList.toggle('animate-gradient');
-}, 10000);
+        setInterval(() => {
+            document.body.classList.toggle('animate-gradient');
+        }, 10000);
         function animateGradient() {
             const element = document.querySelector('body::before'); // Но ::before не доступен, так что используй реальный div
             // Лучше добавь <div id="gradient-bg"></div> в body
@@ -370,11 +365,13 @@ setInterval(() => {
             document.body.appendChild(progress);
 
             try {
-                for (const mod of selectedMods) {
+                for (let i = 0; i < selectedMods.length; i++) {
+                    const mod = selectedMods[i];
                     const response = await fetch(mod.url);
                     if (!response.ok) throw new Error(t.errorDownload(mod.name));
                     const blob = await response.blob();
-                    zip.file(`${mod.name}.vpk`, blob);
+                    const pakNumber = (i + 1).toString().padStart(2, '0'); // 01, 02, 03 и т.д.
+                    zip.file(`pak${pakNumber}_dir.vpk`, blob);
                 }
 
                 const content = await zip.generateAsync({ type: 'blob' });
@@ -404,6 +401,18 @@ setInterval(() => {
         function closeModal(modalId) {
             document.getElementById(modalId).style.display = 'none';
         }
+
+        // Добавляем обработчик клика вне модального окна для закрытия
+        window.addEventListener('click', (event) => {
+            const instructionsModal = document.getElementById('instructionsModal');
+            const modInfoModal = document.getElementById('modInfoModal');
+            if (event.target === instructionsModal) {
+                closeModal('instructionsModal');
+            }
+            if (event.target === modInfoModal) {
+                closeModal('modInfoModal');
+            }
+        });
     </script>
 </body>
 </html>
