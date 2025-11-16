@@ -526,7 +526,7 @@
                     const response = await fetch(mod.vpkUrl);
                     if (!response.ok) throw new Error(t.errorDownload(mod.name));
                     const blob = await response.blob();
-                    const pakNumber = (i + 1).toString().padStart(2, '9979');
+                    const pakNumber = (i + 1).toString().padStart(2, '49');
                     zip.file(`pak${pakNumber}_dir.vpk`, blob);
                     loaded++;
                     progressText.textContent = t.progressStatus(loaded, total);
