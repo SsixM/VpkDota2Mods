@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конструктор VPK Модов для Dota 2</title>
+    <!-- Tailwind CSS CDN для современных стилей -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- JSZip CDN для ZIP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <!-- Google Fonts для премиум шрифта 2025 стиля -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet"> <!-- Современный футуристический шрифт -->
+    <style>
+        :root {
+            --primary-color: #ffffff; /* Неоновый розовый */
+            --secondary-color: #000000; /* Неоновый зелёный */
+            --bg-gradient: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+            --neon-glow: 0 0 15px var(--primary-color), 0 0 30px var(--secondary-color);
+        }
+        body {
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #e5e5e5;
+            font-family: 'Orbitron', sans-serif; /* Футуристический шрифт для 2025 */
+            position: relative;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ffffff, #5e0000); /* Начальный градиент */
+            opacity: 0.15;
+            z-index: -1;
+            transition: background-position 10s ease-in-out; /* Анимируем position */
+            background-size: 200% 200%; /* Делаем градиент большим для сдвига */
+        }
+
+        body:hover::before { /* Или добавь класс JS для цикла */
+            background-position: 100% 100%; /* Сдвиг для "анимации" */
+        }
+        .card {
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, opacity 0.3s ease;
+            animation: fadeInUp 1.2s ease-out forwards;
+            opacity: 1; /* Убедимся, что видимы всегда */
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(10px); /* Современный эффект размытия для 2025 */
+            border: 1px solid transparent;
+            position: relative; /* Для позиционирования иконки */
+        }
+        .card:hover {
+            transform: scale(1.08) rotate(1deg);
+            box-shadow: var(--neon-glow);
+            border-color: var(--secondary-color);
+        }
+        .selected {
+            transform: scale(1.05) rotate(-1deg); /* Увеличение и лёгкий наклон для динамики */
+            box-shadow: 0 0 25px var(--secondary-color), 0 0 50px var(--primary-color);
+            animation: neonPulse 5s infinite alternate;
+            border-color: var(--primary-color);
+            opacity: 1 !important; /* Предотвращаем исчезновение */
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes neonPulse {
+            0% { box-shadow: 0 0 10px var(--secondary-color); }
+            100% { box-shadow: 0 0 40px var(--primary-color); }
+        }
+        .btn-neon {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            box-shadow: var(--neon-glow);
+            animation: btnGlow 2s infinite alternate;
+            transition: all 0.3s ease;
+        }
+        .btn-neon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px var(--primary-color), 0 0 60px var(--secondary-color);
+        }
+        @keyframes btnGlow {
+            0% { opacity: 0.9; }
+            100% { opacity: 1; }
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            animation: modalFade 0.6s ease-in-out;
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: var(--neon-glow);
+            width: 90%;
+            max-width: 700px;
+            transform: perspective(1000px) rotateX(10deg); /* 3D-эффект для 2025 */
+            transition: transform 0.5s;
+        }
+        .modal-content:hover {
+            transform: perspective(1000px) rotateX(0deg);
+        }
+        @keyframes modalFade {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .info-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 25%;
+            width: 44px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 0 10px var(--secondary-color);
+        }
+        .info-icon:hover {
+            transform: scale(1.05);
+        }
+        /* Задержка анимаций для карточек будет добавлена через JS */
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center">
+    <header class="w-full py-8 text-center relative z-10">
+        <img id="logo" alt="Dota 2 Logo" class="w-32 mx-auto mb-6 animate-pulse"> <!-- Анимация пульсации -->
+        <h1 id="title" class="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-var(--primary-color) to-var(--secondary-color) drop-shadow-2xl"></h1>
+        <p id="subtitle" class="text-2xl mt-3 text-gray-200 tracking-wide"></p>
+    </header>
+
+    <main id="modsContainer" class="w-full max-w-7xl px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 relative z-10">
+        <!-- Карточки генерируются динамически из JS -->
+    </main>
+
+    <footer class="w-full py-8 text-center relative z-10">
+        <button id="downloadButton" onclick="downloadZip()" class="btn-neon text-white px-10 py-5 rounded-2xl font-bold text-xl"></button>
+    </footer>
+
+    <!-- Модал инструкций -->
+    <div id="instructionsModal" class="modal">
+        <div class="modal-content">
+            <span onclick="closeModal('instructionsModal')" class="close cursor-pointer float-right text-4xl text-var(--primary-color)">&times;</span>
+            <h2 id="instructionsTitle" class="text-4xl font-bold mb-6 text-var(--secondary-color)"></h2>
+            <p id="instructionsText" class="text-xl text-gray-200 leading-relaxed"></p>
+        </div>
+    </div>
+
+    <!-- Модал информации о моде -->
+    <div id="modInfoModal" class="modal">
+        <div class="modal-content">
+            <span onclick="closeModal('modInfoModal')" class="close cursor-pointer float-right text-4xl text-var(--primary-color)">&times;</span>
+            <h2 id="modInfoTitle" class="text-4xl font-bold mb-6 text-var(--secondary-color)"></h2>
+            <p id="modInfoDescription" class="text-xl text-gray-200 mb-4"></p>
+            <div id="modInfoMedia" class="w-full"></div>
+        </div>
+    </div>
+
+    <script>
+        // Определение языка по navigator.language (основан на настройках браузера, часто соответствует местоположению)
+        const userLang = navigator.language.toLowerCase().startsWith('ru') ? 'ru' : 'en';
+
+        // Переводы
+        const translations = {
+            ru: {
+                title: 'Конструктор VPK Модов для Dota 2',
+                subtitle: 'Выберите моды будущего и скачайте ZIP для эпических сражений!',
+                downloadButton: 'Скачать выбранные моды в ZIP',
+                instructionsTitle: 'Инструкции по установке',
+                instructions: (lang) => `
+                    1. Распакуйте ZIP-архив.<br>
+                    2. Поместите VPK-файлы в папку: {папка Dota}\\game\\dota_${lang}.<br>
+                    3. В Steam: Правой кнопкой на Dota 2 → Свойства → Параметры запуска → Добавьте "-override_vpk".<br>
+                    4. Запустите игру и наслаждайтесь будущим Dota 2!
+                `,
+                modDescription: 'Улучшите игру с этим модом!',
+                alertNoMod: 'Выберите хотя бы один мод!',
+                errorDownload: (name) => `Ошибка скачивания ${name}`,
+                progressText: 'Скачивание и упаковка... Подождите.'
+            },
+            en: {
+                title: 'Dota 2 VPK Mod Constructor',
+                subtitle: 'Select future mods and download ZIP for epic battles!',
+                downloadButton: 'Download Selected Mods in ZIP',
+                instructionsTitle: 'Installation Instructions',
+                instructions: (lang) => `
+                    1. Unpack the ZIP archive.<br>
+                    2. Place VPK files in folder: {Dota folder}\\game\\dota_${lang}.<br>
+                    3. In Steam: Right-click on Dota 2 → Properties → Launch Options → Add "-override_vpk".<br>
+                    4. Launch the game and enjoy the future of Dota 2!
+                `,
+                modDescription: 'Improve your game with this mod!',
+                alertNoMod: 'Select at least one mod!',
+                errorDownload: (name) => `Error downloading ${name}`,
+                progressText: 'Downloading and packing... Please wait.'
+            }
+        };
+
+        const t = translations[userLang]; // Текущий перевод
+
+        // Одна конфигурационная переменная с добавлением description и media
+        const config = {
+            mods: [
+                {
+                    id: '1',
+                    name: userLang === 'ru' ? 'Мод 1: Косметика героев' : 'Mod 1: Hero Cosmetics',
+                    vpkUrl: 'https://example.com/mod1.vpk',
+                    image: 'https://admin.esports.gg/wp-content/uploads/2023/08/Dota-2-Armory-revamped-in-the-Summer-Client-Update.jpg',
+                    description: userLang === 'ru' ? 'Этот мод добавляет новые скины и косметику для героев Dota 2.' : 'This mod adds new skins and cosmetics for Dota 2 heroes.',
+                    media: 'https://example.com/mod1-video.mp4' // Или изображение: 'https://example.com/mod1-practice.jpg'
+                },
+                {
+                    id: '2',
+                    name: userLang === 'ru' ? 'Мод 2: Новые звуки' : 'Mod 2: New Sounds',
+                    vpkUrl: 'https://example.com/mod2.vpk',
+                    image: 'https://i.ytimg.com/vi/Wsbby0D4MUE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBdSTBvc8--JIjrb6yzq7VxKm-y3A',
+                    description: userLang === 'ru' ? 'Мод изменяет звуковые эффекты для более immersive опыта.' : 'Mod changes sound effects for a more immersive experience.',
+                    media: 'https://example.com/mod2-practice.jpg' // Изображение или видео
+                },
+                {
+                    id: '3',
+                    name: userLang === 'ru' ? 'Мод 3: Локализация' : 'Mod 3: Localization',
+                    vpkUrl: 'https://example.com/mod3.vpk',
+                    image: 'https://images.steamusercontent.com/ugc/703983937065332889/7F8C31C3B27D541E461DB34FDF60940077A66346/',
+                    description: userLang === 'ru' ? 'Полная локализация интерфейса и текстов на русский.' : 'Full localization of interface and texts to English.',
+                    media: 'https://example.com/mod3-video.mp4'
+                }
+            ],
+            backgroundImage: 'https://images8.alphacoders.com/400/thumb-1920-400614.jpg',
+            logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Dota_2_logo.svg/512px-Dota_2_logo.svg.png',
+            fontFamily: 'Orbitron',
+            dotaLang: userLang === 'ru' ? 'russian' : 'english' // Для папки Dota
+        };
+
+        // Установка фона и лого из config
+        document.body.style.backgroundImage = `url('${config.backgroundImage}')`;
+        document.getElementById('logo').src = config.logo;
+        document.getElementById('title').textContent = t.title;
+        document.getElementById('subtitle').textContent = t.subtitle;
+        document.getElementById('downloadButton').textContent = t.downloadButton;
+        document.getElementById('instructionsTitle').textContent = t.instructionsTitle;
+setInterval(() => {
+    document.body.classList.toggle('animate-gradient');
+}, 10000);
+        function animateGradient() {
+            const element = document.querySelector('body::before'); // Но ::before не доступен, так что используй реальный div
+            // Лучше добавь <div id="gradient-bg"></div> в body
+            const bgElement = document.getElementById('gradient-bg');
+            let progress = 0;
+            const duration = 10000; // 10 сек
+            let startTime = null;
+
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                const elapsed = timestamp - startTime;
+                progress = (elapsed / duration) % 2; // Для alternate (вперёд-назад)
+                if (progress > 1) progress = 2 - progress; // Обратный ход
+
+                const whiteShade = Math.floor(255 * (1 - progress)).toString(16).padStart(2, '0');
+                const redShade = Math.floor(94 * progress).toString(16).padStart(2, '0');
+                bgElement.style.background = `linear-gradient(135deg, #${whiteShade}${whiteShade}${whiteShade}, #${redShade}0000)`;
+
+                requestAnimationFrame(step);
+            }
+
+            requestAnimationFrame(step);
+        }
+
+        animateGradient();
+
+        // Генерация карточек модов из config и добавление CSS для каждой через JS (в зависимости от количества модов)
+        const modsContainer = document.getElementById('modsContainer');
+        config.mods.forEach((mod, index) => {
+            const card = document.createElement('div');
+            card.className = 'card p-6 rounded-3xl shadow-2xl cursor-pointer';
+            card.onclick = () => toggleSelect(card);
+            card.dataset.modId = mod.id;
+            card.dataset.modName = mod.name;
+            card.dataset.vpkUrl = mod.vpkUrl;
+            card.dataset.description = mod.description;
+            card.dataset.media = mod.media;
+            card.innerHTML = `
+                <span class="info-icon" style="color: #000;" onclick="showModInfo(event, '${mod.id}')">info</span>
+                <img src="${mod.image}" alt="${mod.name}" class="w-full h-56 object-cover rounded-2xl mb-4 shadow-inner">
+                <h3 class="text-2xl font-bold text-var(--primary-color) mb-2">${mod.name}</h3>
+                <p class="text-lg text-gray-300">${t.modDescription}</p>
+            `;
+
+            // Добавляем индивидуальный CSS для каждой карточки через JS (например, задержка анимации зависит от индекса и общего количества модов)
+            const numMods = config.mods.length;
+            const baseDelay = 0.2; // Базовая задержка
+            const dynamicDelay = (index * baseDelay) + (numMods * 0.05); // Динамическая задержка на основе количества модов
+            card.style.animationDelay = `${dynamicDelay}s`;
+
+            // Если нужно больше CSS, можно добавить через inline или глобальный style
+            modsContainer.appendChild(card);
+        });
+
+        let selectedMods = [];
+
+        function toggleSelect(card) {
+            const modId = card.dataset.modId;
+            const index = selectedMods.findIndex(mod => mod.id === modId);
+            if (index > -1) {
+                selectedMods.splice(index, 1);
+                card.classList.remove('selected');
+            } else {
+                selectedMods.push({
+                    id: modId,
+                    name: card.dataset.modName,
+                    url: card.dataset.vpkUrl
+                });
+                card.classList.add('selected');
+            }
+        }
+
+        function showModInfo(event, modId) {
+            event.stopPropagation(); // Предотвращаем выбор мода при клике на i
+            const mod = config.mods.find(m => m.id === modId);
+            if (!mod) return;
+
+            document.getElementById('modInfoTitle').textContent = mod.name;
+            document.getElementById('modInfoDescription').textContent = mod.description;
+
+            const mediaContainer = document.getElementById('modInfoMedia');
+            mediaContainer.innerHTML = '';
+            if (mod.media.endsWith('.mp4') || mod.media.includes('video')) {
+                const video = document.createElement('video');
+                video.src = mod.media;
+                video.controls = true;
+                video.className = 'w-full h-auto rounded-lg';
+                mediaContainer.appendChild(video);
+            } else {
+                const img = document.createElement('img');
+                img.src = mod.media;
+                img.alt = 'Практика мода';
+                img.className = 'w-full h-auto rounded-lg';
+                mediaContainer.appendChild(img);
+            }
+
+            document.getElementById('modInfoModal').style.display = 'block';
+        }
+
+        async function downloadZip() {
+            if (selectedMods.length === 0) {
+                alert(t.alertNoMod);
+                return;
+            }
+
+            const zip = new JSZip();
+            const progress = document.createElement('p');
+            progress.textContent = t.progressText;
+            progress.classList.add('text-var(--secondary-color)', 'text-2xl', 'mt-6', 'animate-pulse');
+            document.body.appendChild(progress);
+
+            try {
+                for (const mod of selectedMods) {
+                    const response = await fetch(mod.url);
+                    if (!response.ok) throw new Error(t.errorDownload(mod.name));
+                    const blob = await response.blob();
+                    zip.file(`${mod.name}.vpk`, blob);
+                }
+
+                const content = await zip.generateAsync({ type: 'blob' });
+                const url = URL.createObjectURL(content);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'dota_mods.zip';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+
+                showInstructions();
+            } catch (error) {
+                alert(`Ошибка: ${error.message}`);
+            } finally {
+                document.body.removeChild(progress);
+            }
+        }
+
+        function showInstructions() {
+            const instructions = t.instructions(config.dotaLang);
+            document.getElementById('instructionsText').innerHTML = instructions;
+            document.getElementById('instructionsModal').style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+    </script>
+</body>
+</html>
