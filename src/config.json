@@ -40,8 +40,8 @@
   },
   {
     "id": "mute",
-    "ru": "Тишина (Mute)",
-    "en": "Mute Mods",
+    "ru": "Тишина",
+    "en": "Mutes",
     "exclusive": false,
     "mods": [
       { "id": 7, "name_ru": "Мут эмбиента", "name_en": "Mute Ambient", "file": "muteambient.vpk", "img": "Muteembient.jpg", "desc_ru": "Тишина природы.", "desc_en": "Ambient silence." },
