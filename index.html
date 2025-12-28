@@ -3,581 +3,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VPK MODS</title>
+    <title>VPK DOTA | Premium Workshop</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #ffffff;
-            --secondary-color: #000000;
-            --bg-gradient: linear-gradient(135deg, #0a0a0a, #1a1a1a);
-            --neon-glow: 0 0 15px var(--primary-color), 0 0 30px var(--secondary-color);
-        }
-        body {
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: #e5e5e5;
-            font-family: 'Orbitron', sans-serif;
-            position: relative;
-            overflow-x: hidden;
-        }
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #ffffff, #da1717);
-            opacity: 0.15;
-            z-index: -1;
-            transition: background-position 5s ease-in-out;
-            background-size: 200% 200%;
+            --accent: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.4);
+            --panel-bg: rgba(15, 23, 42, 0.8);
         }
 
-        body:hover::before {
-            background-position: 100% 100%;
+        body {
+            background-color: #020617;
+            color: #f8fafc;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
         }
-        .card {
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, opacity 0.3s ease;
-            animation: fadeInUp 0s ease-out forwards;
-            opacity: 1;
-            background: rgba(10, 10, 10, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid transparent;
+
+        .orbitron { font-family: 'Orbitron', sans-serif; }
+
+        .bg-grid {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            mask-image: radial-gradient(circle at center, black, transparent 80%);
+        }
+
+        #snow-canvas {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .mod-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
             position: relative;
+            overflow: hidden;
+            cursor: pointer;
         }
-        .card:hover {
-            transform: scale(1.08) rotate(1deg);
-            box-shadow: var(--neon-glow);
-            border-color: var(--secondary-color);
+
+        .mod-card.selected {
+            border-color: var(--accent);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(15, 23, 42, 0.9) 100%);
+            box-shadow: 0 0 30px var(--accent-glow);
         }
-        .selected {
-            transform: scale(1.05) rotate(-1deg);
-            box-shadow: 0 0 25px var(--secondary-color), 0 0 50px var(--primary-color);
-            animation: neonPulse 5s infinite alternate;
-            border-color: var(--primary-color);
-            opacity: 1 !important;
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes neonPulse {
-            0% { box-shadow: 0 0 10px var(--secondary-color); }
-            100% { box-shadow: 0 0 40px var(--primary-color); }
-        }
-        .btn-neon {
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            box-shadow: var(--neon-glow);
-            animation: btnGlow 2s infinite alternate;
+
+        .btn-main {
+            background: linear-gradient(90deg, #4f46e5, #8b5cf6);
+            box-shadow: 0 10px 30px -5px rgba(79, 70, 229, 0.5);
             transition: all 0.3s ease;
         }
-        .btn-neon:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 30px var(--primary-color), 0 0 60px var(--secondary-color);
+
+        .btn-main:hover:not(:disabled) {
+            transform: translateY(-2px);
+            filter: brightness(1.2);
         }
-        .btn-neon:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-        @keyframes btnGlow {
-            0% { opacity: 0.9; }
-            100% { opacity: 1; }
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 100;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.9);
-            animation: modalFade 0.6s ease-in-out;
-            backdrop-filter: blur(5px);
-        }
-        .modal-content {
-            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
-            margin: 10% auto;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: var(--neon-glow);
-            width: 90%;
-            max-width: 700px;
-            transform: perspective(1000px) rotateX(10deg);
-            transition: transform 0.5s;
-        }
-        .modal-content:hover {
-            transform: perspective(1000px) rotateX(0deg);
-        }
-        @keyframes modalFade {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        .info-icon {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: var(--primary-color);
-            color: white;
-            border-radius: 25%;
-            width: 44px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            cursor: pointer;
-            box-shadow: 0 0 10px var(--secondary-color);
-        }
-        .info-icon:hover {
-            transform: scale(1.05);
-        }
-        .progress-bar {
-            width: 100%;
-            background: rgba(255,255,255,0.2);
-            border-radius: 10px;
-            overflow: hidden;
-            margin-top: 20px;
-        }
-        .progress-fill {
-            height: 20px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            width: 0%;
-            transition: width 0.3s ease;
+
+        .faq-item {
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 1.5rem;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center">
-    <header class="w-full py-8 text-center relative z-10">
-        <h1 id="title" class="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-var(--primary-color) to-var(--secondary-color) drop-shadow-2xl"></h1>
-        <p id="subtitle" class="text-2xl mt-3 text-gray-200 tracking-wide"></p>
+<body>
+
+    <canvas id="snow-canvas"></canvas>
+    <div class="bg-grid"></div>
+
+    <header class="relative pt-20 pb-12 px-6">
+        <div class="max-w-7xl mx-auto text-center relative z-10">
+            <div class="inline-block px-4 py-1.5 mb-6 border border-indigo-500/30 rounded-full bg-indigo-500/10 text-indigo-400 text-xs font-bold tracking-widest uppercase">
+                Safe Build v2.1
+            </div>
+            <h1 class="orbitron text-6xl md:text-8xl font-black mb-6">
+                VPK<span class="text-indigo-500 italic">MODS</span>
+            </h1>
+            <p id="tagline" class="text-slate-400 text-xl md:text-2xl font-light max-w-3xl mx-auto leading-relaxed"></p>
+        </div>
     </header>
 
-    <main id="modsContainer" class="w-full max-w-7xl px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 relative z-10">
+    <main class="max-w-7xl mx-auto px-6 pb-40">
+        <div class="flex items-center justify-between mb-10">
+            <h2 class="orbitron text-2xl font-bold">Библиотека модов</h2>
+            <button id="resetAll" class="text-sm text-slate-500 hover:text-indigo-400 transition-colors flex items-center gap-2">
+                <span>Очистить выбор</span>
+            </button>
+        </div>
+
+        <div id="modsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
+
+        <div class="mt-32 max-w-4xl mx-auto">
+            <h2 class="orbitron text-3xl font-bold mb-10 text-center">Инструкция</h2>
+            <div class="space-y-4">
+                <div class="faq-item p-6">
+                    <h3 class="font-bold text-indigo-400 mb-2">Как установить?</h3>
+                    <p class="text-slate-400 text-sm">Распакуйте VPK файлы из архива в папку: <br> <code>steamapps\common\dota 2 beta\game\dota</code></p>
+                </div>
+            </div>
+        </div>
     </main>
 
-    <footer class="w-full py-8 text-center relative z-10">
-        <button id="downloadButton" onclick="downloadZip()" class="btn-neon text-white px-10 py-5 rounded-2xl font-bold text-xl"></button>
-    </footer>
-
-    <div id="instructionsModal" class="modal">
-        <div class="modal-content">
-            <span onclick="closeModal('instructionsModal')" class="close cursor-pointer float-right text-4xl text-var(--primary-color)">&times;</span>
-            <h2 id="instructionsTitle" class="text-4xl font-bold mb-6 text-var(--secondary-color)"></h2>
-            <p id="instructionsText" class="text-xl text-gray-200 leading-relaxed"></p>
-        </div>
-    </div>
-
-    <div id="modInfoModal" class="modal">
-        <div class="modal-content">
-            <span onclick="closeModal('modInfoModal')" class="close cursor-pointer float-right text-4xl text-var(--primary-color)">&times;</span>
-            <h2 id="modInfoTitle" class="text-4xl font-bold mb-6 text-var(--secondary-color)"></h2>
-            <p id="modInfoDescription" class="text-xl text-gray-200 mb-4"></p>
-            <div id="modInfoMedia" class="w-full"></div>
-        </div>
-    </div>
-
-    <div id="progressModal" class="modal">
-        <div class="modal-content">
-            <h2 class="text-3xl font-bold mb-4 text-var(--secondary-color)">Скачивание и упаковка...</h2>
-            <p id="progressText" class="text-xl text-gray-200 mb-2">Подготовка: 0 из 0</p>
-            <div class="progress-bar">
-                <div id="progressFill" class="progress-fill"></div>
-            </div>
-            <p id="progressDetail" class="text-lg text-gray-300 mt-4"></p>
+    <div class="fixed bottom-0 left-0 w-full p-8 z-50 pointer-events-none">
+        <div class="max-w-xl mx-auto pointer-events-auto">
+            <button id="dlBtn" onclick="generateArchive()" class="btn-main w-full py-6 rounded-3xl flex items-center justify-center gap-6 group disabled:opacity-50">
+                <div class="flex flex-col items-start text-white">
+                    <span id="dlText" class="text-lg font-extrabold uppercase tracking-wider">Создать сборку</span>
+                    <span id="dlSub" class="text-xs opacity-70 font-bold">Выбрано элементов: 0</span>
+                </div>
+            </button>
         </div>
     </div>
 
     <script>
-        const userLang = navigator.language.toLowerCase().startsWith('ru') ? 'ru' : 'en';
+        const mods = [
+            { id: 1, name: 'Papich Voice', file: 'Papich.vpk', img: 'Papich.jpg', desc: 'Легендарная озвучка от Величайшего.' },
+            { id: 2, name: 'White SF', file: 'white_sf.vpk', img: 'white_sf.jpg', desc: 'Эстетичный белый облик для Shadow Fiend.' },
+            { id: 3, name: 'Lena Golovach', file: 'Golovach.vpk', img: 'Golovach.jpg', desc: 'Озвучка от Лены Головача.' },
+            { id: 4, name: 'Minify Effects', file: 'minifyBaseattack.vpk', img: 'minifybaseattack.jpg', desc: 'Минималистичные атаки.' },
+            { id: 5, name: 'Ultra FPS', file: 'optimization.vpk', img: 'optimization.jpg', desc: 'Максимальный FPS.' },
+            { id: 6, name: 'Visual Trees', file: 'pilltree.vpk', img: 'pilltree.jpg', desc: 'Деревья-таблетки.' },
+            { id: 7, name: 'Clean River', file: 'removeriver.vpk', img: 'removeriver.jpg', desc: 'Удаляет воду в реке.' },
+            { id: 8, name: 'Dota+ Stats', file: 'shownetworth.vpk', img: 'shownetworth.jpg', desc: 'Нетворс без подписки.' },
+            { id: 9, name: 'Fast Accept', file: 'autoacceptmatch.vpk', img: 'autoacceptmatch.jpg', desc: 'Мгновенное принятие матча.' },
+            { id: 10, name: 'Dark Theme', file: 'DarkTerrain.vpk', img: 'Muteembient.jpg', desc: 'Темный ландшафт карты.' }
+        ];
 
-        const translations = {
-            ru: {
-                title: 'Конструктор VPK Модов для Dota 2',
-                subtitle: 'Выберите все интересующие вас моды!',
-                downloadButton: "Скачать vpks(zip)",
-                instructionsTitle: 'Инструкции по установке',
-                instructions: (lang) => `
-                    1. Распакуйте ZIP-архив.<br>
-                    2. Поместите VPK-файлы в папку: {папка Dota}\\game\\dota_russian(если вы используете другой язык, то выбирайте именно его).<br>
-                    3. Запустите игру и наслаждайтесь будущим Dota 2!
-                `,
-                alertNoMod: 'Выберите хотя бы один мод!',
-                errorDownload: (name) => `Ошибка скачивания ${name}`,
-                progressText: 'Скачивание и упаковка... Подождите.',
-                progressStatus: (current, total) => `${current} из ${total}`
-            },
-            en: {
-                title: 'Dota 2 VPK Mod Constructor',
-                subtitle: 'Select future mods and download ZIP for epic battles!',
-                downloadButton: 'Download Selected Mods in ZIP',
-                instructionsTitle: 'Installation Instructions',
-                instructions: (lang) => `
-                    1. Unpack the ZIP archive.<br>
-                    2. Place VPK files in folder: {Dota folder}\\game\\dota.<br>
-                    3. Launch the game and enjoy the future of Dota 2!
-                `,
-                alertNoMod: 'Select at least one mod!',
-                errorDownload: (name) => `Error downloading ${name}`,
-                progressText: 'Downloading and packing... Please wait.',
-                progressStatus: (current, total) => `${current} of ${total}`
+        let selected = new Set();
+
+        // Снег
+        const canvas = document.getElementById('snow-canvas');
+        const ctx = canvas.getContext('2d');
+        let flakes = [];
+
+        function initSnow() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            for(let i=0; i<80; i++) {
+                flakes.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    s: Math.random() * 2 + 1,
+                    d: Math.random() * 1
+                });
             }
-        };
-
-        const t = translations[userLang];
-
-        const config = {
-            mods: [
-                {
-                    id: '1',
-                    name: userLang === 'ru' ? 'Озвучка папича' : 'Papich Voiceover',
-                    vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/Papich.vpk',
-                    image: 'https://ssixm.github.io/VpkDota2Mods/src/Papich.jpg',
-                    description: userLang === 'ru' ? 'Этот мод заменяет стандартную озвучку на голосовые линии от популярного стримера Папича, добавляя юмор и уникальный стиль в игру.' : 'This mod replaces the standard voiceover with lines from popular streamer Papich, adding humor and unique style to the game.',
-                    media: 'https://ssixm.github.io/VpkDota2Mods/src/Papich.jpg'
-                },
-                {
-                    id: '2',
-                    name: userLang === 'ru' ? 'Белый сф' : 'White Shadow Fiend',
-                    vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/white_sf.vpk',
-                    image: 'https://ssixm.github.io/VpkDota2Mods/src/white_sf.jpg',
-                    description: userLang === 'ru' ? 'Мод изменяет внешний вид героя Shadow Fiend на белую версию, улучшая видимость и эстетику в бою.' : 'This mod changes the appearance of Shadow Fiend to a white version, improving visibility and aesthetics in battles.',
-                    media: 'https://ssixm.github.io/VpkDota2Mods/src/white_sf.jpg'
-                },
-                {
-                    id: '3',
-                    name: userLang === 'ru' ? 'Озвучка лены головача' : 'Lena Golovach Voiceover',
-                    vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/Golovach.vpk',
-                    image: 'https://ssixm.github.io/VpkDota2Mods/src/Golovach.jpg',
-                    description: userLang === 'ru' ? 'Добавляет озвучку от Лены Головача, с мемными фразами и забавными комментариями для более веселого геймплея.' : 'Adds voiceover from Lena Golovach, with meme phrases and funny comments for more fun gameplay.',
-                    media: 'https://ssixm.github.io/VpkDota2Mods/src/Golovach.jpg'
-                },
-                {
-                    id: '4',
-                    name: userLang === 'ru' ? 'Минимизация тычек' : 'Minimization of Base Attacks',
-                    vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/minifyBaseattack.vpk',
-                    image: 'https://ssixm.github.io/VpkDota2Mods/src/minifybaseattack.jpg',
-                    description: userLang === 'ru' ? 'Уменьшает визуальные и звуковые эффекты базовых атак, помогая сосредоточиться на стратегии без отвлекающих элементов.' : 'Reduces visual and sound effects of base attacks, helping focus on strategy without distractions.',
-                    media: 'https://ssixm.github.io/VpkDota2Mods/src/minifybaseattack.jpg'
-                },
-                {
-                    id: '5',
-                    name: userLang === 'ru' ? 'Минимизация скилов' : 'Minimization of Skills',
-                    vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/minifyspells.vpk',
-                    image: 'https://ssixm.github.io/VpkDota2Mods/src/minifyspells.jpg',
-                    description: userLang === 'ru' ? 'Сокращает анимации и эффекты способностей героев, оптимизируя производительность и снижая визуальный шум.' : 'Shortens animations and effects of hero abilities, optimizing performance and reducing visual noise.',
-                    media: 'https://ssixm.github.io/VpkDota2Mods/src/minifyspells.jpg'
-                },
-                {
-                    id: '6',
-                    name: userLang === 'ru' ? 'Оптимизация' : 'Optimization',
-                    vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/optimization.vpk',
-                    image: 'https://ssixm.github.io/VpkDota2Mods/src/optimization.jpg',
-                    description: userLang === 'ru' ? 'Общая оптимизация игры, включая улучшение FPS, снижение лагов и упрощение графики для слабых ПК.' : 'General game optimization, including FPS improvement, lag reduction, and graphics simplification for low-end PCs.',
-                    media: 'https://ssixm.github.io/VpkDota2Mods/src/optimization.jpg'
-                },
-                {
-                    id: '7',
-                    name: userLang === 'ru' ? 'Мут эмбиента' : 'Mute Ambient',
-                    vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/muteambient.vpk',
-                    image: 'https://ssixm.github.io/VpkDota2Mods/src/Muteembient.jpg',
-                    description: userLang === 'ru' ? 'Отключает фоновые звуки окружающей среды, создавая более тихую атмосферу для концентрации.' : 'Disables ambient background sounds, creating a quieter atmosphere for better focus.',
-                    media: 'https://ssixm.github.io/VpkDota2Mods/src/Muteembient.jpg'
-                },
-                {
-                    id: '8',
-                    name: userLang === 'ru' ? 'Мут комментаторов' : 'Mute Announcers',
-                    vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/muteannouncers.vpk',
-                    image: 'https://ssixm.github.io/VpkDota2Mods/src/mutevoicers.jpg',
-                    description: userLang === 'ru' ? 'Заглушает голоса комментаторов, позволяя играть без ненужных нарративов.' : 'Mutes announcer voices, allowing play without unnecessary narratives.',
-                    media: 'https://ssixm.github.io/VpkDota2Mods/src/mutevoicers.jpg'
-                },
-                {
-                    id: '9',
-                    name: userLang === 'ru' ? 'Мут реплик и звуки насмешек' : 'Mute Replicas and Taunt Sounds',
-                    vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/mutetaunt.vpk',
-                    image: 'https://ssixm.github.io/VpkDota2Mods/src/mutevoiceline.jpg',
-                    description: userLang === 'ru' ? 'Удаляет звуки насмешек и реплик героев, минимизируя отвлекающие аудиоэлементы.' : 'Removes taunt sounds and hero replicas, minimizing distracting audio elements.',
-                    media: 'https://ssixm.github.io/VpkDota2Mods/src/mutevoiceline.jpg'
-                },
-                {
-                    id: '10',
-                    name: userLang === 'ru' ? 'Мут фраз героев' : 'Mute Hero Phrases',
-                    vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/mutevoiceline.vpk',
-                    image: 'https://ssixm.github.io/VpkDota2Mods/src/mutevoiceliine.jpg',
-                    description: userLang === 'ru' ? 'Отключает все фразы героев, обеспечивая тишину во время матчей.' : 'Disables all hero phrases, ensuring silence during matches.',
-                    media: 'https://ssixm.github.io/VpkDota2Mods/src/mutevoiceliine.jpg'
-                },
-                {
-                    id: '11',
-                    name: userLang === 'ru' ? 'Деревья-таблетки' : 'Pill Trees',
-                    vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/pilltree.vpk',
-                    image: 'https://ssixm.github.io/VpkDota2Mods/src/pilltree.jpg',
-                    description: userLang === 'ru' ? 'Превращает деревья на карте в таблетки, упрощая видимость и добавляя забавный визуальный эффект.' : 'Transforms trees on the map into pills, simplifying visibility and adding a fun visual effect.',
-                    media: 'https://ssixm.github.io/VpkDota2Mods/src/pilltree.jpg'
-                },
-                {
-                    id: '12',
-                    name: userLang === 'ru' ? 'Удаление растительности' : 'Remove Foliage',
-                    vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/removefolage.vpk',
-                    image: 'https://ssixm.github.io/VpkDota2Mods/src/Removefolage.jpg',
-                    description: userLang === 'ru' ? 'Удаляет всю растительность с карты, улучшая производительность и обзор.' : 'Removes all foliage from the map, improving performance and visibility.',
-                    media: 'https://ssixm.github.io/VpkDota2Mods/src/Removefolage.jpg'
-                },
-                {
-                    id: '13',
-                    name: userLang === 'ru' ? 'Удаление пингов' : 'Remove Pings',
-                    vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/removepings.vpk',
-                    image: 'https://ssixm.github.io/VpkDota2Mods/src/removepings.jpg',
-                    description: userLang === 'ru' ? 'Отключает отображение пингов на карте, уменьшая визуальный беспорядок.' : 'Disables ping display on the map, reducing visual clutter.',
-                    media: 'https://ssixm.github.io/VpkDota2Mods/src/removepings.jpg'
-                },
-                {
-                    id: '14',
-                    name: userLang === 'ru' ? 'Удаление реки' : 'Remove River',
-                    vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/removeriver.vpk',
-                    image: 'https://ssixm.github.io/VpkDota2Mods/src/removeriver.jpg',
-                    description: userLang === 'ru' ? 'Удаляет реку с карты, упрощая навигацию и графику.' : 'Removes the river from the map, simplifying navigation and graphics.',
-                    media: 'https://ssixm.github.io/VpkDota2Mods/src/removeriver.jpg'
-                },
-                {
-                    id: '15',
-                    name: userLang === 'ru' ? 'Удаление спреев' : 'Remove Sprays',
-                    vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/removesprays.vpk',
-                    image: 'https://ssixm.github.io/VpkDota2Mods/src/removestickers.jpg',
-                    description: userLang === 'ru' ? 'Убирает спреи и стикеры, очищая поле боя от лишних элементов.' : 'Removes sprays and stickers, clearing the battlefield of extra elements.',
-                    media: 'https://ssixm.github.io/VpkDota2Mods/src/removestickers.jpg'
-                },
-                {
-                    id: '16',
-                    name: userLang === 'ru' ? 'Нетворс без Dotaplus' : 'Networth without Dota Plus',
-                    vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/shownetworth.vpk',
-                    image: 'https://ssixm.github.io/VpkDota2Mods/src/shownetworth.jpg',
-                    description: userLang === 'ru' ? 'Показывает нетворс без подписки Dota Plus, давая доступ к этой информации всем игрокам.' : 'Shows networth without Dota Plus subscription, giving access to this info for all players.',
-                    media: 'https://ssixm.github.io/VpkDota2Mods/src/shownetworth.jpg'
-                },
-                {
-                    id: '17',
-                    name: userLang === 'ru' ? 'Звук старых пингов' : 'Old Ping Sound',
-                    vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/oldpingsound.vpk',
-                    image: 'https://ssixm.github.io/VpkDota2Mods/src/removepings.jpg',
-                    description: userLang === 'ru' ? 'Возвращает старые звуки пингов для ностальгического опыта.' : 'Restores old ping sounds for a nostalgic experience.',
-                    media: 'https://ssixm.github.io/VpkDota2Mods/src/removepings.jpg'
-                },
-                {
-                    id: '18',
-                    name: userLang === 'ru' ? 'Авто принятие матча' : 'Auto Accept Match',
-                    vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/autoacceptmatch.vpk',
-                    image: 'https://ssixm.github.io/VpkDota2Mods/src/autoacceptmatch.jpg',
-                    description: userLang === 'ru' ? 'Автоматически принимает матч, ускоряя вход в игру.' : 'Automatically accepts matches, speeding up game entry.',
-                    media: 'https://ssixm.github.io/VpkDota2Mods/src/autoacceptmatch.jpg'
-                },
-                {
-                    id: '19',
-                    name: userLang === 'ru' ? 'Все фразы разблокировка' : 'Unlock All Phrases',
-                    vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/Chat_wheels.vpk',
-                    image: 'https://ssixm.github.io/VpkDota2Mods/src/Chat_wheel.jpg',
-                    description: userLang === 'ru' ? 'Разблокирует все фразы в чат-колесе без ограничений.' : 'Unlocks all phrases in the chat wheel without restrictions.',
-                    media: 'https://ssixm.github.io/VpkDota2Mods/src/Chat_wheel.jpg'
-                },
-                {
-                    id: '20',
-                    name: userLang === 'ru' ? 'Черная карта' : 'Black Map',
-                    vpkUrl: 'https://ssixm.github.io/VpkDota2Mods/vpk/DarkTerrain.vpk',
-                    image: 'https://ssixm.github.io/VpkDota2Mods/src/Muteembient.jpg',
-                    description: userLang === 'ru' ? 'Делает карту черной, повышая контраст и улучшая видимость объектов.' : 'Makes the map black, increasing contrast and improving object visibility.',
-                    media: 'https://ssixm.github.io/VpkDota2Mods/src/Muteembient.jpg'
-                }
-            ],
-            backgroundImage: 'https://ssixm.github.io/VpkDota2Mods/src/background.png',
-            fontFamily: 'Orbitron',
-            dotaLang: userLang === 'ru' ? 'russian' : 'english'
-        };
-
-        document.body.style.backgroundImage = `url('${config.backgroundImage}')`;
-        document.getElementById('title').textContent = t.title;
-        document.getElementById('subtitle').textContent = t.subtitle;
-        document.getElementById('downloadButton').textContent = t.downloadButton;
-        document.getElementById('instructionsTitle').textContent = t.instructionsTitle;
-
-        const STORAGE_KEY = 'selectedDotaMods';
-        const LAST_DOWNLOAD_KEY = 'lastDownloadSelection';
-
-        let selectedMods = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-        let isDownloading = false;
-        let lastDownloadSelection = JSON.parse(localStorage.getItem(LAST_DOWNLOAD_KEY)) || [];
-
-        const modsContainer = document.getElementById('modsContainer');
-        config.mods.forEach((mod, index) => {
-            const card = document.createElement('div');
-            card.className = 'card p-6 rounded-3xl shadow-2xl cursor-pointer';
-            card.onclick = () => toggleSelect(card, mod.id);
-            card.dataset.modId = mod.id;
-            card.dataset.modName = mod.name;
-            card.dataset.vpkUrl = mod.vpkUrl;
-            card.dataset.description = mod.description;
-            card.dataset.media = mod.media;
-            const truncatedDescription = mod.description.length > 100 ? mod.description.substring(0, 100) + '...' : mod.description;
-            card.innerHTML = `
-                <span class="info-icon" style="color: #000;" onclick="showModInfo(event, '${mod.id}')">info</span>
-                <img src="${mod.image}" alt="${mod.name}" class="w-full h-56 object-cover rounded-2xl mb-4 shadow-inner">
-                <h3 class="text-2xl font-bold text-var(--primary-color) mb-2">${mod.name}</h3>
-                <p class="text-lg text-gray-300">${truncatedDescription}</p>
-            `;
-
-            const numMods = config.mods.length;
-            const baseDelay = 0;
-            const dynamicDelay = (index * baseDelay) + (numMods * 0.05);
-            card.style.animationDelay = `${dynamicDelay}s`;
-
-            if (selectedMods.includes(mod.id)) {
-                card.classList.add('selected');
-            }
-
-            modsContainer.appendChild(card);
-        });
-
-        function saveSelection() {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(selectedMods));
+            animateSnow();
         }
 
-        function toggleSelect(card, modId) {
-            const index = selectedMods.indexOf(modId);
-            if (index > -1) {
-                selectedMods.splice(index, 1);
-                card.classList.remove('selected');
-            } else {
-                selectedMods.push(modId);
-                card.classList.add('selected');
-            }
-            saveSelection();
+        function animateSnow() {
+            ctx.clearRect(0,0, canvas.width, canvas.height);
+            ctx.fillStyle = "rgba(255,255,255,0.2)";
+            ctx.beginPath();
+            flakes.forEach(f => {
+                ctx.moveTo(f.x, f.y);
+                ctx.arc(f.x, f.y, f.s, 0, Math.PI*2);
+                f.y += f.s * 0.4;
+                if(f.y > canvas.height) f.y = -10;
+            });
+            ctx.fill();
+            requestAnimationFrame(animateSnow);
         }
 
-        function showModInfo(event, modId) {
-            event.stopPropagation();
-            const mod = config.mods.find(m => m.id === modId);
-            if (!mod) return;
-
-            document.getElementById('modInfoTitle').textContent = mod.name;
-            document.getElementById('modInfoDescription').textContent = mod.description;
-
-            const mediaContainer = document.getElementById('modInfoMedia');
-            mediaContainer.innerHTML = '';
-            if (mod.media.endsWith('.mp4') || mod.media.includes('video')) {
-                const video = document.createElement('video');
-                video.src = mod.media;
-                video.controls = true;
-                video.className = 'w-full h-auto rounded-lg';
-                mediaContainer.appendChild(video);
-            } else {
-                const img = document.createElement('img');
-                img.src = mod.media;
-                img.alt = 'Практика мода';
-                img.className = 'w-full h-auto rounded-lg';
-                mediaContainer.appendChild(img);
-            }
-
-            document.getElementById('modInfoModal').style.display = 'block';
+        function render() {
+            const grid = document.getElementById('modsGrid');
+            grid.innerHTML = mods.map(m => `
+                <div class="mod-card rounded-[2rem] p-4 flex flex-col ${selected.has(m.id) ? 'selected' : ''}" onclick="selectMod(${m.id}, this)">
+                    <div class="relative h-48 rounded-[1.5rem] overflow-hidden mb-4">
+                        <img src="https://ssixm.github.io/VpkDota2Mods/src/${m.img}" class="w-full h-full object-cover">
+                    </div>
+                    <div class="px-2">
+                        <h3 class="orbitron text-lg font-bold mb-1">${m.name}</h3>
+                        <p class="text-slate-400 text-xs opacity-70">${m.desc}</p>
+                    </div>
+                </div>
+            `).join('');
         }
 
-        async function downloadZip() {
-            if (isDownloading) return;
-            const selectedIds = selectedMods;
-            if (selectedIds.length === 0) {
-                alert(t.alertNoMod);
-                return;
-            }
+        function selectMod(id, el) {
+            selected.has(id) ? selected.delete(id) : selected.add(id);
+            el.classList.toggle('selected');
+            updateUI();
+        }
 
-            const sortedSelected = [...selectedIds].sort();
-            const sortedLast = [...lastDownloadSelection].sort();
-            const isIdentical = JSON.stringify(sortedSelected) === JSON.stringify(sortedLast);
+        function updateUI() {
+            document.getElementById('dlSub').textContent = `Выбрано элементов: ${selected.size}`;
+            document.getElementById('dlBtn').disabled = selected.size === 0;
+        }
 
-            isDownloading = true;
-            document.getElementById('downloadButton').disabled = true;
-            document.getElementById('progressModal').style.display = 'block';
-            const progressText = document.getElementById('progressText');
-            const progressFill = document.getElementById('progressFill');
-            const progressDetail = document.getElementById('progressDetail');
+        async function generateArchive() {
+            const btn = document.getElementById('dlBtn');
+            const txt = document.getElementById('dlText');
+            btn.disabled = true;
+            txt.textContent = "СКАЧИВАНИЕ...";
 
             const zip = new JSZip();
-            let loaded = 0;
-            const total = selectedIds.length;
-
-            progressText.textContent = t.progressStatus(0, total);
-            progressFill.style.width = '0%';
-            progressDetail.textContent = '';
+            const selectedArray = [...selected];
 
             try {
-                for (let i = 0; i < total; i++) {
-                    let counter = i + 49
-                    const modId = selectedIds[i];
-                    const mod = config.mods.find(m => m.id === modId);
-                    if (!mod) continue;
-                    progressDetail.textContent = userLang === 'ru' ? `Скачивание: ${mod.name}` : `Downloading: ${mod.name}`;
-                    const response = await fetch(mod.vpkUrl);
-                    if (!response.ok) throw new Error(t.errorDownload(mod.name));
+                for (let i = 0; i < selectedArray.length; i++) {
+                    const modId = selectedArray[i];
+                    const mod = mods.find(m => m.id === modId);
+                    
+                    const response = await fetch(`https://ssixm.github.io/VpkDota2Mods/vpk/${mod.file}`);
+                    if (!response.ok) throw new Error("Network error");
+                    
                     const blob = await response.blob();
-                    const pakNumber = (counter + 1).toString().padStart(2, '0');
-                    zip.file(`pak${pakNumber}_dir.vpk`, blob);
-                    loaded++;
-                    progressText.textContent = t.progressStatus(loaded, total);
-                    progressFill.style.width = `${(loaded / total) * 100}%`;
+                    const pakNum = (50 + i).toString().padStart(2, '0');
+                    
+                    // Просто кладем файл в архив, без вложенных папок
+                    zip.file(`pak${pakNum}_dir.vpk`, blob);
                 }
 
-                progressDetail.textContent = userLang === 'ru' ? 'Упаковка ZIP...' : 'Packing ZIP...';
+                txt.textContent = "УПАКОВКА...";
                 const content = await zip.generateAsync({ type: 'blob' });
                 const url = URL.createObjectURL(content);
                 const a = document.createElement('a');
                 a.href = url;
-                a.download = 'VpkWebToModsDota.zip';
-                document.body.appendChild(a);
+                a.download = 'DOTA_MODS_PACK.zip';
                 a.click();
-                document.body.removeChild(a);
                 URL.revokeObjectURL(url);
-
-                lastDownloadSelection = selectedIds;
-                localStorage.setItem(LAST_DOWNLOAD_KEY, JSON.stringify(lastDownloadSelection));
-
-                closeModal('progressModal');
-                showInstructions();
-            } catch (error) {
-                alert(`Ошибка: ${error.message}`);
-                closeModal('progressModal');
+            } catch (e) {
+                alert("Ошибка загрузки!");
             } finally {
-                isDownloading = false;
-                document.getElementById('downloadButton').disabled = false;
+                btn.disabled = false;
+                txt.textContent = "Создать сборку";
             }
         }
 
-        function showInstructions() {
-            const instructions = t.instructions(config.dotaLang);
-            document.getElementById('instructionsText').innerHTML = instructions;
-            document.getElementById('instructionsModal').style.display = 'block';
-        }
+        document.getElementById('tagline').textContent = "Преврати свою игру в произведение искусства.";
+        document.getElementById('resetAll').onclick = () => { selected.clear(); render(); updateUI(); };
 
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-        }
-
-        window.addEventListener('click', (event) => {
-            const instructionsModal = document.getElementById('instructionsModal');
-            const modInfoModal = document.getElementById('modInfoModal');
-            const progressModal = document.getElementById('progressModal');
-            if (event.target === instructionsModal) {
-                closeModal('instructionsModal');
-            }
-            if (event.target === modInfoModal) {
-                closeModal('modInfoModal');
-            }
-            if (event.target === progressModal && !isDownloading) {
-                closeModal('progressModal');
-            }
-        });
+        window.onload = () => { initSnow(); render(); updateUI(); };
     </script>
 </body>
 </html>
