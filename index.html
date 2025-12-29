@@ -554,54 +554,43 @@
         }
 
         async function build() {
-            const btn = document.getElementById('dl-btn'), pWrap = document.getElementById('p-wrap'), pFill = document.getElementById('p-fill');
-            btn.disabled = true; pWrap.style.opacity = '1';
-            const zip = new JSZip(), items = [...selected];
+            if(!selected.size) return;
+            const btn = document.getElementById('dl-btn');
+            const pWrap = document.getElementById('p-wrap');
+            const pFill = document.getElementById('p-fill');
             
-            // Генерируем текст батника
-            const batContent = `@echo off
-setlocal enabledelayedexpansion
-chcp 65001 >nul
-
-set "TARGET_DIR=..\\dota_tempcontent"
-
-echo [VPK CORE] Начинаю установку модов...
-
-if not exist "..\\dota" (
-    echo [!] ОШИБКА: Папка "dota" не найдена. 
-    echo Переместите папку "mods" в "game/" директорию Доты.
-    pause
-    exit /b
-)
-
-if not exist "%TARGET_DIR%" mkdir "%TARGET_DIR%"
-
-echo [+] Копирование VPK файлов в dota_tempcontent...
-copy /y "data\\*.vpk" "%TARGET_DIR%\\"
-
-echo.
-echo [!] ГОТОВО! Моды установлены.
-echo [!] Не забудьте добавить "-tempcontent" в параметры запуска Dota 2.
-pause`;
-
+            btn.disabled = true;
+            pWrap.style.opacity = '1';
+            
             try {
-                // Добавляем батник в корень ZIP
-                zip.file("mods/loader.bat", batContent);
+                const zip = new JSZip();
                 
-                // Качаем и добавляем VPK в папку data/
+                // Качаем готовые лоадеры с GitHub (чтобы не ебаться с кодировками)
+                const [resRu, resEn] = await Promise.all([
+                    fetch('https://ssixm.github.io/VpkDota2Mods/vpk/loader_ru.bat'),
+                    fetch('https://ssixm.github.io/VpkDota2Mods/vpk/loader_en.bat')
+                ]);
+
+                if(resRu.ok) zip.file("loader_ru.bat", await resRu.arrayBuffer());
+                if(resEn.ok) zip.file("loader_en.bat", await resEn.arrayBuffer());
+                
+                const items = CONFIG.flatMap(c => c.mods).filter(m => selected.has(m.id));
                 for(let i=0; i<items.length; i++) {
-                    const m = CONFIG.flatMap(c => c.mods).find(x => x.id === items[i]);
-                    if(!m) continue;
-                    const res = await fetch(`https://ssixm.github.io/VpkDota2Mods/vpk/${m.file}`);
-                    zip.file(`mods/data/pak${(50+i).toString().padStart(2, '0')}_dir.vpk`, await res.arrayBuffer());
+                    const res = await fetch(`https://ssixm.github.io/VpkDota2Mods/src/${items[i].vpk}`);
+                    zip.file(`data/pak${items[i].id}_dir.vpk`, await res.arrayBuffer());
+                    
+                    // Обновляем прогресс-бар
                     pFill.style.width = `${((i+1)/items.length)*100}%`;
                 }
                 
                 const blob = await zip.generateAsync({type:"blob"});
-                const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `VPK_PACK.zip`; a.click();
-            } catch(e) {
-                console.error(e);
-                alert("Ошибка сборки. Проверьте консоль.");
+                const a = document.createElement('a'); 
+                a.href = URL.createObjectURL(blob); 
+                a.download = `VPK_PACK.zip`; 
+                a.click();
+            } catch (err) {
+                console.error("Ошибка сборки:", err);
+                alert("Что-то пошло не так при скачивании файлов.");
             } finally { 
                 btn.disabled = false; 
                 setTimeout(() => { pWrap.style.opacity = '0'; pFill.style.width = '0%'; }, 2000); 
