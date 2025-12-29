@@ -3,120 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VPK CORE</title>
+    <title>VPK CORE | Dota 2 Mod Manager</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="icon" href="https://raw.githubusercontent.com/SsixM/VpkDota2Mods/refs/heads/main/src/favicon.jpg" type="image/x-icon">
     <style>
         :root {
             --accent: #6366f1;
-            --bg: #010204;
-            --card-bg: rgba(10, 12, 18, 0.7);
+            --accent-glow: rgba(99, 102, 241, 0.6);
+            --bg: #030408;
+            --card-bg: rgba(20, 22, 30, 0.7);
+            --border: rgba(255, 255, 255, 0.08);
+            --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
         body {
             background-color: var(--bg);
-            color: #ffffff;
+            color: #f1f5f9;
             font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
             min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
         }
 
         .font-heading { font-family: 'Space Grotesk', sans-serif; }
 
         #snow {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 1;
-            will-change: transform;
+            position: fixed; inset: 0;
+            pointer-events: none; z-index: 1;
         }
 
         .bg-glow {
             position: fixed; inset: 0;
-            background: radial-gradient(circle at 50% -10%, rgba(99, 102, 241, 0.15) 0%, transparent 50%);
+            background: 
+                radial-gradient(circle at 60% -20%, rgba(99, 102, 241, 0.12) 0%, transparent 60%),
+                radial-gradient(circle at 10% 100%, rgba(79, 70, 229, 0.06) 0%, transparent 50%);
             z-index: 0;
         }
 
+        * { transition: background-color 0.3s, border-color 0.3s, color 0.3s, transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out), box-shadow 0.3s; }
+
         .scene-transition {
-            animation: sceneEnter 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: sceneEnter 0.6s var(--ease-out) forwards;
         }
         @keyframes sceneEnter {
-            from { opacity: 0; transform: translateY(15px) scale(0.98); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .title-glow {
+            background: linear-gradient(135deg, #fff 30%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+            position: relative;
+        }
+        .title-glow::after {
+            content: ''; position: absolute; left: 0; bottom: 0px; 
+            width: 100%; height: 100%; 
+            background: inherit; filter: blur(40px); opacity: 0.2; z-index: -1;
         }
 
         .folder-preview {
-            position: relative; height: 180px; display: flex; justify-content: center; align-items: center;
+            position: relative; height: 220px; display: flex; justify-content: center; align-items: center;
+            perspective: 1000px; pointer-events: none;
+            overflow: visible;
         }
         .folder-img {
-            position: absolute; width: 70%; height: 85%;
-            border-radius: 24px; object-fit: cover;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            position: absolute; width: 85%; height: 90%;
+            border-radius: 20px; object-fit: cover;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.6);
+            transition: transform 0.5s var(--ease-out);
+            will-change: transform;
         }
-        .img-1 { transform: translateZ(30px); z-index: 3; box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
-        .img-2 { transform: rotate(-12deg) translateX(-20%) scale(0.9); z-index: 2; opacity: 0.4; }
+        .img-1 { transform: translateZ(0); z-index: 3; }
+        .img-2 { transform: rotate(-6deg) translateX(-10%) scale(0.92); z-index: 2; opacity: 0.4; }
         
-        .glass-card:hover .img-1 { transform: scale(1.08) translateY(-10px); }
-        .glass-card:hover .img-2 { transform: rotate(-18deg) translateX(-35%) scale(0.95); opacity: 0.7; }
+        .cat-card:hover .img-1 { transform: translateY(-5px) scale(1.02); }
+        .cat-card:hover .img-2 { transform: rotate(-10deg) translateX(-18%) scale(0.94); opacity: 0.7; }
 
         .glass-card {
             background: var(--card-bg);
-            backdrop-filter: blur(30px);
-            border: 1px solid rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
             border-radius: 32px;
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-                        background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.4s ease;
         }
-        .mod-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent);
-            background: rgba(255,255,255,0.02);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        .glass-card:hover {
+            border-color: rgba(99, 102, 241, 0.5);
+            background: rgba(30, 32, 45, 0.9);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
         }
+
+        .mod-card { transform: translateZ(0); display: flex; flex-direction: column; }
+        .mod-card:hover { transform: translateY(-6px); }
         .mod-selected {
             border-color: var(--accent) !important;
             background: rgba(99, 102, 241, 0.15) !important;
-            box-shadow: 0 0 40px rgba(99, 102, 241, 0.15);
+            box-shadow: 0 0 0 1px var(--accent), 0 20px 40px -10px rgba(99, 102, 241, 0.25);
+        }
+
+        .mod-desc {
+            color: #e2e8f0;
+            opacity: 0.85;
+            font-weight: 500;
+            line-height: 1.4;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
         }
 
         .check-overlay {
             position: absolute; inset: 0;
-            background: rgba(99, 102, 241, 0.2);
+            background: rgba(99, 102, 241, 0.35);
             display: flex; align-items: center; justify-content: center;
-            opacity: 0; transition: opacity 0.3s ease;
-            pointer-events: none;
-            border-radius: 1rem;
+            opacity: 0; backdrop-filter: blur(3px);
+            pointer-events: none; z-index: 10;
+            transition: opacity 0.3s ease;
         }
         .mod-selected .check-overlay { opacity: 1; }
 
-        .lang-node {
-            padding: 6px 14px; border-radius: 12px; font-size: 11px; font-weight: 800;
-            cursor: pointer; transition: all 0.3s; color: #64748b;
+        /* --- 1. Кнопка Назад (Текстовая) --- */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #94a3b8;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 12px;
+            cursor: pointer;
+            padding: 8px 0;
+            margin-bottom: 2rem;
         }
-        .lang-node.active { background: var(--accent); color: #fff; }
+        .back-link:hover { color: #fff; }
+        .back-link svg { transition: transform 0.3s var(--ease-out); }
+        .back-link:hover svg { transform: translateX(-5px); }
 
-        /* Фиксированная панель справа снизу */
-        .control-panel {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            z-index: 100;
-            width: 280px;
+        .search-group-title {
+            grid-column: 1 / -1;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem; font-weight: 700;
+            color: #fff; border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px; margin-top: 20px; margin-bottom: 10px;
+            display: flex; align-items: center; gap: 10px;
         }
+        .search-group-title::before {
+            content: ''; width: 6px; height: 24px; background: var(--accent); border-radius: 4px;
+        }
+
+        .control-panel {
+            position: fixed; bottom: 30px; right: 30px; z-index: 100; width: 340px;
+        }
+        .btn-build {
+            width: 100%; background: #fff; color: #000; padding: 20px; 
+            border-radius: 20px; font-size: 14px; font-weight: 900; 
+            text-transform: uppercase; letter-spacing: 0.15em;
+            box-shadow: 0 10px 30px rgba(255,255,255,0.15);
+            transition: all 0.2s var(--ease-out);
+        }
+        .btn-build:hover { background: var(--accent); color: #fff; transform: scale(1.02); box-shadow: 0 15px 40px var(--accent-glow); }
+        .btn-build:active { transform: scale(0.98); }
+        .btn-build:disabled { opacity: 0.3; pointer-events: none; }
+
+        .modal-overlay {
+            position: fixed; inset: 0; background: rgba(3, 4, 8, 0.95); 
+            backdrop-filter: blur(20px); z-index: 2000;
+            display: flex; align-items: center; justify-content: center; padding: 40px;
+            opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+        }
+        .modal-overlay.active { opacity: 1; pointer-events: all; }
+        
+        .modal-content {
+            background: #0b0c11; border: 1px solid var(--border);
+            border-radius: 40px; width: 100%; max-width: 1200px; 
+            max-height: 90vh; overflow: hidden; display: flex; flex-direction: column;
+            transform: translateY(40px) scale(0.98); transition: transform 0.5s var(--ease-out);
+            box-shadow: 0 100px 150px -50px rgba(0,0,0,1);
+        }
+        .modal-overlay.active .modal-content { transform: translateY(0) scale(1); }
+
+        .modal-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px;
+            padding: 30px;
+        }
+        .summary-card {
+            background: rgba(255,255,255,0.02); border-radius: 24px; 
+            border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s;
+            position: relative; overflow: hidden; display: flex; flex-direction: column;
+        }
+        .summary-card:hover { border-color: rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.05); }
+        .summary-card.deselected { opacity: 0.3; filter: grayscale(1); }
+        
+        .summary-img { width: 100%; height: 130px; object-fit: cover; }
+        .summary-info { padding: 16px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        
+        .btn-remove {
+            margin-top: 12px; width: 100%; padding: 10px;
+            border-radius: 12px; background: rgba(255,255,255,0.05);
+            color: #94a3b8; font-size: 10px; font-weight: 800; text-transform: uppercase;
+            transition: all 0.2s; border: 1px solid transparent;
+        }
+        .summary-card:hover .btn-remove { background: rgba(239, 68, 68, 0.8); color: #fff; }
+
+        .lang-node {
+            padding: 8px 16px; border-radius: 12px; font-size: 11px; font-weight: 800;
+            cursor: pointer; color: #64748b; letter-spacing: 0.05em;
+        }
+        .lang-node.active { background: var(--accent); color: #fff; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4); }
 
         #toast {
-            position: fixed; top: 40px; left: 50%; transform: translateX(-50%) translateY(-30px);
-            background: #6366f1; color: white; padding: 12px 28px; border-radius: 100px;
-            font-size: 13px; font-weight: 700; opacity: 0; transition: all 0.5s;
-            z-index: 10000;
+            position: fixed; top: 30px; left: 50%; transform: translateX(-50%) translateY(-20px);
+            background: var(--accent); color: white; padding: 14px 28px; border-radius: 100px;
+            font-size: 13px; font-weight: 700; opacity: 0; pointer-events: none; z-index: 10000;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4); transition: all 0.4s var(--ease-out);
         }
         #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+        
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
 
-        /* Отступ снизу для контента, чтобы не перекрывался панелью */
-        .main-container { padding-bottom: 180px; }
+        .main-container { padding-bottom: 200px; }
     </style>
 </head>
 <body>
@@ -124,21 +234,21 @@
     <canvas id="snow"></canvas>
     <div class="bg-glow"></div>
 
-    <div class="relative z-10 min-h-screen flex flex-col p-8 md:p-16 main-container">
-        <header class="max-w-7xl mx-auto w-full mb-20 flex flex-col md:flex-row justify-between items-end gap-12">
-            <div>
-                <h1 class="font-heading text-8xl font-black tracking-tighter leading-none mb-6 scene-transition">VPK<span class="text-indigo-500">.</span>CORE</h1>
-                <div class="px-5 py-2 bg-emerald-500/5 border border-emerald-500/10 rounded-full inline-flex items-center gap-3">
-                    <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
-                    <span id="label-update" class="text-[10px] font-bold uppercase tracking-[0.2em] text-emerald-400">Update: 28.12.2025</span>
+    <div class="relative z-10 min-h-screen flex flex-col p-6 md:p-12 main-container">
+        <header class="max-w-7xl mx-auto w-full mb-16 flex flex-col lg:flex-row justify-between items-end gap-8">
+            <div class="scene-transition w-full lg:w-auto">
+                <h1 class="font-heading text-6xl md:text-8xl font-black tracking-tighter leading-none mb-6 title-glow">VPK<span class="text-indigo-500">.</span>CORE</h1>
+                <div class="inline-flex items-center gap-3 px-5 py-2 bg-indigo-500/5 border border-indigo-500/10 rounded-full">
+                    <span class="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse"></span>
+                    <span id="label-update" class="text-[10px] font-bold uppercase tracking-[0.25em] text-indigo-400 opacity-80">Fetching last update...</span>
                 </div>
             </div>
 
-            <div class="flex items-center gap-6 w-full md:w-auto">
-                <div class="flex items-center bg-white/5 border border-white/5 rounded-2xl px-5 py-4 backdrop-blur-3xl focus-within:border-indigo-500/40 transition-all flex-grow md:w-80">
-                    <input type="text" id="search-input" placeholder="Поиск..." class="bg-transparent border-none outline-none w-full text-sm">
+            <div class="flex items-center gap-4 w-full lg:w-auto">
+                <div class="flex items-center bg-white/5 border border-white/5 rounded-2xl px-6 py-4 backdrop-blur-3xl focus-within:border-indigo-500/30 flex-grow lg:w-80 transition-colors">
+                    <input type="text" id="search-input" class="bg-transparent border-none outline-none w-full text-sm font-medium placeholder:text-neutral-500 text-white transition-none">
                 </div>
-                <div class="flex bg-white/5 p-1 rounded-xl border border-white/10">
+                <div class="flex bg-white/5 p-1 rounded-xl border border-white/10 shrink-0">
                     <div onclick="setLang('ru')" id="lang-ru" class="lang-node">RU</div>
                     <div onclick="setLang('en')" id="lang-en" class="lang-node">EN</div>
                 </div>
@@ -149,23 +259,46 @@
 
         <div class="control-panel scene-transition">
             <div class="glass-card p-6 border-white/10 shadow-2xl flex flex-col gap-5">
-                <div class="flex justify-between items-end">
+                <div class="flex justify-between items-end px-1">
                     <div>
-                        <p id="label-selected" class="text-[9px] uppercase font-black text-neutral-500 tracking-widest mb-1">Selected</p>
+                        <p id="label-selected" class="text-[10px] uppercase font-black text-neutral-500 tracking-widest mb-1 opacity-60">Selected</p>
                         <span id="count" class="text-5xl font-heading font-black text-indigo-500 leading-none">0</span>
                     </div>
-                    <button onclick="shareSet()" class="p-4 bg-white/5 hover:bg-indigo-500/20 rounded-2xl text-neutral-400 hover:text-white transition-all">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" stroke-width="2.5"/></svg>
-                    </button>
+                    <div class="flex gap-2">
+                        <button onclick="toggleSummary()" class="p-4 bg-white/5 hover:bg-white/10 rounded-2xl text-neutral-400 hover:text-white transition-colors" id="btn-list-hint">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16m-7 6h7" stroke-width="2.5" stroke-linecap="round"/></svg>
+                        </button>
+                        <button onclick="shareSet()" class="p-4 bg-white/5 hover:bg-indigo-500/20 rounded-2xl text-neutral-400 hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" stroke-width="2.5"/></svg>
+                        </button>
+                    </div>
                 </div>
                 
-                <div id="p-wrap" class="h-1 w-full bg-white/5 rounded-full overflow-hidden opacity-0 transition-opacity">
-                    <div id="p-fill" class="h-full bg-indigo-500 w-0 transition-all"></div>
+                <div id="p-wrap" class="h-1 w-full bg-white/5 rounded-full overflow-hidden opacity-0">
+                    <div id="p-fill" class="h-full bg-indigo-500 w-0 shadow-[0_0_15px_rgba(99,102,241,0.8)]"></div>
                 </div>
 
-                <button id="dl-btn" onclick="build()" class="w-full bg-white text-black py-5 rounded-2xl font-black text-xs uppercase tracking-[0.2em] hover:bg-indigo-50 transition-colors disabled:opacity-20 disabled:cursor-not-allowed shadow-lg">
-                    Build
+                <button id="dl-btn" onclick="build()" class="btn-build">Build</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-summary" class="modal-overlay" onclick="if(event.target === this) toggleSummary()">
+        <div class="modal-content">
+            <div class="p-8 border-b border-white/5 flex justify-between items-center bg-black/40">
+                <div>
+                    <h2 class="font-heading text-3xl font-bold" id="modal-title"></h2>
+                    <p class="text-neutral-500 text-[10px] uppercase font-bold tracking-widest mt-1" id="modal-subtitle"></p>
+                </div>
+                <button onclick="toggleSummary()" class="w-12 h-12 flex items-center justify-center bg-white/5 rounded-full hover:bg-red-500/20 hover:text-red-500 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </button>
+            </div>
+            <div class="flex-grow overflow-y-auto bg-[#0d0e14]">
+                <div id="modal-list" class="modal-grid"></div>
+            </div>
+            <div class="p-8 bg-black/40 border-t border-white/5">
+                <button onclick="toggleSummary()" class="w-full py-5 bg-indigo-600 hover:bg-indigo-500 rounded-2xl font-black text-sm uppercase tracking-[0.2em] transition-colors shadow-lg" id="btn-modal-close"></button>
             </div>
         </div>
     </div>
@@ -174,15 +307,42 @@
 
     <script>
         const JSON_URL = 'https://ssixm.github.io/VpkDota2Mods/src/config.json';
+        const GITHUB_API = 'https://api.github.com/repos/SsixM/VpkDota2Mods/commits/main';
         const TRANSLATIONS = {
-            ru: { search: 'Поиск модификаций...', selected: 'Выбрано', back: '← Назад', build: 'Собрать VPK', copy: 'Ссылка скопирована!', modsCount: 'Модов' },
-            en: { search: 'Search mods...', selected: 'Selected', back: '← Back', build: 'Build VPK', copy: 'Link copied!', modsCount: 'Mods' }
+            ru: { search: 'Поиск...', selected: 'Выбрано', back: 'Назад', build: 'Собрать VPK Пак', copy: 'Ссылка скопирована!', modsCount: 'Модов', summary: 'Инвентарь модов', empty: 'Ничего не выбрано', close: 'Применить изменения', subtitle: 'Удаляйте моды прямо из списка', remove: 'Удалить из сборки', lastUpdate: 'Последнее обновление' },
+            en: { search: 'Search...', selected: 'Selected', back: 'Back', build: 'Build VPK Pack', copy: 'Link copied!', modsCount: 'Mods', summary: 'Mod Inventory', empty: 'No mods selected', close: 'Apply Changes', subtitle: 'Remove mods directly from the list', remove: 'Remove from build', lastUpdate: 'Last Update' }
         };
 
         let CONFIG = [];
         let lang = localStorage.getItem('vpk_lang') || 'ru';
         let selected = new Set(JSON.parse(localStorage.getItem('vpk_selected') || '[]'));
         let currentCat = null;
+        let isSearching = false;
+
+        function smartSearch(query, text) {
+            if (!query) return true;
+            const q = query.toLowerCase().trim();
+            const t = text.toLowerCase();
+            if (t.includes(q)) return true;
+            const qWords = q.split(/\s+/);
+            const tWords = t.split(/\s+/);
+            return qWords.every(qw => tWords.some(tw => tw.includes(qw)));
+        }
+
+        async function fetchLastUpdate() {
+            try {
+                const res = await fetch(GITHUB_API);
+                const data = await res.json();
+                const date = new Date(data.commit.author.date);
+                const formatted = date.toLocaleString(lang === 'ru' ? 'ru-RU' : 'en-US', {
+                    day: '2-digit', month: '2-digit', year: 'numeric',
+                    hour: '2-digit', minute: '2-digit', second: '2-digit'
+                });
+                document.getElementById('label-update').textContent = `${TRANSLATIONS[lang].lastUpdate}: ${formatted}`;
+            } catch (e) {
+                document.getElementById('label-update').textContent = 'Update: 28.12.2025';
+            }
+        }
 
         async function loadConfig() {
             try {
@@ -196,77 +356,183 @@
             lang = l;
             localStorage.setItem('vpk_lang', l);
             document.querySelectorAll('.lang-node').forEach(n => n.classList.toggle('active', n.id === `lang-${l}`));
+            
             document.getElementById('search-input').placeholder = TRANSLATIONS[lang].search;
             document.getElementById('label-selected').textContent = TRANSLATIONS[lang].selected;
             document.getElementById('dl-btn').textContent = TRANSLATIONS[lang].build;
-            currentCat ? renderMods(currentCat) : renderCategories();
+            document.getElementById('modal-title').textContent = TRANSLATIONS[lang].summary;
+            document.getElementById('modal-subtitle').textContent = TRANSLATIONS[lang].subtitle;
+            document.getElementById('btn-modal-close').textContent = TRANSLATIONS[lang].close;
+            
+            fetchLastUpdate();
+
+            if (isSearching) {
+                renderGlobalSearch(document.getElementById('search-input').value);
+            } else if (currentCat) {
+                renderMods(currentCat);
+            } else {
+                renderCategories();
+            }
         }
 
-        function renderCategories(filter = '') {
+        function renderGlobalSearch(query) {
+            isSearching = true;
             currentCat = null;
-            const filtered = CONFIG.filter(c => c[lang].toLowerCase().includes(filter.toLowerCase()));
-            document.getElementById('app-content').innerHTML = `<div class="grid grid-cols-1 md:grid-cols-3 gap-10 scene-transition">
-                ${filtered.map(cat => `
-                    <div onclick="renderMods('${cat.id}')" class="glass-card p-10 cursor-pointer group">
-                        <div class="folder-preview mb-8">
+            const content = document.getElementById('app-content');
+            
+            if(!query.trim()) {
+                isSearching = false;
+                renderCategories();
+                return;
+            }
+
+            let html = `<div class="scene-transition grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pb-20">`;
+            let foundAny = false;
+
+            CONFIG.forEach(cat => {
+                const matchingMods = cat.mods.filter(m => smartSearch(query, m.name_ru) || smartSearch(query, m.name_en));
+                if (matchingMods.length > 0) {
+                    foundAny = true;
+                    html += `<div class="search-group-title">${cat[lang]}</div>`;
+                    html += matchingMods.map(m => createModCardHTML(m, cat.id)).join('');
+                }
+            });
+
+            if (!foundAny) {
+                html += `<div class="col-span-full text-center py-20 text-neutral-600 font-bold uppercase tracking-widest">Nothing Found</div>`;
+            }
+
+            html += `</div>`;
+            content.innerHTML = html;
+        }
+
+        function createModCardHTML(m, catId) {
+            return `
+                <div onclick="toggleMod(${m.id}, '${catId}')" id="mod-${m.id}" class="glass-card mod-card p-5 cursor-pointer relative overflow-hidden ${selected.has(m.id) ? 'mod-selected' : ''}">
+                    <div class="aspect-video rounded-2xl overflow-hidden mb-5 relative bg-zinc-900 shadow-lg">
+                        <img src="https://ssixm.github.io/VpkDota2Mods/src/${m.img}" class="w-full h-full object-cover">
+                        <div class="check-overlay"><svg class="w-10 h-10 text-white drop-shadow-md" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg></div>
+                    </div>
+                    <div>
+                        <h4 class="font-heading text-lg font-bold leading-tight px-1 mb-2 text-white">${m['name_'+lang]}</h4>
+                        <p class="text-[12px] px-1 mod-desc line-clamp-2">${m['desc_'+lang] || ''}</p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderCategories() {
+            isSearching = false;
+            currentCat = null;
+            document.getElementById('app-content').innerHTML = `<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 scene-transition">
+                ${CONFIG.map(cat => `
+                    <div onclick="renderMods('${cat.id}')" class="glass-card cat-card p-8 cursor-pointer group">
+                        <div class="folder-preview mb-6">
                             <img src="https://ssixm.github.io/VpkDota2Mods/src/${cat.mods[0].img}" class="folder-img img-1">
                             <img src="https://ssixm.github.io/VpkDota2Mods/src/${cat.mods[1]?.img || cat.mods[0].img}" class="folder-img img-2">
                         </div>
-                        <h3 class="font-heading text-4xl font-black mb-2 group-hover:text-indigo-400 transition-colors">${cat[lang]}</h3>
-                        <p class="text-neutral-600 text-[10px] uppercase font-bold tracking-widest">${cat.mods.length} ${TRANSLATIONS[lang].modsCount}</p>
+                        <div class="text-center relative z-10">
+                            <h3 class="font-heading text-3xl font-bold mb-2 group-hover:text-indigo-400 transition-colors">${cat[lang]}</h3>
+                            <p class="text-neutral-500 text-[10px] uppercase font-bold tracking-[0.2em]">${cat.mods.length} ${TRANSLATIONS[lang].modsCount}</p>
+                        </div>
                     </div>
                 `).join('')}
             </div>`;
             updateSelection();
         }
 
-        function renderMods(catId, filter = '') {
+        function renderMods(catId) {
             currentCat = catId;
+            isSearching = false;
             const cat = CONFIG.find(c => c.id === catId);
-            const filtered = cat.mods.filter(m => m['name_'+lang].toLowerCase().includes(filter.toLowerCase()));
-
+            
             document.getElementById('app-content').innerHTML = `
                 <div class="scene-transition">
-                    <button onclick="renderCategories()" class="mb-10 text-neutral-500 font-bold uppercase text-[10px] tracking-widest hover:text-white transition-colors">${TRANSLATIONS[lang].back}</button>
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                        ${filtered.map(m => `
-                            <div onclick="toggleMod(${m.id}, '${catId}')" id="mod-${m.id}" class="glass-card mod-card p-5 cursor-pointer ${selected.has(m.id) ? 'mod-selected' : ''}">
-                                <div class="aspect-video rounded-2xl overflow-hidden mb-5 relative bg-black">
-                                    <img src="https://ssixm.github.io/VpkDota2Mods/src/${m.img}" class="w-full h-full object-cover">
-                                    <div class="check-overlay"><svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg></div>
-                                </div>
-                                <h4 class="font-heading text-lg font-bold leading-tight">${m['name_'+lang]}</h4>
-                                <p class="text-neutral-500 text-[9px] uppercase mt-2 font-bold tracking-tighter opacity-60">${m['desc_'+lang] || ''}</p>
-                            </div>
-                        `).join('')}
+                    <div onclick="renderCategories()" class="back-link">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        ${TRANSLATIONS[lang].back}
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        ${cat.mods.map(m => createModCardHTML(m, catId)).join('')}
                     </div>
                 </div>`;
         }
 
-        document.getElementById('search-input').addEventListener('input', (e) => {
-            currentCat ? renderMods(currentCat, e.target.value) : renderCategories(e.target.value);
-        });
-
         function toggleMod(id, catId) {
             const cat = CONFIG.find(c => c.id === catId);
-            if(cat.exclusive) {
+            if(cat && cat.exclusive) {
                 cat.mods.forEach(m => {
                     if(m.id !== id && selected.has(m.id)) {
                         selected.delete(m.id);
                         document.getElementById(`mod-${m.id}`)?.classList.remove('mod-selected');
+                        document.getElementById(`summary-${m.id}`)?.classList.add('deselected');
                     }
                 });
             }
-            selected.has(id) ? selected.delete(id) : selected.add(id);
+            
+            if(selected.has(id)) {
+                selected.delete(id);
+                document.getElementById(`mod-${id}`)?.classList.remove('mod-selected');
+                document.getElementById(`summary-${id}`)?.classList.add('deselected');
+            } else {
+                selected.add(id);
+                document.getElementById(`mod-${id}`)?.classList.add('mod-selected');
+                document.getElementById(`summary-${id}`)?.classList.remove('deselected');
+            }
+
             localStorage.setItem('vpk_selected', JSON.stringify([...selected]));
             updateSelection();
-            const card = document.getElementById(`mod-${id}`);
-            if(card) card.classList.toggle('mod-selected', selected.has(id));
         }
 
         function updateSelection() {
             document.getElementById('count').textContent = selected.size;
-            document.getElementById('dl-btn').disabled = !selected.size;
+            const btn = document.getElementById('dl-btn');
+            btn.disabled = !selected.size;
+            btn.style.opacity = selected.size ? '1' : '0.5';
+        }
+
+        function toggleSummary() {
+            const m = document.getElementById('modal-summary');
+            if(m.classList.contains('active')) {
+                m.classList.remove('active');
+                setTimeout(() => m.style.display = 'none', 400);
+            } else {
+                m.style.display = 'flex';
+                requestAnimationFrame(() => {
+                    m.classList.add('active');
+                    updateModalList();
+                });
+            }
+        }
+
+        // --- 2. Улучшенный Инвентарь (Группировка по категориям) ---
+        function updateModalList() {
+            const list = document.getElementById('modal-list');
+            if(!selected.size) {
+                list.innerHTML = `<div class="col-span-full flex flex-col items-center justify-center py-24 text-neutral-600">
+                    <svg class="w-20 h-20 mb-6 opacity-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" stroke-width="1.5"/></svg>
+                    <span class="font-black uppercase text-sm tracking-widest">${TRANSLATIONS[lang].empty}</span>
+                </div>`;
+                return;
+            }
+
+            let html = '';
+            CONFIG.forEach(cat => {
+                const selectedInCat = cat.mods.filter(m => selected.has(m.id));
+                if(selectedInCat.length > 0) {
+                    html += `<div class="search-group-title">${cat[lang]}</div>`;
+                    html += selectedInCat.map(m => `
+                        <div onclick="toggleMod(${m.id}, '${cat.id}')" id="summary-${m.id}" class="summary-card group cursor-pointer">
+                            <img src="https://ssixm.github.io/VpkDota2Mods/src/${m.img}" class="summary-img">
+                            <div class="summary-info">
+                                <h5 class="font-heading text-lg font-bold leading-tight mb-1 text-white">${m['name_'+lang]}</h5>
+                                <div class="btn-remove text-center">${TRANSLATIONS[lang].remove}</div>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            });
+            list.innerHTML = html;
         }
 
         function initSnow() {
@@ -274,14 +540,14 @@
             let particles = [], lastTime = performance.now(), phase = 0;
             const resize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; };
             window.onresize = resize; resize();
-            for(let i=0; i<120; i++) particles.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, r: Math.random()*2+1, speedMult: Math.random()*1+0.5, alpha: Math.random()*0.5, offset: Math.random()*10 });
+            for(let i=0; i<60; i++) particles.push({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, r: Math.random()*1.5+0.5, speedMult: Math.random()*0.4+0.2, alpha: Math.random()*0.2+0.1, offset: Math.random()*100 });
             function loop(currentTime) {
                 let dt = (currentTime - lastTime) / 1000; lastTime = currentTime;
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 phase += dt;
                 particles.forEach(p => {
                     ctx.fillStyle = `rgba(255, 255, 255, ${p.alpha})`; ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2); ctx.fill();
-                    p.y += 40 * p.speedMult * dt; p.x += Math.sin(phase + p.offset) * 0.5;
+                    p.y += 20 * p.speedMult * dt; p.x += Math.sin(phase + p.offset) * 0.3;
                     if(p.y > canvas.height) { p.y = -10; p.x = Math.random()*canvas.width; }
                 });
                 requestAnimationFrame(loop);
@@ -296,6 +562,7 @@
             try {
                 for(let i=0; i<items.length; i++) {
                     const m = CONFIG.flatMap(c => c.mods).find(x => x.id === items[i]);
+                    if(!m) continue;
                     const res = await fetch(`https://ssixm.github.io/VpkDota2Mods/vpk/${m.file}`);
                     zip.file(`pak${(50+i).toString().padStart(2, '0')}_dir.vpk`, await res.arrayBuffer());
                     pFill.style.width = `${((i+1)/items.length)*100}%`;
@@ -311,13 +578,19 @@
         function shareSet() {
             if(!selected.size) return;
             const code = btoa(JSON.stringify([...selected]));
-            navigator.clipboard.writeText(`${window.location.origin}${window.location.pathname}?set=${code}`);
+            const url = `${window.location.origin}${window.location.pathname}?set=${code}`;
+            navigator.clipboard.writeText(url);
             const t = document.getElementById('toast'); t.textContent = TRANSLATIONS[lang].copy; t.classList.add('show');
             setTimeout(() => t.classList.remove('show'), 3000);
         }
 
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            renderGlobalSearch(e.target.value);
+        });
+
         window.onload = () => { 
-            initSnow(); setLang(lang); 
+            initSnow(); 
+            setLang(lang); 
             const p = new URLSearchParams(window.location.search);
             if(p.has('set')) try { selected = new Set(JSON.parse(atob(p.get('set')))); updateSelection(); } catch(e){}
             loadConfig(); 
