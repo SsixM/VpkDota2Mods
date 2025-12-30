@@ -24,13 +24,13 @@
         "desc_en": "Memes and screams for fun gameplay."
       },
       {
-        "id": 21,
-        "name_ru": "Сой",
-        "name_en": "Soy",
-        "file": "pak11_dir.vpk",
-        "img": "media/Без_названия_(42).gif",
-        "desc_ru": "Описание",
-        "desc_en": "Desc"
+        "id": 2,
+        "name_ru": "Белый СФ",
+        "name_en": "White Shadow Fiend",
+        "file": "white_sf.vpk",
+        "img": "white_sf.jpg",
+        "desc_ru": "Эстетичная белая модель героя.",
+        "desc_en": "Aesthetic white hero model."
       }
     ]
   },
@@ -40,15 +40,6 @@
     "en": "Visuals & Map",
     "exclusive": false,
     "mods": [
-      {
-        "id": 2,
-        "name_ru": "Белый СФ",
-        "name_en": "White Shadow Fiend",
-        "file": "white_sf.vpk",
-        "img": "white_sf.jpg",
-        "desc_ru": "Эстетичная белая модель героя.",
-        "desc_en": "Aesthetic white hero model."
-      },
       {
         "id": 11,
         "name_ru": "Деревья-таблетки",
@@ -84,6 +75,15 @@
         "img": "removeriver.jpg",
         "desc_ru": "Убирает визуальный слой воды.",
         "desc_en": "Removes visual water layer."
+      },
+      {
+        "id": 21,
+        "name_ru": "Сой",
+        "name_en": "Soy",
+        "file": "pak11_dir.vpk",
+        "img": "media/Без_названия_(42).gif",
+        "desc_ru": "Описание",
+        "desc_en": "Desc"
       }
     ]
   },
@@ -179,7 +179,7 @@
         "name_en": "Mute Ambient",
         "file": "muteambient.vpk",
         "img": "Muteembient.jpg",
-        "desc_ru": "Тишина природы.",
+        "desc_ru": "Тишин\n",
         "desc_en": "Ambient silence."
       },
       {
