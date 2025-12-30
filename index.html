@@ -609,7 +609,7 @@ function toggleMod(id, catId) {
 
 async function build() {
     if(!selected.size) return;
-    clickSfx(); // Звук нажатия
+    clickSfx();
     const btn = document.getElementById('dl-btn');
     const pFill = document.getElementById('p-fill');
     const pWrap = document.getElementById('p-wrap');
@@ -624,46 +624,34 @@ async function build() {
         const baseUrl = 'https://ssixm.github.io/VpkDota2Mods/';
         const selectedMods = CONFIG.flatMap(c => c.mods).filter(m => selected.has(m.id));
 
-        // 1. Быстрая загрузка батников
+        // Собираем все файлы, которые нужно скачать
+        const filesToDownload = [];
+        selectedMods.forEach(m => {
+            if (m.file) filesToDownload.push({ url: m.file, name: `pak${m.id}_1_dir.vpk` });
+            if (m.file2) filesToDownload.push({ url: m.file2, name: `pak${m.id}_2_dir.vpk` });
+        });
+
+        // Загрузка батников
         const bats = ['loader_ru.bat', 'loader_en.bat'];
         await Promise.all(bats.map(async b => {
             const r = await fetch(baseUrl + 'vpk/' + b);
             if(r.ok) zip.file(b, await r.arrayBuffer());
         }));
 
-        // 2. СТРИМИНГОВАЯ ЗАГРУЗКА С ПЛАВНЫМ ПРОГРЕССОМ
-        let totalSize = 0;
         let loadedOverall = 0;
+        const totalFiles = filesToDownload.length;
 
-        // Сначала узнаем общий размер всех файлов (делаем быстрые HEAD запросы)
-        const sizePromises = selectedMods.map(async (mod) => {
-            const res = await fetch(`${baseUrl}vpk/${mod.file}`, { method: 'HEAD' });
-            return parseInt(res.headers.get('content-length')) || 5000000; // 5MB запас
-        });
-        const sizes = await Promise.all(sizePromises);
-        totalSize = sizes.reduce((a, b) => a + b, 0);
-
-        // Загрузка самих файлов
-        const downloadPromises = selectedMods.map((mod) => {
+        const downloadPromises = filesToDownload.map((fileObj, index) => {
             return new Promise((resolve, reject) => {
                 const xhr = new XMLHttpRequest();
-                xhr.open('GET', `${baseUrl}vpk/${mod.file}`, true);
+                xhr.open('GET', `${baseUrl}vpk/${fileObj.url}`, true);
                 xhr.responseType = 'arraybuffer';
-
-                let lastLoaded = 0;
-                xhr.onprogress = (e) => {
-                    const delta = e.loaded - lastLoaded;
-                    lastLoaded = e.loaded;
-                    loadedOverall += delta;
-                    
-                    // Плавное обновление прогресс-бара
-                    const percent = (loadedOverall / totalSize) * 100;
-                    pFill.style.width = `${Math.min(percent, 99)}%`;
-                };
 
                 xhr.onload = () => {
                     if (xhr.status === 200) {
-                        zip.file(`data/pak${mod.id}_dir.vpk`, xhr.response);
+                        zip.file(`data/${fileObj.name}`, xhr.response);
+                        loadedOverall++;
+                        pFill.style.width = `${(loadedOverall / totalFiles) * 100}%`;
                         resolve();
                     } else reject();
                 };
@@ -674,20 +662,19 @@ async function build() {
 
         await Promise.all(downloadPromises);
 
-        // Финальный рывок
         pFill.style.width = '100%';
-        buildSfx(); // Звук завершения
+        buildSfx();
 
         const blob = await zip.generateAsync({type: "blob", compression: "STORE"});
         const a = document.createElement('a');
         a.href = URL.createObjectURL(blob);
-        a.download = `VPK_CORE.zip`;
+        a.download = `VPK_CORE_PACK.zip`;
         a.click();
         
         showToast(lang === 'ru' ? 'Сборка готова!' : 'Build Complete!');
     } catch (err) { 
         console.error(err);
-        showToast("Error", true); 
+        showToast("Error during build", true); 
     } finally { 
         btn.disabled = false; 
         btn.textContent = originalText;

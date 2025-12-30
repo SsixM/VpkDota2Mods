@@ -117,15 +117,20 @@
                                 </div>
                                 <div class="grid grid-cols-2 gap-4 text-[10px]">
                                     <div class="terminal-border p-2 rounded-lg">
-                                        <p class="opacity-30 mb-1">VPK: ${m.file || 'NONE'}</p>
+                                        <p class="opacity-30 mb-1">VPK 1: ${m.file || 'NONE'}</p>
                                         <input type="file" onchange="upload(this, ${ci}, ${mi}, 'file')" class="w-full">
                                     </div>
                                     <div class="terminal-border p-2 rounded-lg">
+                                        <p class="opacity-30 mb-1">VPK 2: ${m.file2 || 'NONE'}</p>
+                                        <input type="file" onchange="upload(this, ${ci}, ${mi}, 'file2')" class="w-full">
+                                    </div>
+                                    <div class="terminal-border p-2 rounded-lg col-span-2">
                                         <p class="opacity-30 mb-1">IMG: ${m.img || 'NONE'}</p>
                                         <input type="file" onchange="upload(this, ${ci}, ${mi}, 'img')" class="w-full">
                                     </div>
                                 </div>
-                                <textarea class="input-clean text-xs opacity-60 h-12" onchange="sync('edit_mod', {id: ${m.id}, data: {desc_ru: this.value}})">${m.desc_ru}</textarea>
+                                <textarea class="input-clean text-xs opacity-60 h-12" placeholder="Desc RU" onchange="sync('edit_mod', {id: ${m.id}, data: {desc_ru: this.value}})">${m.desc_ru}</textarea>
+                                <textarea class="input-clean text-xs opacity-60 h-12" placeholder="Desc EN" onchange="sync('edit_mod', {id: ${m.id}, data: {desc_en: this.value}})">${m.desc_en}</textarea>
                                 <div class="flex justify-between items-center pt-2">
                                     <select class="bg-white/5 text-[10px] p-1 rounded" onchange="sync('move_mod', {id: ${m.id}, target_id: this.value})">
                                         <option value="">MOVE_TO...</option>
