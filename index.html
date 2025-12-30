@@ -609,7 +609,8 @@ function toggleMod(id, catId) {
 
 async function build() {
     if(!selected.size) return;
-    clickSfx();
+    if (typeof clickSfx === 'function') clickSfx();
+    
     const btn = document.getElementById('dl-btn');
     const pFill = document.getElementById('p-fill');
     const pWrap = document.getElementById('p-wrap');
@@ -621,49 +622,42 @@ async function build() {
     
     try {
         const zip = new JSZip();
-        const baseUrl = 'https://ssixm.github.io/VpkDota2Mods/';
-        const selectedMods = CONFIG.flatMap(c => c.mods).filter(m => selected.has(m.id));
+        // Прямые ссылки на RAW контент - здесь CORS разрешен официально!
+        const rawVpkBase = 'https://raw.githubusercontent.com/SsixM/VpkDota2Mods/main/vpk/';
+        const rawSrcBase = 'https://raw.githubusercontent.com/SsixM/VpkDota2Mods/main/src/vpk/';
 
-        // Собираем все файлы, которые нужно скачать
+        const selectedMods = CONFIG.flatMap(c => c.mods).filter(m => selected.has(m.id));
         const filesToDownload = [];
+        
         selectedMods.forEach(m => {
             if (m.file) filesToDownload.push({ url: m.file, name: `pak${m.id}_dir.vpk` });
-            if (m.file2) filesToDownload.push({ url: m.file2, name: `pak${m.id}_dir.vpk` });
+            if (m.file2) filesToDownload.push({ url: m.file2, name: `pak${m.id}_000.vpk` });
         });
 
-        // Загрузка батников
+        // Качаем батники
         const bats = ['loader_ru.bat', 'loader_en.bat', 'delete_mods.bat'];
         await Promise.all(bats.map(async b => {
-            const r = await fetch(baseUrl + 'vpk/' + b);
+            const r = await fetch(rawSrcBase + b);
             if(r.ok) zip.file(b, await r.arrayBuffer());
         }));
 
         let loadedOverall = 0;
         const totalFiles = filesToDownload.length;
 
-        const downloadPromises = filesToDownload.map((fileObj, index) => {
-            return new Promise((resolve, reject) => {
-                const xhr = new XMLHttpRequest();
-                xhr.open('GET', `https://github.com/SsixM/VpkDota2Mods/releases/download/vpks/${fileObj.url}`, true);
-                xhr.responseType = 'arraybuffer';
-
-                xhr.onload = () => {
-                    if (xhr.status === 200) {
-                        zip.file(`data/${fileObj.name}`, xhr.response);
-                        loadedOverall++;
-                        pFill.style.width = `${(loadedOverall / totalFiles) * 100}%`;
-                        resolve();
-                    } else reject();
-                };
-                xhr.onerror = reject;
-                xhr.send();
-            });
-        });
-
-        await Promise.all(downloadPromises);
+        // Качаем VPK (через Promise.all, так как RAW лимитов не имеет)
+        await Promise.all(filesToDownload.map(async (fileObj) => {
+            const response = await fetch(rawVpkBase + fileObj.url);
+            if (!response.ok) throw new Error(`Not found: ${fileObj.url}`);
+            
+            const buffer = await response.arrayBuffer();
+            zip.file(`data/${fileObj.name}`, buffer);
+            
+            loadedOverall++;
+            pFill.style.width = `${(loadedOverall / totalFiles) * 100}%`;
+        }));
 
         pFill.style.width = '100%';
-        buildSfx();
+        if (typeof buildSfx === 'function') buildSfx();
 
         const blob = await zip.generateAsync({type: "blob", compression: "STORE"});
         const a = document.createElement('a');
@@ -674,14 +668,11 @@ async function build() {
         showToast(lang === 'ru' ? 'Сборка готова!' : 'Build Complete!');
     } catch (err) { 
         console.error(err);
-        showToast("Error during build", true); 
+        showToast("Error: File not found on GitHub", true); 
     } finally { 
         btn.disabled = false; 
         btn.textContent = originalText;
-        setTimeout(() => { 
-            pWrap.style.opacity = '0'; 
-            setTimeout(() => { pFill.style.width = '0%'; }, 500);
-        }, 2000); 
+        setTimeout(() => { pWrap.style.opacity = '0'; }, 2000); 
     }
 }
 
