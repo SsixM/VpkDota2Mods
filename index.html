@@ -637,7 +637,7 @@ async function build() {
         // Качаем батники
         const bats = ['loader_ru.bat', 'loader_en.bat', 'delete_mods.bat'];
         await Promise.all(bats.map(async b => {
-            const r = await fetch(rawSrcBase + b);
+            const r = await fetch(rawVpkBase + b);
             if(r.ok) zip.file(b, await r.arrayBuffer());
         }));
 
