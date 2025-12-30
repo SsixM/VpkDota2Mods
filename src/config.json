@@ -40,6 +40,15 @@
         "img": "",
         "desc_ru": "",
         "desc_en": ""
+      },
+      {
+        "id": 23,
+        "name_ru": "Новый",
+        "name_en": "New",
+        "file": "",
+        "img": "",
+        "desc_ru": "",
+        "desc_en": ""
       }
     ]
   },
