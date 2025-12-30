@@ -76,6 +76,16 @@
         "img": "white_sf.jpg",
         "desc_ru": "Эстетичная белая модель героя.",
         "desc_en": "Aesthetic white hero model."
+      },
+      {
+        "id": 21,
+        "name_ru": "Новый",
+        "name_en": "New",
+        "file": "",
+        "file2": "",
+        "img": "",
+        "desc_ru": "",
+        "desc_en": ""
       }
     ]
   },
