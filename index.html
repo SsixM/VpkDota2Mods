@@ -627,12 +627,12 @@ async function build() {
         // Собираем все файлы, которые нужно скачать
         const filesToDownload = [];
         selectedMods.forEach(m => {
-            if (m.file) filesToDownload.push({ url: m.file, name: `pak${m.id}_1_dir.vpk` });
-            if (m.file2) filesToDownload.push({ url: m.file2, name: `pak${m.id}_2_dir.vpk` });
+            if (m.file) filesToDownload.push({ url: m.file, name: `pak${m.id}_dir.vpk` });
+            if (m.file2) filesToDownload.push({ url: m.file2, name: `pak${m.id}_dir.vpk` });
         });
 
         // Загрузка батников
-        const bats = ['loader_ru.bat', 'loader_en.bat'];
+        const bats = ['loader_ru.bat', 'loader_en.bat', 'delete_mods.bat'];
         await Promise.all(bats.map(async b => {
             const r = await fetch(baseUrl + 'vpk/' + b);
             if(r.ok) zip.file(b, await r.arrayBuffer());
