@@ -69,15 +69,6 @@
         "desc_en": "Removes visual water layer."
       },
       {
-        "id": 21,
-        "name_ru": "Сой",
-        "name_en": "Soy",
-        "file": "pak11_dir.vpk",
-        "img": "media/Без_названия_(42).gif",
-        "desc_ru": "Описание",
-        "desc_en": "Desc"
-      },
-      {
         "id": 2,
         "name_ru": "Белый СФ",
         "name_en": "White Shadow Fiend",
