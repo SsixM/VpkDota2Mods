@@ -22,15 +22,6 @@
         "img": "Golovach.jpg",
         "desc_ru": "Мемы и крики для веселого геймплея.",
         "desc_en": "Memes and screams for fun gameplay."
-      },
-      {
-        "id": 21,
-        "name_ru": "Сой",
-        "name_en": "Soy",
-        "file": "pak11_dir.vpk",
-        "img": "media/Без_названия_(42).gif",
-        "desc_ru": "Описание",
-        "desc_en": "Desc"
       }
     ]
   },
@@ -84,6 +75,15 @@
         "img": "removeriver.jpg",
         "desc_ru": "Убирает визуальный слой воды.",
         "desc_en": "Removes visual water layer."
+      },
+      {
+        "id": 21,
+        "name_ru": "Сой",
+        "name_en": "Soy",
+        "file": "pak11_dir.vpk",
+        "img": "media/Без_названия_(42).gif",
+        "desc_ru": "Описание",
+        "desc_en": "Desc"
       }
     ]
   },
