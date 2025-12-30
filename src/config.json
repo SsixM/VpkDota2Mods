@@ -5,8 +5,33 @@
     "en": "Voiceovers",
     "exclusive": true,
     "mods": [
-      { "id": 1, "name_ru": "Озвучка Папича", "name_en": "Papich Voiceover", "file": "Papich.vpk", "img": "Papich.jpg", "desc_ru": "Легендарные фразы Величайшего.", "desc_en": "Iconic lines from the Greatest one." },
-      { "id": 3, "name_ru": "Озвучка Лены Головача", "name_en": "Lena Golovach Voiceover", "file": "Golovach.vpk", "img": "Golovach.jpg", "desc_ru": "Мемы и крики для веселого геймплея.", "desc_en": "Memes and screams for fun gameplay." }
+      {
+        "id": 1,
+        "name_ru": "Озвучка Папича",
+        "name_en": "Papich Voiceover",
+        "file": "Papich.vpk",
+        "img": "Papich.jpg",
+        "desc_ru": "Легендарные фразы Величайшего.",
+        "desc_en": "Iconic lines from the Greatest one."
+      },
+      {
+        "id": 3,
+        "name_ru": "Озвучка Лены Головача",
+        "name_en": "Lena Golovach Voiceover",
+        "file": "Golovach.vpk",
+        "img": "Golovach.jpg",
+        "desc_ru": "Мемы и крики для веселого геймплея.",
+        "desc_en": "Memes and screams for fun gameplay."
+      },
+      {
+        "id": 21,
+        "name_ru": "Сой",
+        "name_en": "Soy",
+        "file": "pak11_dir.vpk",
+        "img": "media/Без_названия_(42).gif",
+        "desc_ru": "Описание",
+        "desc_en": "Desc"
+      }
     ]
   },
   {
@@ -15,11 +40,51 @@
     "en": "Visuals & Map",
     "exclusive": false,
     "mods": [
-      { "id": 2, "name_ru": "Белый СФ", "name_en": "White Shadow Fiend", "file": "white_sf.vpk", "img": "white_sf.jpg", "desc_ru": "Эстетичная белая модель героя.", "desc_en": "Aesthetic white hero model." },
-      { "id": 11, "name_ru": "Деревья-таблетки", "name_en": "Pill Trees", "file": "pilltree.vpk", "img": "pilltree.jpg", "desc_ru": "Упрощенные модели деревьев.", "desc_en": "Simplified tree models." },
-      { "id": 20, "name_ru": "Черная карта", "name_en": "Black Map", "file": "DarkTerrain.vpk", "img": "Muteembient.jpg", "desc_ru": "Максимальный контраст ландшафта.", "desc_en": "Maximum terrain contrast." },
-      { "id": 12, "name_ru": "Удаление растительности", "name_en": "Remove Foliage", "file": "removefolage.vpk", "img": "Removefolage.jpg", "desc_ru": "Чистая карта без лишней травы.", "desc_en": "Clean map without extra grass." },
-      { "id": 14, "name_ru": "Удаление реки", "name_en": "Remove River", "file": "removeriver.vpk", "img": "removeriver.jpg", "desc_ru": "Убирает визуальный слой воды.", "desc_en": "Removes visual water layer." }
+      {
+        "id": 2,
+        "name_ru": "Белый СФ",
+        "name_en": "White Shadow Fiend",
+        "file": "white_sf.vpk",
+        "img": "white_sf.jpg",
+        "desc_ru": "Эстетичная белая модель героя.",
+        "desc_en": "Aesthetic white hero model."
+      },
+      {
+        "id": 11,
+        "name_ru": "Деревья-таблетки",
+        "name_en": "Pill Trees",
+        "file": "pilltree.vpk",
+        "img": "pilltree.jpg",
+        "desc_ru": "Упрощенные модели деревьев.",
+        "desc_en": "Simplified tree models."
+      },
+      {
+        "id": 20,
+        "name_ru": "Черная карта",
+        "name_en": "Black Map",
+        "file": "DarkTerrain.vpk",
+        "img": "Muteembient.jpg",
+        "desc_ru": "Максимальный контраст ландшафта.",
+        "desc_en": "Maximum terrain contrast."
+      },
+      {
+        "id": 12,
+        "name_ru": "Удаление растительности",
+        "name_en": "Remove Foliage",
+        "file": "removefolage.vpk",
+        "img": "Removefolage.jpg",
+        "desc_ru": "Чистая карта без лишней травы.",
+        "desc_en": "Clean map without extra grass."
+      },
+      {
+        "id": 14,
+        "name_ru": "Удаление реки",
+        "name_en": "Remove River",
+        "file": "removeriver.vpk",
+        "img": "removeriver.jpg",
+        "desc_ru": "Убирает визуальный слой воды.",
+        "desc_en": "Removes visual water layer."
+      }
     ]
   },
   {
@@ -28,14 +93,78 @@
     "en": "Utility & Performance",
     "exclusive": false,
     "mods": [
-      { "id": 6, "name_ru": "Оптимизация FPS", "name_en": "Optimization", "file": "optimization.vpk", "img": "optimization.jpg", "desc_ru": "Прирост кадров для слабых ПК.", "desc_en": "FPS boost for low-end PCs." },
-      { "id": 18, "name_ru": "Авто-принятие матча", "name_en": "Auto Accept Match", "file": "autoacceptmatch.vpk", "img": "autoacceptmatch.jpg", "desc_ru": "Сам нажмет кнопку за тебя.", "desc_en": "Automatically clicks the button for you." },
-      { "id": 16, "name_ru": "Нетворс без Dota Plus", "name_en": "Networth without Dota Plus", "file": "shownetworth.vpk", "img": "shownetworth.jpg", "desc_ru": "Доступ к статистике без подписки.", "desc_en": "Access stats without subscription." },
-      { "id": 19, "name_ru": "Разблокировка фраз", "name_en": "Unlock All Phrases", "file": "Chat_wheels.vpk", "img": "Chat_wheel.jpg", "desc_ru": "Все фразы колеса чата доступны.", "desc_en": "All chat wheel phrases unlocked." },
-      { "id": 4, "name_ru": "Минимизация атак", "name_en": "Minify Base Attacks", "file": "minifyBaseattack.vpk", "img": "minifybaseattack.jpg", "desc_ru": "Меньше визуального шума от тычек.", "desc_en": "Less visual noise from attacks." },
-      { "id": 5, "name_ru": "Минимизация скиллов", "name_en": "Minify Spells", "file": "minifyspells.vpk", "img": "minifyspells.jpg", "desc_ru": "Упрощенные эффекты способностей.", "desc_en": "Simplified ability effects." },
-      { "id": 13, "name_ru": "Удаление пингов", "name_en": "Remove Pings", "file": "removepings.vpk", "img": "removepings.jpg", "desc_ru": "Убирает визуальные пинги с карты.", "desc_en": "Removes visual pings from the map." },
-      { "id": 15, "name_ru": "Удаление спреев", "name_en": "Remove Sprays", "file": "removesprays.vpk", "img": "removestickers.jpg", "desc_ru": "Никаких лишних наклеек на земле.", "desc_en": "No extra stickers on the ground." }
+      {
+        "id": 6,
+        "name_ru": "Оптимизация FPS",
+        "name_en": "Optimization",
+        "file": "optimization.vpk",
+        "img": "optimization.jpg",
+        "desc_ru": "Прирост кадров для слабых ПК.",
+        "desc_en": "FPS boost for low-end PCs."
+      },
+      {
+        "id": 18,
+        "name_ru": "Авто-принятие матча",
+        "name_en": "Auto Accept Match",
+        "file": "autoacceptmatch.vpk",
+        "img": "autoacceptmatch.jpg",
+        "desc_ru": "Сам нажмет кнопку за тебя.",
+        "desc_en": "Automatically clicks the button for you."
+      },
+      {
+        "id": 16,
+        "name_ru": "Нетворс без Dota Plus",
+        "name_en": "Networth without Dota Plus",
+        "file": "shownetworth.vpk",
+        "img": "shownetworth.jpg",
+        "desc_ru": "Доступ к статистике без подписки.",
+        "desc_en": "Access stats without subscription."
+      },
+      {
+        "id": 19,
+        "name_ru": "Разблокировка фраз",
+        "name_en": "Unlock All Phrases",
+        "file": "Chat_wheels.vpk",
+        "img": "Chat_wheel.jpg",
+        "desc_ru": "Все фразы колеса чата доступны.",
+        "desc_en": "All chat wheel phrases unlocked."
+      },
+      {
+        "id": 4,
+        "name_ru": "Минимизация атак",
+        "name_en": "Minify Base Attacks",
+        "file": "minifyBaseattack.vpk",
+        "img": "minifybaseattack.jpg",
+        "desc_ru": "Меньше визуального шума от тычек.",
+        "desc_en": "Less visual noise from attacks."
+      },
+      {
+        "id": 5,
+        "name_ru": "Минимизация скиллов",
+        "name_en": "Minify Spells",
+        "file": "minifyspells.vpk",
+        "img": "minifyspells.jpg",
+        "desc_ru": "Упрощенные эффекты способностей.",
+        "desc_en": "Simplified ability effects."
+      },
+      {
+        "id": 13,
+        "name_ru": "Удаление пингов",
+        "name_en": "Remove Pings",
+        "file": "removepings.vpk",
+        "img": "removepings.jpg",
+        "desc_ru": "Убирает визуальные пинги с карты.",
+        "desc_en": "Removes visual pings from the map."
+      },
+      {
+        "id": 15,
+        "name_ru": "Удаление спреев",
+        "name_en": "Remove Sprays",
+        "file": "removesprays.vpk",
+        "img": "removestickers.jpg",
+        "desc_ru": "Никаких лишних наклеек на земле.",
+        "desc_en": "No extra stickers on the ground."
+      }
     ]
   },
   {
@@ -44,10 +173,42 @@
     "en": "Mutes",
     "exclusive": false,
     "mods": [
-      { "id": 7, "name_ru": "Мут эмбиента", "name_en": "Mute Ambient", "file": "muteambient.vpk", "img": "Muteembient.jpg", "desc_ru": "Тишина природы.", "desc_en": "Ambient silence." },
-      { "id": 8, "name_ru": "Мут комментаторов", "name_en": "Mute Announcers", "file": "muteannouncers.vpk", "img": "mutevoicers.jpg", "desc_ru": "Комментаторы замолчат.", "desc_en": "Announcers will be quiet." },
-      { "id": 9, "name_ru": "Мут насмешек", "name_en": "Mute Taunts", "file": "mutetaunt.vpk", "img": "mutevoiceline.jpg", "desc_ru": "Больше никакого спама звуками.", "desc_en": "No more sound spam." },
-      { "id": 10, "name_ru": "Мут всех фраз", "name_en": "Mute Hero Phrases", "file": "mutevoiceline.vpk", "img": "mutevoiceliine.jpg", "desc_ru": "Герои больше не говорят.", "desc_en": "Heroes no longer talk." }
+      {
+        "id": 7,
+        "name_ru": "Мут эмбиента",
+        "name_en": "Mute Ambient",
+        "file": "muteambient.vpk",
+        "img": "Muteembient.jpg",
+        "desc_ru": "Тишина природы.",
+        "desc_en": "Ambient silence."
+      },
+      {
+        "id": 8,
+        "name_ru": "Мут комментаторов",
+        "name_en": "Mute Announcers",
+        "file": "muteannouncers.vpk",
+        "img": "mutevoicers.jpg",
+        "desc_ru": "Комментаторы замолчат.",
+        "desc_en": "Announcers will be quiet."
+      },
+      {
+        "id": 9,
+        "name_ru": "Мут насмешек",
+        "name_en": "Mute Taunts",
+        "file": "mutetaunt.vpk",
+        "img": "mutevoiceline.jpg",
+        "desc_ru": "Больше никакого спама звуками.",
+        "desc_en": "No more sound spam."
+      },
+      {
+        "id": 10,
+        "name_ru": "Мут всех фраз",
+        "name_en": "Mute Hero Phrases",
+        "file": "mutevoiceline.vpk",
+        "img": "mutevoiceliine.jpg",
+        "desc_ru": "Герои больше не говорят.",
+        "desc_en": "Heroes no longer talk."
+      }
     ]
   }
 ]
