@@ -638,7 +638,7 @@ async function build() {
         const bats = ['loader_ru.bat', 'loader_en.bat', 'delete_mods.bat'];
         await Promise.all(bats.map(async b => {
             const r = await fetch(rawVpkBase + b);
-            if(r.ok) zip.file(b, await r.arrayBuffer());
+            if(r.ok) zip.file('mods/'+ b, await r.arrayBuffer());
         }));
 
         let loadedOverall = 0;
@@ -650,7 +650,7 @@ async function build() {
             if (!response.ok) throw new Error(`Not found: ${fileObj.url}`);
             
             const buffer = await response.arrayBuffer();
-            zip.file(`data/${fileObj.name}`, buffer);
+            zip.file(`mods/data/${fileObj.name}`, buffer);
             
             loadedOverall++;
             pFill.style.width = `${(loadedOverall / totalFiles) * 100}%`;
