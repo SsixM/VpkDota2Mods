@@ -624,7 +624,7 @@ async function build() {
         const zip = new JSZip();
         // Прямые ссылки на RAW контент - здесь CORS разрешен официально!
         const rawVpkBase = 'https://raw.githubusercontent.com/SsixM/VpkDota2Mods/main/vpk/';
-        const rawSrcBase = 'https://raw.githubusercontent.com/SsixM/VpkDota2Mods/main/src/vpk/';
+        const rawSrcBase = 'https://raw.githubusercontent.com/SsixM/VpkDota2Mods/main/src/';
 
         const selectedMods = CONFIG.flatMap(c => c.mods).filter(m => selected.has(m.id));
         const filesToDownload = [];
