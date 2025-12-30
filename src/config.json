@@ -22,6 +22,15 @@
         "img": "Golovach.jpg",
         "desc_ru": "Мемы и крики для веселого геймплея.",
         "desc_en": "Memes and screams for fun gameplay."
+      },
+      {
+        "id": 2,
+        "name_ru": "Белый СФ",
+        "name_en": "White Shadow Fiend",
+        "file": "white_sf.vpk",
+        "img": "white_sf.jpg",
+        "desc_ru": "Эстетичная белая модель героя.",
+        "desc_en": "Aesthetic white hero model."
       }
     ]
   },
@@ -31,15 +40,6 @@
     "en": "Visuals & Map",
     "exclusive": false,
     "mods": [
-      {
-        "id": 2,
-        "name_ru": "Белый СФ",
-        "name_en": "White Shadow Fiend",
-        "file": "white_sf.vpk",
-        "img": "white_sf.jpg",
-        "desc_ru": "Эстетичная белая модель героя.",
-        "desc_en": "Aesthetic white hero model."
-      },
       {
         "id": 11,
         "name_ru": "Деревья-таблетки",
