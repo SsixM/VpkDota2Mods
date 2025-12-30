@@ -23,33 +23,6 @@
         "img": "Golovach.jpg",
         "desc_ru": "Мемы и крики для веселого геймплея.",
         "desc_en": "Memes and screams for fun gameplay."
-      },
-      {
-        "id": 2,
-        "name_ru": "Белый СФ",
-        "name_en": "White Shadow Fiend",
-        "file": "white_sf.vpk",
-        "img": "white_sf.jpg",
-        "desc_ru": "Эстетичная белая модель героя.",
-        "desc_en": "Aesthetic white hero model."
-      },
-      {
-        "id": 22,
-        "name_ru": "Новый",
-        "name_en": "New",
-        "file": "",
-        "img": "",
-        "desc_ru": "",
-        "desc_en": ""
-      },
-      {
-        "id": 23,
-        "name_ru": "Новый",
-        "name_en": "New",
-        "file": "",
-        "img": "",
-        "desc_ru": "",
-        "desc_en": ""
       }
     ]
   },
@@ -96,13 +69,13 @@
         "desc_en": "Removes visual water layer."
       },
       {
-        "id": 21,
-        "name_ru": "Сой",
-        "name_en": "Soy",
-        "file": "pak11_dir.vpk",
-        "img": "media/Без_названия_(42).gif",
-        "desc_ru": "Описание",
-        "desc_en": "Desc"
+        "id": 2,
+        "name_ru": "Белый СФ",
+        "name_en": "White Shadow Fiend",
+        "file": "white_sf.vpk",
+        "img": "white_sf.jpg",
+        "desc_ru": "Эстетичная белая модель героя.",
+        "desc_en": "Aesthetic white hero model."
       }
     ]
   },
