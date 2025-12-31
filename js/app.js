@@ -1,3 +1,13 @@
+function handleSearch(e) {
+    const q = e.target.value;
+    clearTimeout(searchTimeout);
+    
+    // Ждем 300мс после последнего нажатия клавиши
+    searchTimeout = setTimeout(() => {
+        renderSearch(q);
+        if (typeof techSfx === 'function') techSfx();
+    }, 300);
+}
 async function fetchLastUpdate() {
     try {
         const res = await fetch(GITHUB_API);
@@ -34,16 +44,33 @@ function setLang(l) {
 
 window.onload = async () => {
     document.body.className = `theme-${theme}`;
-    setLang(lang);
-    updateMainCounter();
-    renderSkeletons()
-    try {
-        const res = await fetch(JSON_URL);
-        CONFIG = await res.json();
-        setTimeout(() => renderCategories(), 800); // Небольшая задержка для эффекта
-    } catch (e) { showToast('Config Error', true); }
+    if (typeof setLang === 'function') setLang(lang);
+    if (typeof updateMainCounter === 'function') updateMainCounter();
     
-    initSnow();
+    // Показываем скелетоны мгновенно
+    renderSkeletons();
+    
+    try {
+        // Оптимизация: используем кэширование браузера для JSON
+        const res = await fetch(JSON_URL, { cache: "force-cache" });
+        CONFIG = await res.json();
+        
+        // requestAnimationFrame гарантирует плавный запуск отрисовки
+        requestAnimationFrame(() => {
+            renderCategories();
+        });
+    } catch (e) { 
+        console.error("Initialization failed", e);
+    }
+    
+    if (typeof initSnow === 'function') initSnow();
+    
+    // Активация AudioContext только при первом взаимодействии
+    document.addEventListener('mousedown', () => {
+        if (window.audioCtx && window.audioCtx.state === 'suspended') {
+            window.audioCtx.resume();
+        }
+    }, { once: true });
 };
 
 document.getElementById('search-input').addEventListener('input', (e) => renderSearch(e.target.value));

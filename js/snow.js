@@ -11,57 +11,45 @@ function initSnow() {
         width: 100vw;
         height: 100vh;
         pointer-events: none;
-        z-index: 1;
+        z-index: 9999;
         overflow: hidden;
     `;
 
     const shards = ['❄', '•', '◦'];
-    const count = 70; 
+    const count = window.innerWidth < 768 ? 30 : 60;
+    const fragment = document.createDocumentFragment();
 
     for (let i = 0; i < count; i++) {
         const leaf = document.createElement('div');
-        const size = Math.random() * 8 + 4 + 'px';
-        const opacity = Math.random() * 0.4 + 0.1;
-        const duration = Math.random() * 7 + 5 + 's';
+        const size = Math.random() * 7 + 3 + 'px';
+        const duration = Math.random() * 5 + 7 + 's';
         const delay = Math.random() * -20 + 's';
-        const startX = Math.random() * 100;
         
         leaf.innerText = shards[Math.floor(Math.random() * shards.length)];
         leaf.style.cssText = `
             position: absolute;
             top: -20px;
-            left: ${startX}%;
+            left: ${Math.random() * 100}%;
             font-size: ${size};
-            opacity: ${opacity};
+            opacity: ${Math.random() * 0.4 + 0.2};
             color: white;
+            pointer-events: none;
             user-select: none;
-            filter: blur(0.5px);
             animation: fall-fixed ${duration} ${delay} linear infinite;
         `;
-        
-        container.appendChild(leaf);
+        fragment.appendChild(leaf);
     }
+    container.appendChild(fragment);
 
-    if (!document.getElementById('snow-style')) {
+    if (!document.getElementById('snow-style-fixed')) {
         const style = document.createElement('style');
-        style.id = 'snow-style';
+        style.id = 'snow-style-fixed';
         style.innerHTML = `
             @keyframes fall-fixed {
-                0% { 
-                    transform: translateY(-5vh) translateX(0px) rotate(0deg); 
-                }
-                25% { 
-                    transform: translateY(25vh) translateX(20px) rotate(90deg); 
-                }
-                50% { 
-                    transform: translateY(50vh) translateX(-20px) rotate(180deg); 
-                }
-                75% { 
-                    transform: translateY(75vh) translateX(20px) rotate(270deg); 
-                }
-                100% { 
-                    transform: translateY(105vh) translateX(0px) rotate(360deg); 
-                }
+                0% { transform: translateY(-5vh) translateX(0) rotate(0deg); }
+                33% { transform: translateY(33vh) translateX(20px) rotate(120deg); }
+                66% { transform: translateY(66vh) translateX(-20px) rotate(240deg); }
+                100% { transform: translateY(105vh) translateX(0) rotate(360deg); }
             }
         `;
         document.head.appendChild(style);

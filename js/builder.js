@@ -1,22 +1,34 @@
+let buildController = null;
+
 async function build() {
+    const btn = document.getElementById('dl-btn');
+    
+    if (buildController) {
+        buildController.abort();
+        if (typeof hoverSfx === 'function') hoverSfx();
+        return;
+    }
+
     if(!selected.size) return;
     if (typeof clickSfx === 'function') clickSfx();
     
-    const btn = document.getElementById('dl-btn');
     const pFill = document.getElementById('p-fill');
     const pWrap = document.getElementById('p-wrap');
     const originalText = btn.textContent;
     
+    buildController = new AbortController();
+    const signal = buildController.signal;
+
     let pLabel = document.getElementById('progress-label');
     if(!pLabel) {
         pLabel = document.createElement('div');
         pLabel.id = 'progress-label';
-        pLabel.className = 'text-[14px] font-black uppercase tracking-tighter text-white/40 mt-2 text-center';
+        pLabel.className = 'text-[18px] font-black uppercase tracking-tighter text-white/40 mt-2 text-center';
         pWrap.after(pLabel);
     }
 
-    btn.disabled = true; 
-    btn.textContent = TR[lang].building;
+    btn.textContent = lang === 'ru' ? 'ОТМЕНИТЬ' : 'CANCEL';
+    btn.classList.add('bg-red-500', 'text-white'); // Визуально выделяем, что теперь это отмена
     pWrap.style.opacity = '1';
     
     try {
@@ -24,7 +36,6 @@ async function build() {
         const selectedMods = CONFIG.flatMap(c => c.mods).filter(m => selected.has(m.id));
         const filesToDownload = [];
         
-        // Формируем список задач для скачивания
         selectedMods.forEach(m => {
             if (m.file) filesToDownload.push({ url: m.file, label: m['name_'+lang], id: m.id, type: 'dir' });
             if (m.file2) filesToDownload.push({ url: m.file2, label: m['name_'+lang], id: m.id, type: '000' });
@@ -32,35 +43,28 @@ async function build() {
 
         const bats = ['loader_ru.bat', 'loader_en.bat', 'delete_mods.bat'];
         for(let b of bats) {
-            try {
-                const r = await fetch(VPK_BASE_URL + b);
-                if(r.ok) zip.file('mods/'+ b, await r.arrayBuffer());
-            } catch(e) { console.warn(`Failed to fetch ${b}`); }
+            const r = await fetch(VPK_BASE_URL + b, { signal });
+            if(r.ok) zip.file('mods/'+ b, await r.arrayBuffer());
         }
 
-        // 1. Считаем общий объем данных
-        pLabel.textContent = 'Чык чырык...';
+        pLabel.textContent = '';
         let totalBytes = 0;
         const sizeRequests = await Promise.all(
-            filesToDownload.map(f => fetch(VPK_BASE_URL + f.url, { method: 'HEAD' }).catch(() => null))
+            filesToDownload.map(f => fetch(VPK_BASE_URL + f.url, { method: 'HEAD', signal }).catch(() => null))
         );
         
         sizeRequests.forEach(res => {
-            if (res && res.ok) {
-                totalBytes += parseInt(res.headers.get('content-length') || 0);
-            }
+            if (res && res.ok) totalBytes += parseInt(res.headers.get('content-length') || 0);
         });
 
         let loadedBytes = 0;
 
-        // 2. Потоковое скачивание
         for(const fileObj of filesToDownload) {
-            const response = await fetch(VPK_BASE_URL + fileObj.url);
+            const response = await fetch(VPK_BASE_URL + fileObj.url, { signal });
             if (!response.ok) continue;
 
             const reader = response.body.getReader();
             const chunks = [];
-            let fileLoaded = 0;
             
             while(true) {
                 const {done, value} = await reader.read();
@@ -68,7 +72,6 @@ async function build() {
                 
                 chunks.push(value);
                 loadedBytes += value.length;
-                fileLoaded += value.length;
                 
                 if (totalBytes > 0) {
                     const percent = (loadedBytes / totalBytes) * 100;
@@ -77,24 +80,15 @@ async function build() {
                 }
             }
 
-            // Собираем файл из чанков
             const blob = new Blob(chunks);
-            const arrayBuffer = await blob.arrayBuffer();
-            
-            // Генерируем имя файла безопасно, используя данные из объекта, а не RegExp из URL
             const fileName = `pak${fileObj.id}_${fileObj.type === '000' ? '000' : 'dir'}.vpk`;
-            zip.file(`mods/data/${fileName}`, arrayBuffer);
+            zip.file(`mods/data/${fileName}`, await blob.arrayBuffer());
         }
 
-        pLabel.textContent = 'Finalizing...';
+        pLabel.textContent = 'Чык чырык';
         if (typeof buildSfx === 'function') buildSfx();
         
-        const blob = await zip.generateAsync({
-            type: "blob",
-            compression: "DEFLATE",
-            compressionOptions: { level: 6 }
-        });
-        
+        const blob = await zip.generateAsync({type: "blob"});
         const a = document.createElement('a');
         a.href = URL.createObjectURL(blob);
         a.download = `VPK_CORE_PACK.zip`;
@@ -105,15 +99,21 @@ async function build() {
         }, 500);
 
     } catch (err) { 
-        console.error("Build error:", err);
-        if (typeof showToast === 'function') showToast("Error during build", true); 
+        if (err.name === 'AbortError') {
+            pLabel.textContent = lang === 'ru' ? 'СБОРКА ПРЕРВАНА' : 'BUILD ABORTED';
+        } else {
+            console.error(err);
+            if (typeof showToast === 'function') showToast("Error", true); 
+        }
     } finally { 
-        btn.disabled = false; 
+        buildController = null;
         btn.textContent = originalText;
-        pLabel.textContent = '';
+        btn.classList.remove('bg-red-500', 'text-white');
+        
         setTimeout(() => { 
             pWrap.style.opacity = '0'; 
-            setTimeout(() => { pFill.style.width = '0%'; }, 500);
+            pFill.style.width = '0%';
+            pLabel.textContent = '';
         }, 2000); 
     }
 }

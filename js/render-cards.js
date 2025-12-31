@@ -16,9 +16,14 @@ function createCardHtml(m, catId, idx) {
     const isSel = selected.has(m.id);
     return `
         <div class="glass-card mod-card p-5 cursor-pointer relative stagger-item ${isSel ? 'mod-selected' : ''}" 
-             style="animation-delay: ${idx * 0.05}s" id="mod-${m.id}" onmouseenter="hoverSfx()">
+             style="animation-delay: ${idx * 0.05}s" 
+             id="mod-${m.id}" 
+             onmouseenter="if(typeof hoverSfx === 'function') hoverSfx()">
             <div onclick="toggleMod(${m.id}, '${catId}')" class="aspect-[4/3] rounded-2xl overflow-hidden mb-5 relative bg-zinc-900 group">
-                <img src="${ASSETS_BASE_URL}${m.img}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                <img src="${ASSETS_BASE_URL}${m.img}" 
+                     loading="lazy" 
+                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                     onerror="this.src='https://via.placeholder.com/400x300?text=No+Preview'">
                 <div class="check-overlay"><svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg></div>
                 
                 <button onclick="event.stopPropagation(); openPreview(${m.id})" class="absolute top-4 right-4 p-3 bg-black/40 backdrop-blur-md rounded-xl opacity-0 group-hover:opacity-100 transition-opacity hover:bg-[var(--accent)] hover:text-white z-20">
@@ -35,6 +40,38 @@ function createCardHtml(m, catId, idx) {
         </div>`;
 }
 
+function renderCategories() {
+    isSearching = false; currentCat = null;
+    const content = document.getElementById('app-content');
+    
+    // Оптимизация: работаем с массивом данных перед рендером
+    let modsToDisplay = CONFIG.flatMap(c => c.mods.map(m => ({...m, catId: c.id})));
+    if(activeFilter === 'new') modsToDisplay = modsToDisplay.sort((a,b) => b.id - a.id).slice(0, 12);
+    if(activeFilter === 'selected') modsToDisplay = modsToDisplay.filter(m => selected.has(m.id));
+
+    let html = renderFilterBar();
+    html += '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">';
+    
+    if (activeFilter === 'all') {
+        html += CONFIG.map((cat, i) => `
+            <div onclick="renderMods('${cat.id}')" onmouseenter="hoverSfx()" class="glass-card cat-card p-10 cursor-pointer group stagger-item" style="animation-delay: ${i*0.06}s">
+                <div class="folder-preview mb-8">
+                    <img src="${ASSETS_BASE_URL}${cat.mods[0].img}" loading="lazy" class="folder-img img-1">
+                    <img src="${ASSETS_BASE_URL}${cat.mods[1]?.img || cat.mods[0].img}" loading="lazy" class="folder-img img-2">
+                </div>
+                <div class="text-center relative z-10">
+                    <h3 class="font-heading text-4xl font-black mb-3 group-hover:text-[var(--accent)] tracking-tight">${cat[lang]}</h3>
+                    <div class="inline-block px-4 py-1.5 bg-white/5 rounded-full text-[10px] text-neutral-500 font-black uppercase tracking-widest">${cat.mods.length} ${TR[lang].items}</div>
+                </div>
+            </div>`).join('');
+    } else {
+        html += modsToDisplay.map((m, i) => createCardHtml(m, m.catId, i)).join('');
+    }
+    
+    html += '</div>';
+    content.innerHTML = html;
+}
+
 function renderFilterBar() {
     return `
         <div class="flex gap-4 mb-12 stagger-item">
@@ -43,34 +80,6 @@ function renderFilterBar() {
                     ${val[lang]}
                 </button>
             `).join('')}
-        </div>`;
-}
-
-function renderCategories() {
-    isSearching = false; currentCat = null;
-    const content = document.getElementById('app-content');
-    
-    let modsToDisplay = CONFIG.flatMap(c => c.mods.map(m => ({...m, catId: c.id})));
-    if(activeFilter === 'new') modsToDisplay = modsToDisplay.sort((a,b) => b.id - a.id).slice(0, 12);
-    if(activeFilter === 'selected') modsToDisplay = modsToDisplay.filter(m => selected.has(m.id));
-
-    content.innerHTML = `
-        ${renderFilterBar()}
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            ${activeFilter === 'all' ? 
-                CONFIG.map((cat, i) => `
-                <div onclick="renderMods('${cat.id}')" onmouseenter="hoverSfx()" class="glass-card cat-card p-10 cursor-pointer group stagger-item" style="animation-delay: ${i*0.06}s">
-                    <div class="folder-preview mb-8">
-                        <img src="${ASSETS_BASE_URL}${cat.mods[0].img}" class="folder-img img-1">
-                        <img src="${ASSETS_BASE_URL}${cat.mods[1]?.img || cat.mods[0].img}" class="folder-img img-2">
-                    </div>
-                    <div class="text-center relative z-10">
-                        <h3 class="font-heading text-4xl font-black mb-3 group-hover:text-[var(--accent)] tracking-tight">${cat[lang]}</h3>
-                        <div class="inline-block px-4 py-1.5 bg-white/5 rounded-full text-[10px] text-neutral-500 font-black uppercase tracking-widest">${cat.mods.length} ${TR[lang].items}</div>
-                    </div>
-                </div>`).join('') :
-                modsToDisplay.map((m, i) => createCardHtml(m, m.catId, i)).join('')
-            }
         </div>`;
 }
 
