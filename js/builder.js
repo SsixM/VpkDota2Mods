@@ -28,7 +28,7 @@ async function build() {
     }
 
     btn.textContent = lang === 'ru' ? 'ОТМЕНИТЬ' : 'CANCEL';
-    btn.classList.add('bg-red-500', 'text-white'); // Визуально выделяем, что теперь это отмена
+    btn.classList.add('bg-red-500', 'text-white');
     pWrap.style.opacity = '1';
     
     try {
@@ -41,16 +41,18 @@ async function build() {
             if (m.file2) filesToDownload.push({ url: m.file2, label: m['name_'+lang], id: m.id, type: '000' });
         });
 
+        const getFullUrl = (u) => u.includes("raw.githubusercontent.com/h6rd/Dota2PornFxWeb") ? u : VPK_BASE_URL + u;
+
         const bats = ['loader_ru.bat', 'loader_en.bat', 'delete_mods.bat'];
         for(let b of bats) {
-            const r = await fetch(VPK_BASE_URL + b, { signal });
+            const r = await fetch(getFullUrl(b), { signal });
             if(r.ok) zip.file('mods/'+ b, await r.arrayBuffer());
         }
 
         pLabel.textContent = '';
         let totalBytes = 0;
         const sizeRequests = await Promise.all(
-            filesToDownload.map(f => fetch(VPK_BASE_URL + f.url, { method: 'HEAD', signal }).catch(() => null))
+            filesToDownload.map(f => fetch(getFullUrl(f.url), { method: 'HEAD', signal }).catch(() => null))
         );
         
         sizeRequests.forEach(res => {
@@ -60,7 +62,7 @@ async function build() {
         let loadedBytes = 0;
 
         for(const fileObj of filesToDownload) {
-            const response = await fetch(VPK_BASE_URL + fileObj.url, { signal });
+            const response = await fetch(getFullUrl(fileObj.url), { signal });
             if (!response.ok) continue;
 
             const reader = response.body.getReader();
