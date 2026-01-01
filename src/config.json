@@ -212,5 +212,2778 @@
         "desc_en": "Heroes no longer talk."
       }
     ]
+  },
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  {
+    "id": "shaders",
+    "ru": "Шейдеры",
+    "en": "Shaders",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1000,
+        "name_ru": "Aghanim Labyrinth",
+        "name_en": "Aghanim Labyrinth",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak07_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/aghanim_shader.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1001,
+        "name_ru": "Aghanim Purple",
+        "name_en": "Aghanim Purple",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak13_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/Aghanim Purple Shader.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1002,
+        "name_ru": "Aghanim Peach",
+        "name_en": "Aghanim Peach",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak15_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/Aghanim Peach Shader.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1003,
+        "name_ru": "Aghanim White",
+        "name_en": "Aghanim White",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak17_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/Aghanim White Shader.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1004,
+        "name_ru": "Aghanim Green",
+        "name_en": "Aghanim Green",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak14_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/Aghanim Green Shader.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1005,
+        "name_ru": "Aghanim Red",
+        "name_en": "Aghanim Red",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak16_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/Aghanim Red Shader.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1006,
+        "name_ru": "Wave Purple",
+        "name_en": "Wave Purple",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak20_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/Wave Purple Shader.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1007,
+        "name_ru": "Wave Peach",
+        "name_en": "Wave Peach",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak19_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/Wave Peach Shader.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1008,
+        "name_ru": "Wave White",
+        "name_en": "Wave White",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak22_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/Wave White Shader.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1009,
+        "name_ru": "Wave Green",
+        "name_en": "Wave Green",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak18_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/Wave Green Shader.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1010,
+        "name_ru": "Wave Red",
+        "name_en": "Wave Red",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak21_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/Wave Red Shader.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1011,
+        "name_ru": "Diretide (outline)",
+        "name_en": "Diretide (outline)",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak08_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/diretide_shader.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1012,
+        "name_ru": "Haze",
+        "name_en": "Haze",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak11_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/haze_shader.webp",
+        "source": "https://dota2changer.com/skins_dota_2_mods-haze_shader/"
+      },
+      {
+        "id": 1013,
+        "name_ru": "Ancient",
+        "name_en": "Ancient",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak10_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/ancient_shader.webp",
+        "source": "https://dota2changer.com/skins_dota_2_mods-ancient_shader/"
+      },
+      {
+        "id": 1014,
+        "name_ru": "Purple Ancient",
+        "name_en": "Purple Ancient",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak12_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/purple_ancient_shader.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1015,
+        "name_ru": "Purple Outline",
+        "name_en": "Purple Outline",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak09_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/Purple Outline Shader.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1016,
+        "name_ru": "Wave Lite Blue",
+        "name_en": "Wave Lite Blue",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak23_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/Wave Lite Blue.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1017,
+        "name_ru": "Wave Lite Aqua",
+        "name_en": "Wave Lite Aqua",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak24_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/Wave Lite Aqua.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1018,
+        "name_ru": "Wave Lite Pink",
+        "name_en": "Wave Lite Pink",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak25_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/Wave Lite Pink.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1019,
+        "name_ru": "Wave Lite Purple",
+        "name_en": "Wave Lite Purple",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak26_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/Wave Lite Purple.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1020,
+        "name_ru": "Wave Lite Peach",
+        "name_en": "Wave Lite Peach",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak27_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/Wave Lite Peach.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1021,
+        "name_ru": "Wave Lite Green",
+        "name_en": "Wave Lite Green",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak28_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/Wave Lite Green.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1022,
+        "name_ru": "Wave Lite Red",
+        "name_en": "Wave Lite Red",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak29_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/Wave Lite Red.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1023,
+        "name_ru": "Wave Lite White",
+        "name_en": "Wave Lite White",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak30_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/Wave Lite White.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1024,
+        "name_ru": "Wave Lite Yellow",
+        "name_en": "Wave Lite Yellow",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak31_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/Wave Lite Yellow.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1025,
+        "name_ru": "Aghanim Green Lite",
+        "name_en": "Aghanim Green Lite",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak32_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/Aghanim Green Lite.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1026,
+        "name_ru": "Aghanim Purple Lite",
+        "name_en": "Aghanim Purple Lite",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak33_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/Aghanim Purple Lite.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1027,
+        "name_ru": "Aghanim White Lite",
+        "name_en": "Aghanim White Lite",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak34_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/Aghanim White Lite.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1028,
+        "name_ru": "Aghanim Yellow Lite",
+        "name_en": "Aghanim Yellow Lite",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak35_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/Aghanim Yellow Lite.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1029,
+        "name_ru": "Aghanim Red Lite",
+        "name_en": "Aghanim Red Lite",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/shaders/pak36_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/shaders/Aghanim Red Lite.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      }
+    ]
+  },
+  {
+    "id": "ti-bp-effects",
+    "ru": "Ti-bp-effects",
+    "en": "Ti-bp-effects",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1030,
+        "name_ru": "TI 2019 Battle Pass",
+        "name_en": "TI 2019 Battle Pass",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/ti-bp-effects/pak09_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/ti-bp-effects/TI 2019 Battle Pass.webp",
+        "source": "assets/previews/ti-bp-effects/TI_2019_Battle_Pass.mp4"
+      },
+      {
+        "id": 1031,
+        "name_ru": "TI 2018 Battle Pass",
+        "name_en": "TI 2018 Battle Pass",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/ti-bp-effects/pak13_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/ti-bp-effects/TI 2018 Battle Pass.webp",
+        "source": "assets/previews/ti-bp-effects/TI_2018_Battle_Pass.mp4"
+      },
+      {
+        "id": 1032,
+        "name_ru": "TI 2017 Battle Pass",
+        "name_en": "TI 2017 Battle Pass",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/ti-bp-effects/pak17_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/ti-bp-effects/TI 2017 Battle Pass.webp",
+        "source": "assets/previews/ti-bp-effects/TI_2017_Battle_Pass.mp4"
+      },
+      {
+        "id": 1033,
+        "name_ru": "Winter 2016 Battle Pass",
+        "name_en": "Winter 2016 Battle Pass",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/ti-bp-effects/pak18_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/ti-bp-effects/Winter 2016 Battle Pass.webp",
+        "source": "assets/previews/ti-bp-effects/Winter_2016_Battle_Pass.mp4"
+      },
+      {
+        "id": 1034,
+        "name_ru": "TI 2016 Battle Pass",
+        "name_en": "TI 2016 Battle Pass",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/ti-bp-effects/pak19_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/ti-bp-effects/TI 2016 Battle Pass.webp",
+        "source": "assets/previews/ti-bp-effects/TI_2016_Battle_Pass.mp4"
+      },
+      {
+        "id": 1035,
+        "name_ru": "TI 10 Battle Pass",
+        "name_en": "TI 10 Battle Pass",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/ti-bp-effects/pak24_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/ti-bp-effects/TI 10 Battle Pass.webp",
+        "source": "assets/previews/ti-bp-effects/TI_10_Battle_Pass.mp4"
+      },
+      {
+        "id": 1036,
+        "name_ru": "Nemestice 2021 Battle Pass",
+        "name_en": "Nemestice 2021 Battle Pass",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/ti-bp-effects/pak27_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/ti-bp-effects/Nemestice 2021 Battle Pass.webp",
+        "source": "assets/previews/ti-bp-effects/Nemestice_2021_Battle_Pass.mp4"
+      },
+      {
+        "id": 1037,
+        "name_ru": "Aghanims Labyrinth Battle Pass",
+        "name_en": "Aghanims Labyrinth Battle Pass",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/ti-bp-effects/pak39_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/ti-bp-effects/Aghanims Labyrinth Battle Pass.webp",
+        "source": "assets/previews/ti-bp-effects/Aghanims_Labyrinth_Battle_Pass.mp4"
+      },
+      {
+        "id": 1038,
+        "name_ru": "Quarteros Curios",
+        "name_en": "Quarteros Curios",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/ti-bp-effects/pak40_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/ti-bp-effects/Quarteros Curios.webp",
+        "source": "assets/previews/ti-bp-effects/Quarteros_Curios.mp4"
+      },
+      {
+        "id": 1039,
+        "name_ru": "Purple Quarteros Curios",
+        "name_en": "Purple Quarteros Curios",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/ti-bp-effects/pak97_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/ti-bp-effects/Purple Quarteros Curios.webp",
+        "source": "assets/previews/ti-bp-effects/Purple_Quarteros_Curios.mp4"
+      },
+      {
+        "id": 1040,
+        "name_ru": "Darkness Pack",
+        "name_en": "Darkness Pack",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/ti-bp-effects/pak10_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/ti-bp-effects/Darkness Pack.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      }
+    ]
+  },
+  {
+    "id": "creep-deny",
+    "ru": "Creep-deny",
+    "en": "Creep-deny",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1041,
+        "name_ru": "Deny ?",
+        "name_en": "Deny ?",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/creep-deny/pak08_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/creep-deny/deny_huh.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1042,
+        "name_ru": "Soul Deny",
+        "name_en": "Soul Deny",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/creep-deny/pak11_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/creep-deny/soul_deny.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1043,
+        "name_ru": "Fuck Deny",
+        "name_en": "Fuck Deny",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/creep-deny/pak12_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/creep-deny/fuck_deny.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1044,
+        "name_ru": "Deny Fall 2022",
+        "name_en": "Deny Fall 2022",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/creep-deny/pak21_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/creep-deny/deny_fall_2022.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1045,
+        "name_ru": "Deny Spring",
+        "name_en": "Deny Spring",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/creep-deny/pak22_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/creep-deny/deny_spring.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1046,
+        "name_ru": "Deny Fall 2021",
+        "name_en": "Deny Fall 2021",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/creep-deny/pak23_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/creep-deny/deny_fall_2021.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1047,
+        "name_ru": "lasthit Golden Shards",
+        "name_en": "lasthit Golden Shards",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/creep-deny/pak35_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/creep-deny/lasthit_golden_shards.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      }
+    ]
+  },
+  {
+    "id": "emblems",
+    "ru": "Emblems",
+    "en": "Emblems",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1048,
+        "name_ru": "Emblem of the Diretide Green",
+        "name_en": "Emblem of the Diretide Green",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/emblems/pak28_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/emblems/Emblem of the Diretide Green.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1049,
+        "name_ru": "Emblem of the Diretide Blue",
+        "name_en": "Emblem of the Diretide Blue",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/emblems/pak29_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/emblems/Emblem of the Diretide Blue.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1050,
+        "name_ru": "Emblem of the Diretide Yellow",
+        "name_en": "Emblem of the Diretide Yellow",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/emblems/pak30_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/emblems/Emblem of the Diretide Yellow.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1051,
+        "name_ru": "Emblem of the Diretide Red",
+        "name_en": "Emblem of the Diretide Red",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/emblems/pak31_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/emblems/Emblem of the Diretide Red.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1052,
+        "name_ru": "Battle Pass 2022 Emblem",
+        "name_en": "Battle Pass 2022 Emblem",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/emblems/pak32_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/emblems/Battle Pass 2022 Emblem.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1053,
+        "name_ru": "Emblem of the Crystal Echelon",
+        "name_en": "Emblem of the Crystal Echelon",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/emblems/pak33_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/emblems/Emblem of the Crystal Echelon.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1054,
+        "name_ru": "Emblem of Divinity",
+        "name_en": "Emblem of Divinity",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/emblems/pak34_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/emblems/Emblem of Divinity.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1055,
+        "name_ru": "Nemestice Emblem",
+        "name_en": "Nemestice Emblem",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/emblems/pak35_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/emblems/Nemestice Emblem.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1056,
+        "name_ru": "Overgrown Emblem",
+        "name_en": "Overgrown Emblem",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/emblems/pak36_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/emblems/Overgrown Emblem.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1057,
+        "name_ru": "Aghanims Emblem",
+        "name_en": "Aghanims Emblem",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/emblems/pak37_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/emblems/Aghanims Emblem.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1058,
+        "name_ru": "Sunken Emblem",
+        "name_en": "Sunken Emblem",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/emblems/pak38_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/emblems/Sunken Emblem.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1059,
+        "name_ru": "Emblem Black Star",
+        "name_en": "Emblem Black Star",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/emblems/pak19_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/emblems/Emblem Black Star.webp",
+        "source": "https://dota2changer.com/skins_dota_2_mods-emblem_lsq_black_star/"
+      },
+      {
+        "id": 1060,
+        "name_ru": "Emblem Darkness",
+        "name_en": "Emblem Darkness",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/emblems/pak20_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/emblems/Emblem Darkness.webp",
+        "source": "https://dota2changer.com/skins_dota_2_mods-emblem_darkness/"
+      },
+      {
+        "id": 1061,
+        "name_ru": "Bard Frog Emblem",
+        "name_en": "Bard Frog Emblem",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/emblems/pak39_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/emblems/Bard Frog Emblem.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1062,
+        "name_ru": "Bard Frog Emblem v2",
+        "name_en": "Bard Frog Emblem v2",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/emblems/pak40_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/emblems/Bard Frog Emblem v2.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      }
+    ]
+  },
+  {
+    "id": "versus-screens",
+    "ru": "Versus-screens",
+    "en": "Versus-screens",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1063,
+        "name_ru": "Winter Versus Screen",
+        "name_en": "Winter Versus Screen",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/versus-screens/pak45_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/versus-screens/Winter Versus Screen.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1064,
+        "name_ru": "TI9 Versus Screen I",
+        "name_en": "TI9 Versus Screen I",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/versus-screens/pak46_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/versus-screens/TI9 Versus Screen I.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1065,
+        "name_ru": "TI9 Versus Screen II",
+        "name_en": "TI9 Versus Screen II",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/versus-screens/pak47_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/versus-screens/TI9 Versus Screen II.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1066,
+        "name_ru": "Nemestice Versus Screen",
+        "name_en": "Nemestice Versus Screen",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/versus-screens/pak48_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/versus-screens/Nemestice Versus Screen.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1067,
+        "name_ru": "TI 2024 Versus Screen",
+        "name_en": "TI 2024 Versus Screen",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/versus-screens/pak69_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/versus-screens/TI 2024 Versus Screen.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1068,
+        "name_ru": "Muerta Radiant Versus Screen",
+        "name_en": "Muerta Radiant Versus Screen",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/versus-screens/pak70_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/versus-screens/Muerta Radiant Versus Screen.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1069,
+        "name_ru": "Muerta Dire Versus Screen",
+        "name_en": "Muerta Dire Versus Screen",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/versus-screens/pak71_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/versus-screens/Muerta Dire Versus Screen.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1070,
+        "name_ru": "Diretide Radiant Versus Screen",
+        "name_en": "Diretide Radiant Versus Screen",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/versus-screens/pak72_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/versus-screens/Diretide Radiant Versus Screen.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1071,
+        "name_ru": "Diretide Dire Versus Screen",
+        "name_en": "Diretide Dire Versus Screen",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/versus-screens/pak73_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/versus-screens/Diretide Dire Versus Screen.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      }
+    ]
+  },
+  {
+    "id": "terrains",
+    "ru": "Ландшафты",
+    "en": "Terrains",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1072,
+        "name_ru": "DarkPoly & Trees",
+        "name_en": "DarkPoly & Trees",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/terrains/pak35_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/terrains/DarkPoly+Trees.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1073,
+        "name_ru": "DarkPoly",
+        "name_en": "DarkPoly",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/terrains/pak36_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/terrains/DarkPoly.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1074,
+        "name_ru": "Mossy Cobblestone",
+        "name_en": "Mossy Cobblestone",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/terrains/pak96_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/terrains/Mossy Cobblestone.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1075,
+        "name_ru": "Bedrock",
+        "name_en": "Bedrock",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/terrains/pak20_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/terrains/Bedrock.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1076,
+        "name_ru": "Dark Terrain Minify",
+        "name_en": "Dark Terrain Minify",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/terrains/pak55_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/terrains/Dark Terrain.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      }
+    ]
+  },
+  {
+    "id": "trees",
+    "ru": "Деревья",
+    "en": "Trees",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1077,
+        "name_ru": "Pumpkin Trees",
+        "name_en": "Pumpkin Trees",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/trees/pak25_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/trees/Pumpkin Trees.webp",
+        "source": "https://dota2changer.com/skins_dota_2_mods-pumpkin_trees_up/"
+      },
+      {
+        "id": 1078,
+        "name_ru": "Small Trees Minify",
+        "name_en": "Small Trees Minify",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/trees/pak57_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/trees/Small Trees.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      }
+    ]
+  },
+  {
+    "id": "heroes",
+    "ru": "Heroes",
+    "en": "Heroes",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1079,
+        "name_ru": "Bare Brewmaster 🥰",
+        "name_en": "Bare Brewmaster 🥰",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Bare Brewmaster.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Bare Brewmaster.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1080,
+        "name_ru": "IO Purple",
+        "name_en": "IO Purple",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/IO Purple.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Purple IO.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1081,
+        "name_ru": "Natures Prophet Allfather",
+        "name_en": "Natures Prophet Allfather",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Natures Prophet Allfather.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Natures Prophet Allfather.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1082,
+        "name_ru": "Shadow Shaman Purple",
+        "name_en": "Shadow Shaman Purple",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Shadow Shaman Purple.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Shadow Shaman Purple.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1083,
+        "name_ru": "Warlock Puppet Bear",
+        "name_en": "Warlock Puppet Bear",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Warlock Puppet Bear.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Warlock Puppet Bear.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1084,
+        "name_ru": "Cosmic Spirit Breaker",
+        "name_en": "Cosmic Spirit Breaker",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Cosmic Spirit Breaker.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Cosmic Spirit Breaker.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1085,
+        "name_ru": "Visage Grimfeather Сorpse",
+        "name_en": "Visage Grimfeather Сorpse",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Visage Grimfeather Сorpse.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Visage Grimfeather Сorpse.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1086,
+        "name_ru": "Mars Diretide Shimmer",
+        "name_en": "Mars Diretide Shimmer",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Mars Diretide Shimmer.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Mars Diretide Shimmer.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1087,
+        "name_ru": "Cosmic Zeus",
+        "name_en": "Cosmic Zeus",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Cosmic Zeus.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Cosmic Zeus.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1088,
+        "name_ru": "Lifestealer Diretide Shimmer",
+        "name_en": "Lifestealer Diretide Shimmer",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Lifestealer Diretide Shimmer.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Lifestealer Diretide Shimmer.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1089,
+        "name_ru": "Lion Cannonroar Confessor",
+        "name_en": "Lion Cannonroar Confessor",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Lion Cannonroar Confessor.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Lion Cannonroar Confessor.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1090,
+        "name_ru": "Cosmic Faceless Void",
+        "name_en": "Cosmic Faceless Void",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Faceless Void Chrononaut Continuum.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Faceless Void Chrononaut Continuum.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1091,
+        "name_ru": "Spectre Shadowveil",
+        "name_en": "Spectre Shadowveil",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Spectre Shadowveil.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Spectre Shadowveil.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1092,
+        "name_ru": "Alien Nyx Assassin",
+        "name_en": "Alien Nyx Assassin",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Alien Nyx Assassin.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Alien Nyx Assassin.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1093,
+        "name_ru": "Ancients Lina",
+        "name_en": "Ancients Lina",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Ancients Lina.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Ancients Lina.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1094,
+        "name_ru": "Arc Warden Black Hole",
+        "name_en": "Arc Warden Black Hole",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Arc Warden Black Hole.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Arc Warden Black Hole.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1095,
+        "name_ru": "Arc Warden Sakura Winter",
+        "name_en": "Arc Warden Sakura Winter",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Arc Warden Sakura Winter.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Arc Warden Sakura Winter.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1096,
+        "name_ru": "Ashes Arc Warden",
+        "name_en": "Ashes Arc Warden",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Ashes Arc Warden.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Ashes Arc Warden.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1097,
+        "name_ru": "Axe Immortal Bootblack",
+        "name_en": "Axe Immortal Bootblack",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Axe Immortal Bootblack.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Axe Immortal Bootblack.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1098,
+        "name_ru": "Bloody Enigma",
+        "name_en": "Bloody Enigma",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Bloody Enigma.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Bloody Enigma.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1099,
+        "name_ru": "Bloody Kez",
+        "name_en": "Bloody Kez",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Bloody Kez.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Bloody Kez.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1100,
+        "name_ru": "Brewmaster Jousting Panda",
+        "name_en": "Brewmaster Jousting Panda",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Brewmaster Jousting Panda.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Brewmaster Jousting Panda.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1101,
+        "name_ru": "Broodmother Redan",
+        "name_en": "Broodmother Redan",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Broodmother Redan.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Broodmother Redan.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1102,
+        "name_ru": "Clinkz Silver Metall Pink",
+        "name_en": "Clinkz Silver Metall Pink",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Clinkz Silver Metall Pink.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Clinkz Silver Metall Pink.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1103,
+        "name_ru": "Darkness Weaver",
+        "name_en": "Darkness Weaver",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Darkness Weaver.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Darkness Weaver.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1104,
+        "name_ru": "Drow Ranger Stranger Arcana",
+        "name_en": "Drow Ranger Stranger Arcana",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Drow Ranger Stranger Arcana.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Drow Ranger Stranger Arcana.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1105,
+        "name_ru": "Earthshaker Red Arcana",
+        "name_en": "Earthshaker Red Arcana",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Earthshaker Red Arcana.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Earthshaker Red Arcana.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1106,
+        "name_ru": "Ghost Shadow Fiend",
+        "name_en": "Ghost Shadow Fiend",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Ghost Fiend.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Ghost Fiend.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1107,
+        "name_ru": "Ghosty Slark",
+        "name_en": "Ghosty Slark",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Ghosty Slark.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Ghosty Slark.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1108,
+        "name_ru": "Gopo Pudge",
+        "name_en": "Gopo Pudge",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/GopoPudge.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/GopoPudge.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1109,
+        "name_ru": "Gopo Tidehunter",
+        "name_en": "Gopo Tidehunter",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/GopoTide.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/GopoTide.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1110,
+        "name_ru": "Ice Phoenix",
+        "name_en": "Ice Phoenix",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Ice Phoenix.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Ice Phoenix.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1111,
+        "name_ru": "Ice Venomancer",
+        "name_en": "Ice Venomancer",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Ice Venomancer.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Ice Venomancer.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1112,
+        "name_ru": "IO Pink Arcana",
+        "name_en": "IO Pink Arcana",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/IO Pink Arcana.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/IO Pink Arcana.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1113,
+        "name_ru": "Kai Meepo",
+        "name_en": "Kai Meepo",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Kai Meepo.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Kai Meepo.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1114,
+        "name_ru": "Legion Commander Crimson Black",
+        "name_en": "Legion Commander Crimson Black",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Legion Commander Crimson Black.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Legion Commander Crimson Black.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1115,
+        "name_ru": "Morphling Darktrench Purple",
+        "name_en": "Morphling Darktrench Purple",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Morphling Darktrench Stalker Purple.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Morphling Darktrench Stalker Purple.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1116,
+        "name_ru": "Nightmare Chaos Knight",
+        "name_en": "Nightmare Chaos Knight",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Nightmare Chaos Knight.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Nightmare Chaos Knight.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1117,
+        "name_ru": "Ogre Magi Custom Arcana",
+        "name_en": "Ogre Magi Custom Arcana",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Ogre Magi Custom Arcana.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Ogre Magi Custom Arcana.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1118,
+        "name_ru": "Old Storm Spirit",
+        "name_en": "Old Storm Spirit",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Old Storm Spirit.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Old Storm Spirit.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1119,
+        "name_ru": "Pudge Arcana Elephant",
+        "name_en": "Pudge Arcana Elephant",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Pudge Arcana Elephant.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Pudge Arcana Elephant.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1120,
+        "name_ru": "Pudge CM",
+        "name_en": "Pudge CM",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Pudge CM.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Pudge CM.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1121,
+        "name_ru": "Queen of Pain Rose",
+        "name_en": "Queen of Pain Rose",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Queen of Pain Rose.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Queen of Pain Rose.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1122,
+        "name_ru": "Russian Ursa",
+        "name_en": "Russian Ursa",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Russian Ursa.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Russian Ursa.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1123,
+        "name_ru": "Scarlet Keeper",
+        "name_en": "Scarlet Keeper",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Scarlet Keeper.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Scarlet Keeper.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1124,
+        "name_ru": "Shadow Fiend White",
+        "name_en": "Shadow Fiend White",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Shadow Fiend White.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Shadow Fiend White.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1125,
+        "name_ru": "Spectre Toxin",
+        "name_en": "Spectre Toxin",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Spectre Toxin.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Spectre Toxin.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1126,
+        "name_ru": "Spirit Breaker Ghost Monster",
+        "name_en": "Spirit Breaker Ghost Monster",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Spirit Breaker Ghost Monster.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Spirit Breaker Ghost Monster.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1127,
+        "name_ru": "Steel Sand King",
+        "name_en": "Steel Sand King",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Steel King.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Steel King.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1128,
+        "name_ru": "The Mawsworn Razor",
+        "name_en": "The Mawsworn Razor",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/The Mawsworn Razor.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/The Mawsworn Razor.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1129,
+        "name_ru": "Ursa White and Red",
+        "name_en": "Ursa White and Red",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Ursa White and Red.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Ursa White and Red.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1130,
+        "name_ru": "Winter Ember Spirit",
+        "name_en": "Winter Ember Spirit",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Winter Ember Spirit.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Winter Ember Spirit.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1131,
+        "name_ru": "Night Ursa",
+        "name_en": "Night Ursa",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Night Ursa.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Night Ursa.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1132,
+        "name_ru": "Flameling Morphling",
+        "name_en": "Flameling Morphling",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Flameling Morphling.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Flameling Morphling.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1133,
+        "name_ru": "Ghost Void Spirit",
+        "name_en": "Ghost Void Spirit",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Ghost Void Spirit.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Ghost Void Spirit.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1134,
+        "name_ru": "Anti-Mage Shadow Slayer",
+        "name_en": "Anti-Mage Shadow Slayer",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Anti-Mage Shadow Slayer.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Anti-Mage Shadow Slayer.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1135,
+        "name_ru": "Dawnbreaker Death Knight",
+        "name_en": "Dawnbreaker Death Knight",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Dawnbreaker Death Knight.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Dawnbreaker Death Knight.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1136,
+        "name_ru": "Bloody Death Prophet",
+        "name_en": "Bloody Death Prophet",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Bloody Death Prophet.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Bloody Death Prophet.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1137,
+        "name_ru": "Blue Soul Huskar",
+        "name_en": "Blue Soul Huskar",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Blue Soul Huskar.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Blue Soul Huskar.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1138,
+        "name_ru": "Bloody Templar Assassin",
+        "name_en": "Bloody Templar Assassin",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Bloody Lanaya.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Bloody Lanaya.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1139,
+        "name_ru": "Red Abaddon",
+        "name_en": "Red Abaddon",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Red Abaddon.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Red Abaddon.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1140,
+        "name_ru": "Void Morphling",
+        "name_en": "Void Morphling",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Void Morphling.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Void Morphling.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1141,
+        "name_ru": "Terrorblade Wrong Arcana",
+        "name_en": "Terrorblade Wrong Arcana",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Terrorblade Wrong Arcana.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Terrorblade Wrong Arcana.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1142,
+        "name_ru": "Jakiro Himera",
+        "name_en": "Jakiro Himera",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Jakiro Himera.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Jakiro Himera.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1143,
+        "name_ru": "Cosmic Enigma",
+        "name_en": "Cosmic Enigma",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Cosmic Enigma.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Cosmic Enigma.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1144,
+        "name_ru": "Medusa Gorgon",
+        "name_en": "Medusa Gorgon",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Medusa Gorgon.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Medusa Gorgon.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1145,
+        "name_ru": "Ifrit Monkey King",
+        "name_en": "Ifrit Monkey King",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Ifrit Monkey King.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Ifrit Monkey King.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1146,
+        "name_ru": "Morphling Darktrench Tears",
+        "name_en": "Morphling Darktrench Tears",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Morphling Darktrench Tears.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Morphling Darktrench Tears.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1147,
+        "name_ru": "Sven Blue Angel",
+        "name_en": "Sven Blue Angel",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Sven Blue Angel.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Sven Blue Angel.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1148,
+        "name_ru": "Pinkie Sven",
+        "name_en": "Pinkie Sven",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Pinkie Sven.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Pinkie Sven.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1149,
+        "name_ru": "Sherman Crystal Maiden",
+        "name_en": "Sherman Crystal Maiden",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Sherman Crystal Maiden.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Sherman Crystal Maiden.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1150,
+        "name_ru": "Sakura Pink Invoker",
+        "name_en": "Sakura Pink Invoker",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/heroes/Sakura Pink Invoker.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/heroes/Sakura Pink Invoker.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      }
+    ]
+  },
+  {
+    "id": "roshan",
+    "ru": "Рошан",
+    "en": "Roshan",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1151,
+        "name_ru": "Aghanims Roshan",
+        "name_en": "Aghanims Roshan",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/roshan/pak52_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/roshan/Aghanims Roshan.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1152,
+        "name_ru": "Greevil Grief Roshan",
+        "name_en": "Greevil Grief Roshan",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/roshan/pak58_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/roshan/Greevil Grief Roshan.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1153,
+        "name_ru": "Winter Roshan",
+        "name_en": "Winter Roshan",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/roshan/pak59_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/roshan/Winter Roshan.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1154,
+        "name_ru": "Desert Roshan",
+        "name_en": "Desert Roshan",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/roshan/pak60_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/roshan/Desert Roshan.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1155,
+        "name_ru": "Gardens Roshan",
+        "name_en": "Gardens Roshan",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/roshan/pak61_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/roshan/Gardens Roshan.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1156,
+        "name_ru": "Golden Roshan",
+        "name_en": "Golden Roshan",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/roshan/pak62_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/roshan/Golden Roshan.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1157,
+        "name_ru": "Journey Roshan",
+        "name_en": "Journey Roshan",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/roshan/pak63_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/roshan/Journey Roshan.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1158,
+        "name_ru": "Reef Roshan",
+        "name_en": "Reef Roshan",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/roshan/pak64_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/roshan/Reef Roshan.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1159,
+        "name_ru": "Santa Hat Roshan",
+        "name_en": "Santa Hat Roshan",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/roshan/pak65_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/roshan/Santa Hat Roshan.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      }
+    ]
+  },
+  {
+    "id": "ancient",
+    "ru": "Ancient",
+    "en": "Ancient",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1160,
+        "name_ru": "Ancient Dragon King",
+        "name_en": "Ancient Dragon King",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/ancient/pak30_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/ancient/Ancient Dragon King.webp",
+        "source": "https://dota2changer.com/skins_dota_2_mods-ancient_dragon_king/"
+      },
+      {
+        "id": 1161,
+        "name_ru": "Frostivus Ancient",
+        "name_en": "Frostivus Ancient",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/ancient/pak74_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/ancient/Frostivus Ancient.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      }
+    ]
+  },
+  {
+    "id": "tormentor",
+    "ru": "Tormentor",
+    "en": "Tormentor",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1162,
+        "name_ru": "Frostivus Tormentor",
+        "name_en": "Frostivus Tormentor",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/tormentor/pak75_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/tormentor/Frostivus Tormentor.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      }
+    ]
+  },
+  {
+    "id": "ranged-attack",
+    "ru": "Ranged-attack",
+    "en": "Ranged-attack",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1163,
+        "name_ru": "Nemestice Ranged Attack",
+        "name_en": "Nemestice Ranged Attack",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/ranged-attack/pak13_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/ranged-attack/Nemestice Ranged Attack.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1164,
+        "name_ru": "Aghanim Ranged Attack",
+        "name_en": "Aghanim Ranged Attack",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/ranged-attack/pak14_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/ranged-attack/Aghanim Ranged Attack.webp",
+        "source": "https://dota2changer.com/"
+      },
+      {
+        "id": 1165,
+        "name_ru": "Green Diretide Ranged Attack",
+        "name_en": "Green Diretide Ranged Attack",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/ranged-attack/pak15_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/ranged-attack/Green Diretide Ranged Attack.webp",
+        "source": "https://dota2changer.com/"
+      },
+      {
+        "id": 1166,
+        "name_ru": "Blue Diretide Ranged Attack",
+        "name_en": "Blue Diretide Ranged Attack",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/ranged-attack/pak16_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/ranged-attack/Diretide Blue.webp",
+        "source": "https://dota2changer.com/"
+      },
+      {
+        "id": 1167,
+        "name_ru": "Red Diretide Ranged Attack",
+        "name_en": "Red Diretide Ranged Attack",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/ranged-attack/pak17_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/ranged-attack/Diretide Red.webp",
+        "source": "https://dota2changer.com/"
+      },
+      {
+        "id": 1168,
+        "name_ru": "Yellow Diretide Ranged Attack",
+        "name_en": "Yellow Diretide Ranged Attack",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/ranged-attack/pak18_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/ranged-attack/Diretide Yellow.webp",
+        "source": "https://dota2changer.com/"
+      },
+      {
+        "id": 1169,
+        "name_ru": "TI12 Ranged Attack",
+        "name_en": "TI12 Ranged Attack",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/ranged-attack/pak19_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/ranged-attack/ti12.webp",
+        "source": "https://dota2changer.com/"
+      },
+      {
+        "id": 1170,
+        "name_ru": "TI10 Ranged Attack",
+        "name_en": "TI10 Ranged Attack",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/ranged-attack/pak20_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/ranged-attack/ti10.webp",
+        "source": "https://dota2changer.com/"
+      },
+      {
+        "id": 1171,
+        "name_ru": "TI9 Ranged Attack",
+        "name_en": "TI9 Ranged Attack",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/ranged-attack/pak21_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/ranged-attack/ti9.webp",
+        "source": "https://dota2changer.com/"
+      }
+    ]
+  },
+  {
+    "id": "mega-kill",
+    "ru": "Mega-kill",
+    "en": "Mega-kill",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1172,
+        "name_ru": "Nedotrax Mega-Kill",
+        "name_en": "Nedotrax Mega-Kill",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/mega-kill/pak10_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/mega-kill/Nedotrax Mega-Kill.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      }
+    ]
+  },
+  {
+    "id": "announcers",
+    "ru": "Announcers",
+    "en": "Announcers",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1173,
+        "name_ru": "Kunkka & Tidehunter",
+        "name_en": "Kunkka & Tidehunter",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/announcers/pak10_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/announcers/Kunkka & Tidehunter.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1174,
+        "name_ru": "Rick & Morty",
+        "name_en": "Rick & Morty",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/announcers/pak11_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/announcers/Rick and Morty.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1175,
+        "name_ru": "Meepo",
+        "name_en": "Meepo",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/announcers/pak12_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/announcers/Meepo.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1176,
+        "name_ru": "Lina",
+        "name_en": "Lina",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/announcers/pak13_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/announcers/Lina.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1177,
+        "name_ru": "Dark Willow",
+        "name_en": "Dark Willow",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/announcers/pak14_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/announcers/Dark Willow.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1178,
+        "name_ru": "Darkest Dungeon",
+        "name_en": "Darkest Dungeon",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/announcers/pak15_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/announcers/Darkest Dungeon.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1179,
+        "name_ru": "Voice of The International",
+        "name_en": "Voice of The International",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/announcers/pak16_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/announcers/Voice of The International.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1180,
+        "name_ru": "Pyrion Flax",
+        "name_en": "Pyrion Flax",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/announcers/pak17_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/announcers/Pyrion Flax.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1181,
+        "name_ru": "Tusk",
+        "name_en": "Tusk",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/announcers/pak18_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/announcers/Tusk.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      }
+    ]
+  },
+  {
+    "id": "pedestal",
+    "ru": "Pedestal",
+    "en": "Pedestal",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1182,
+        "name_ru": "Drow Ranger Pedestal",
+        "name_en": "Drow Ranger Pedestal",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/pedestal/pak78_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/pedestal/Drow Ranger Pedestal.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1183,
+        "name_ru": "Earthshaker Pedestal",
+        "name_en": "Earthshaker Pedestal",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/pedestal/pak79_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/pedestal/Earthshaker Pedestal.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1184,
+        "name_ru": "Windranger Pedestal",
+        "name_en": "Windranger Pedestal",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/pedestal/pak80_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/pedestal/Windranger Pedestal.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1185,
+        "name_ru": "Snow Pedestal",
+        "name_en": "Snow Pedestal",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/pedestal/pak16_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/pedestal/Snow Pedestal.webp",
+        "source": "https://dota2changer.com/skins_dota_2_mods-snow_pedestal/"
+      }
+    ]
+  },
+  {
+    "id": "high-five",
+    "ru": "High-five",
+    "en": "High-five",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1186,
+        "name_ru": "High Five Aghanim Puppet",
+        "name_en": "High Five Aghanim Puppet",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/high-five/pak76_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/high-five/High Five Aghanim Puppet.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1187,
+        "name_ru": "High Five Crownfall",
+        "name_en": "High Five Crownfall",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/high-five/pak77_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/high-five/High Five Crownfall.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      }
+    ]
+  },
+  {
+    "id": "other",
+    "ru": "Other",
+    "en": "Other",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1188,
+        "name_ru": "Profile Graffiti & Phrases",
+        "name_en": "Profile Graffiti & Phrases",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/other/pak44_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/other/Profile Graffiti & Phrases.webp",
+        "source": "https://steamcommunity.com/profiles/76561199145739904"
+      },
+      {
+        "id": 1189,
+        "name_ru": "Showcase Rotation",
+        "name_en": "Showcase Rotation",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/other/pak36_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/other/Showcase Rotation.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1190,
+        "name_ru": "Rage Voice Icon",
+        "name_en": "Rage Voice Icon",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/other/pak53_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/other/Rage Voice Icon.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1191,
+        "name_ru": "Gabe Shopkeeper",
+        "name_en": "Gabe Shopkeeper",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/other/pak10_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/other/Gabe Shopkeeper.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      }
+    ]
+  },
+  {
+    "id": "river",
+    "ru": "River",
+    "en": "River",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1192,
+        "name_ru": "Black River",
+        "name_en": "Black River",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/river/pak10_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/river/Black.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1193,
+        "name_ru": "Blood River",
+        "name_en": "Blood River",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/river/pak11_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/river/Blood.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1194,
+        "name_ru": "Blue River",
+        "name_en": "Blue River",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/river/pak12_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/river/Blue.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1195,
+        "name_ru": "Boiling Blood River",
+        "name_en": "Boiling Blood River",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/river/pak13_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/river/Boiling Blood.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1196,
+        "name_ru": "Boiling River",
+        "name_en": "Boiling River",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/river/pak14_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/river/Boiling.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1197,
+        "name_ru": "Chrome River",
+        "name_en": "Chrome River",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/river/pak15_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/river/Chrome.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1198,
+        "name_ru": "Cola River",
+        "name_en": "Cola River",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/river/pak16_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/river/Cola.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1199,
+        "name_ru": "Dry River",
+        "name_en": "Dry River",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/river/pak17_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/river/Dry.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1200,
+        "name_ru": "Electric River",
+        "name_en": "Electric River",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/river/pak18_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/river/Electric.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1201,
+        "name_ru": "Frozen River",
+        "name_en": "Frozen River",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/river/pak19_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/river/Frozen.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1202,
+        "name_ru": "Gold River",
+        "name_en": "Gold River",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/river/pak20_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/river/Gold.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1203,
+        "name_ru": "Green River",
+        "name_en": "Green River",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/river/pak21_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/river/Green.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1204,
+        "name_ru": "Oil River",
+        "name_en": "Oil River",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/river/pak22_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/river/Oil.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1205,
+        "name_ru": "Orange River",
+        "name_en": "Orange River",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/river/pak23_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/river/Orange.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1206,
+        "name_ru": "Pink River",
+        "name_en": "Pink River",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/river/pak24_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/river/Pink.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1207,
+        "name_ru": "Potion River",
+        "name_en": "Potion River",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/river/pak25_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/river/Potion.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1208,
+        "name_ru": "Purple River",
+        "name_en": "Purple River",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/river/pak26_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/river/Purple.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1209,
+        "name_ru": "Red River",
+        "name_en": "Red River",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/river/pak27_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/river/Red.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1210,
+        "name_ru": "Slime River",
+        "name_en": "Slime River",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/river/pak28_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/river/Slime.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1211,
+        "name_ru": "Yellow River",
+        "name_en": "Yellow River",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/river/pak29_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/river/Yellow.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      }
+    ]
+  },
+  {
+    "id": "backgrounds",
+    "ru": "Backgrounds",
+    "en": "Backgrounds",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1212,
+        "name_ru": "Ulquiorra Purple",
+        "name_en": "Ulquiorra Purple",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak10_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Ulquiorra Purple.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1213,
+        "name_ru": "Brewmaster",
+        "name_en": "Brewmaster",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak11_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Brewmaster.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1214,
+        "name_ru": "Moonflower Field",
+        "name_en": "Moonflower Field",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak12_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Moonflower Field.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1215,
+        "name_ru": "Forgotten Sword",
+        "name_en": "Forgotten Sword",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak13_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Forgotten Sword.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1216,
+        "name_ru": "Depressed SpongeBob",
+        "name_en": "Depressed SpongeBob",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak14_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Depressed SpongeBob.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1217,
+        "name_ru": "Lonely Quay",
+        "name_en": "Lonely Quay",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak15_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Lonely Quay.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1218,
+        "name_ru": "Code Geass",
+        "name_en": "Code Geass",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak16_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Code Geass.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1219,
+        "name_ru": "Winter Solitude",
+        "name_en": "Winter Solitude",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak17_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Winter.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1220,
+        "name_ru": "Cloudy Tree",
+        "name_en": "Cloudy Tree",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak18_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Tree.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1221,
+        "name_ru": "Zenitsu White",
+        "name_en": "Zenitsu White",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak19_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Zenitsu White.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1222,
+        "name_ru": "Nier Automata",
+        "name_en": "Nier Automata",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak20_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Nier Automata.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1223,
+        "name_ru": "Kurumi Tokisaki",
+        "name_en": "Kurumi Tokisaki",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak21_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Kurumi Tokisaki.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1224,
+        "name_ru": "Sad Maomao",
+        "name_en": "Sad Maomao",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak22_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Sad Maomao.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1225,
+        "name_ru": "Dead Eyes",
+        "name_en": "Dead Eyes",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak23_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Dead Eyes.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1226,
+        "name_ru": "Katana In Forest",
+        "name_en": "Katana In Forest",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak24_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Katana In Forest.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1227,
+        "name_ru": "Field Grass",
+        "name_en": "Field Grass",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak25_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Field Grass.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1228,
+        "name_ru": "Snowfall In Forest",
+        "name_en": "Snowfall In Forest",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak26_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Snowfall In Forest.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1229,
+        "name_ru": "Cyrene Song",
+        "name_en": "Cyrene Song",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak27_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Cyrene Song.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1230,
+        "name_ru": "Blossom Rem",
+        "name_en": "Blossom Rem",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak28_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Blossom Rem.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1231,
+        "name_ru": "Kakehashi Subaru",
+        "name_en": "Kakehashi Subaru",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak29_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Kakehashi Subaru.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1232,
+        "name_ru": "Ichigo",
+        "name_en": "Ichigo",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak30_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Ichigo.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1233,
+        "name_ru": "Liberalio Nikke",
+        "name_en": "Liberalio Nikke",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak31_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Liberalio Nikke.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1234,
+        "name_ru": "Rainy Girl",
+        "name_en": "Rainy Girl",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak32_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Rainy Girl.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1235,
+        "name_ru": "Rei Ayanami",
+        "name_en": "Rei Ayanami",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak33_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Rei Ayanami.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1236,
+        "name_ru": "Ulquiorra",
+        "name_en": "Ulquiorra",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak34_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Ulquiorra.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1237,
+        "name_ru": "Yuno Gasai",
+        "name_en": "Yuno Gasai",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak35_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Yuno Gasai.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1238,
+        "name_ru": "Sajin Komamura",
+        "name_en": "Sajin Komamura",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak36_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Sajin Komamura.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1239,
+        "name_ru": "Shadow Wreck",
+        "name_en": "Shadow Wreck",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak37_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Shadow Wreck.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1240,
+        "name_ru": "Lelouch Lamperouge",
+        "name_en": "Lelouch Lamperouge",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak38_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Lelouch Lamperouge.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1241,
+        "name_ru": "Kira and Ryuk",
+        "name_en": "Kira and Ryuk",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/backgrounds/pak39_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/backgrounds/Kira and Ryuk.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      }
+    ]
+  },
+  {
+    "id": "tools",
+    "ru": "Tools",
+    "en": "Tools",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1242,
+        "name_ru": "Background Changer",
+        "name_en": "Background Changer",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/tools/Background Changer.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/tools/Background Changer.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      }
+    ]
+  },
+  {
+    "id": "optimization",
+    "ru": "Optimization",
+    "en": "Optimization",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1243,
+        "name_ru": "Dota2 Minify",
+        "name_en": "Dota2 Minify",
+        "file": "https://github.com/egezenn/dota2-minify",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/optimization/Minify.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1244,
+        "name_ru": "Commands",
+        "name_en": "Commands",
+        "file": "https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/optimization/Commands.md",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/optimization/Commands.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      }
+    ]
+  },
+  {
+    "id": "sites",
+    "ru": "Sites",
+    "en": "Sites",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1245,
+        "name_ru": "Stratz",
+        "name_en": "Stratz",
+        "file": "https://stratz.com/",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/sites/stratz.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1246,
+        "name_ru": "DotaBuff",
+        "name_en": "DotaBuff",
+        "file": "https://www.dotabuff.com/",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/sites/dotabuff.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1247,
+        "name_ru": "OpenDota",
+        "name_en": "OpenDota",
+        "file": "https://www.opendota.com/",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/sites/opendota.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1248,
+        "name_ru": "Dota2ProTracker",
+        "name_en": "Dota2ProTracker",
+        "file": "https://dota2protracker.com/",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/sites/dota2protracker.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1249,
+        "name_ru": "Dota2 Emoji Nickname",
+        "name_en": "Dota2 Emoji Nickname",
+        "file": "https://l4wio.github.io/dota2-emoji-nickname/",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/sites/Dota2EmojiNickname.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1250,
+        "name_ru": "Steam Status",
+        "name_en": "Steam Status",
+        "file": "https://steamstat.us/",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/sites/steamstatus.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      }
+    ]
+  },
+  {
+    "id": "guides",
+    "ru": "Guides",
+    "en": "Guides",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1251,
+        "name_ru": "Commands & Binds",
+        "name_en": "Commands & Binds",
+        "file": "https://github.com/h6rd/Dota2PornFxWeb/tree/main/assets/files/other/Commands.md",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/guides/Commands.mp4",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      }
+    ]
+  },
+  {
+    "id": "ranks",
+    "ru": "Ranks",
+    "en": "Ranks",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1252,
+        "name_ru": "Imperial Medals",
+        "name_en": "Imperial Medals",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/ranks/pak10_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/ranks/Imperial Medals.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1253,
+        "name_ru": "Flaming Medals",
+        "name_en": "Flaming Medals",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/ranks/pak11_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/ranks/Flaming Medals.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1254,
+        "name_ru": "Void Medals",
+        "name_en": "Void Medals",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/ranks/pak12_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/ranks/Void Medals.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1255,
+        "name_ru": "Bear Medals",
+        "name_en": "Bear Medals",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/ranks/pak13_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/ranks/Bear Medals.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      }
+    ]
+  },
+  {
+    "id": "item-icons",
+    "ru": "Item-icons",
+    "en": "Item-icons",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1256,
+        "name_ru": "Beer Bottle",
+        "name_en": "Beer Bottle",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/item-icons/pak26_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/item-icons/Beer Bottle.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1257,
+        "name_ru": "Arcanas Items",
+        "name_en": "Arcanas Items",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/item-icons/pak83_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/item-icons/Arcanas Items.webp",
+        "source": "https://t.me/hitman47attacks"
+      },
+      {
+        "id": 1258,
+        "name_ru": "Nyash Items",
+        "name_en": "Nyash Items",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/item-icons/pak10_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/item-icons/Nyash Items.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1259,
+        "name_ru": "Allstars Items",
+        "name_en": "Allstars Items",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/item-icons/pak11_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/item-icons/Allstars Items.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      }
+    ]
+  },
+  {
+    "id": "wards",
+    "ru": "Wards",
+    "en": "Wards",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1260,
+        "name_ru": "Curious Snaptrap",
+        "name_en": "Curious Snaptrap",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/wards/pak10_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/wards/Curious Snaptrap.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1261,
+        "name_ru": "Floes Tower",
+        "name_en": "Floes Tower",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/wards/pak11_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/wards/Floes Tower.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1262,
+        "name_ru": "Trailgazer",
+        "name_en": "Trailgazer",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/wards/pak12_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/wards/Trailgazer.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1263,
+        "name_ru": "Monty",
+        "name_en": "Monty",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/wards/pak13_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/wards/Monty.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1264,
+        "name_ru": "Portal",
+        "name_en": "Portal",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/wards/pak14_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/wards/Portal.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      }
+    ]
+  },
+  {
+    "id": "couriers",
+    "ru": "Couriers",
+    "en": "Couriers",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1265,
+        "name_ru": "Waldi the Faithful",
+        "name_en": "Waldi the Faithful",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/couriers/pak10_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/couriers/Waldi the Faithful.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1266,
+        "name_ru": "Baby Roshan Crownfall",
+        "name_en": "Baby Roshan Crownfall",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/couriers/pak11_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/couriers/BabyRoshan Crownfall.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1267,
+        "name_ru": "Billy Bounceback",
+        "name_en": "Billy Bounceback",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/couriers/pak12_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/couriers/Billy Bounceback.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1268,
+        "name_ru": "Palico Odogaron",
+        "name_en": "Palico Odogaron",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/couriers/pak13_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/couriers/Palico Odogaron.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1269,
+        "name_ru": "Dark Moon Baby Roshan",
+        "name_en": "Dark Moon Baby Roshan",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/couriers/pak14_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/couriers/Dark Moon Baby Roshan.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1270,
+        "name_ru": "Ice Baby Roshan",
+        "name_en": "Ice Baby Roshan",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/couriers/pak15_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/couriers/Ice Baby Roshan.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1271,
+        "name_ru": "Baby Roshan",
+        "name_en": "Baby Roshan",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/couriers/pak16_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/couriers/Baby Roshan.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      }
+    ]
+  },
+  {
+    "id": "music",
+    "ru": "Music",
+    "en": "Music",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1272,
+        "name_ru": "TheFatRat Warrior",
+        "name_en": "TheFatRat Warrior",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/music/pak10_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/music/TheFatRat Warrior.webp",
+        "source": "https://dota2.fandom.com/wiki/TheFatRat_Warrior_Songs_Music_Pack"
+      },
+      {
+        "id": 1273,
+        "name_ru": "JJ Lin Timekeeper",
+        "name_en": "JJ Lin Timekeeper",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/music/pak11_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/music/JJ Lin Timekeeper.webp",
+        "source": "https://dota2.fandom.com/wiki/JJ_Lin%27s_Timekeeper_Music_Pack"
+      },
+      {
+        "id": 1274,
+        "name_ru": "deadmau5 dieback",
+        "name_en": "deadmau5 dieback",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/music/pak12_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/music/deadmau5 dieback.webp",
+        "source": "https://dota2.fandom.com/wiki/Deadmau5_dieback_music_pack"
+      },
+      {
+        "id": 1275,
+        "name_ru": "Elemental Fury",
+        "name_en": "Elemental Fury",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/music/pak13_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/music/Elemental Fury.webp",
+        "source": "https://dota2.fandom.com/wiki/Elemental_Fury_Music_Pack"
+      },
+      {
+        "id": 1276,
+        "name_ru": "Heroes Within",
+        "name_en": "Heroes Within",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/music/pak14_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/music/Heroes Within.webp",
+        "source": "https://dota2.fandom.com/wiki/Heroes_Within_Music_Pack"
+      },
+      {
+        "id": 1277,
+        "name_ru": "Humanity Last Breath",
+        "name_en": "Humanity Last Breath",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/music/pak15_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/music/Humanity Last Breath.webp",
+        "source": "https://dota2.fandom.com/wiki/Humanity%27s_Last_Breath:_Void_Music_Pack"
+      },
+      {
+        "id": 1278,
+        "name_ru": "Dire Shred",
+        "name_en": "Dire Shred",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/music/pak16_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/music/Dire Shred.webp",
+        "source": "https://dota2.fandom.com/wiki/Dire_Shred_Cover_Pack"
+      },
+      {
+        "id": 1279,
+        "name_ru": "The International 2019",
+        "name_en": "The International 2019",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/music/pak17_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/music/The International 2019.webp",
+        "source": "https://dota2.fandom.com/wiki/The_International_2019_Music_Pack"
+      },
+      {
+        "id": 1280,
+        "name_ru": "The International 2014",
+        "name_en": "The International 2014",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/music/pak18_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/music/The International 2014.webp",
+        "source": "https://dota2.fandom.com/wiki/The_International_2014_Music_Pack"
+      },
+      {
+        "id": 1281,
+        "name_ru": "The International 2015",
+        "name_en": "The International 2015",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/music/pak19_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/music/The International 2015.webp",
+        "source": "https://dota2.fandom.com/wiki/The_International_2015_Music_Pack"
+      },
+      {
+        "id": 1282,
+        "name_ru": "The International 2016",
+        "name_en": "The International 2016",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/music/pak20_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/music/The International 2016.webp",
+        "source": "https://dota2.fandom.com/wiki/The_International_2016_Music_Pack"
+      },
+      {
+        "id": 1283,
+        "name_ru": "The International 2017",
+        "name_en": "The International 2017",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/music/pak21_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/music/The International 2017.webp",
+        "source": "https://dota2.fandom.com/wiki/The_International_2017_Music_Pack"
+      }
+    ]
+  },
+  {
+    "id": "cursors",
+    "ru": "Курсоры",
+    "en": "Cursors",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1284,
+        "name_ru": "Default Cursor",
+        "name_en": "Default Cursor",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/cursors/Default Cursor.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/cursors/Default Cursor.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1285,
+        "name_ru": "Earthshaker Cursor",
+        "name_en": "Earthshaker Cursor",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/cursors/Earthshaker Cursor.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/cursors/Earthshaker Cursor.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1286,
+        "name_ru": "TI8 Cursor",
+        "name_en": "TI8 Cursor",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/cursors/TI8 Cursor.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/cursors/TI8 Cursor.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1287,
+        "name_ru": "Diretide Cursor",
+        "name_en": "Diretide Cursor",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/cursors/Diretide Cursor.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/cursors/Diretide Cursor.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1288,
+        "name_ru": "Emerald Cursor",
+        "name_en": "Emerald Cursor",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/cursors/Emerald Cursor.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/cursors/Emerald Cursor.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1289,
+        "name_ru": "TI9 Cursor",
+        "name_en": "TI9 Cursor",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/cursors/TI9 Cursor.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/cursors/TI9 Cursor.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1290,
+        "name_ru": "Necronub Cursor",
+        "name_en": "Necronub Cursor",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/cursors/Necronub Cursor.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/cursors/Necronub Cursor.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1291,
+        "name_ru": "Holy Flame Cursor",
+        "name_en": "Holy Flame Cursor",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/cursors/Holy Flame Cursor.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/cursors/Holy Flame Cursor.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1292,
+        "name_ru": "Centaur Cursor",
+        "name_en": "Centaur Cursor",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/cursors/Centaur Cursor.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/cursors/Centaur Cursor.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1293,
+        "name_ru": "Chaos Knight Cursor",
+        "name_en": "Chaos Knight Cursor",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/cursors/Chaos Knight Cursor.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/cursors/Chaos Knight Cursor.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1294,
+        "name_ru": "Clockwerk Cursor",
+        "name_en": "Clockwerk Cursor",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/cursors/Clockwerk Cursor.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/cursors/Clockwerk Cursor.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1295,
+        "name_ru": "Crystal Maiden Cursor",
+        "name_en": "Crystal Maiden Cursor",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/cursors/Crystal Maiden Cursor.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/cursors/Crystal Maiden Cursor.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1296,
+        "name_ru": "Dcveno Cursor",
+        "name_en": "Dcveno Cursor",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/cursors/Dcveno Cursor.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/cursors/Dcveno Cursor.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1297,
+        "name_ru": "Mirana Cursor",
+        "name_en": "Mirana Cursor",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/cursors/Mirana Cursor.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/cursors/Mirana Cursor.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1298,
+        "name_ru": "Bts3 Cursor",
+        "name_en": "Bts3 Cursor",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/cursors/Bts3 Cursor.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/cursors/Bts3 Cursor.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1299,
+        "name_ru": "Skywrath Mage Cursor",
+        "name_en": "Skywrath Mage Cursor",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/cursors/Skywrath Mage Cursor.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/cursors/Skywrath Mage Cursor.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1300,
+        "name_ru": "TI5 Cursor",
+        "name_en": "TI5 Cursor",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/cursors/TI5 Cursor.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/cursors/TI5 Cursor.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1301,
+        "name_ru": "TI6 Cursor",
+        "name_en": "TI6 Cursor",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/cursors/TI6 Cursor.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/cursors/TI6 Cursor.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1302,
+        "name_ru": "TI7 Cursor",
+        "name_en": "TI7 Cursor",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/cursors/TI7 Cursor.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/cursors/TI7 Cursor.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1303,
+        "name_ru": "Timbersaw Cursor",
+        "name_en": "Timbersaw Cursor",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/cursors/Timbersaw Cursor.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/cursors/Timbersaw Cursor.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1304,
+        "name_ru": "Vengeful Spirit Cursor",
+        "name_en": "Vengeful Spirit Cursor",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/cursors/Vengeful Spirit Cursor.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/cursors/Vengeful Spirit Cursor.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1305,
+        "name_ru": "Simple Cursor",
+        "name_en": "Simple Cursor",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/cursors/Simple Cursor.zip",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/cursors/Simple Cursor.webp",
+        "source": "https://t.me/slipersone"
+      }
+    ]
+  },
+  {
+    "id": "pings",
+    "ru": "Пинги",
+    "en": "Pings",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1306,
+        "name_ru": "Skeleton Black Ping",
+        "name_en": "Skeleton Black Ping",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/pings/pak10_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/pings/Skeleton Black Ping.webp",
+        "source": "https://t.me/Darkness_Logovo"
+      },
+      {
+        "id": 1307,
+        "name_ru": "Skeleton Blue Ping",
+        "name_en": "Skeleton Blue Ping",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/pings/pak11_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/pings/Skeleton Blue Ping.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1308,
+        "name_ru": "Skeleton Purple Ping",
+        "name_en": "Skeleton Purple Ping",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/pings/pak12_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/pings/Skeleton Purple Ping.webp",
+        "source": "https://t.me/Darkness_Logovo"
+      }
+    ]
+  },
+  {
+    "id": "herofx",
+    "ru": "Herofx",
+    "en": "Herofx",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1309,
+        "name_ru": "Sniper Ardalan Interdictor",
+        "name_en": "Sniper Ardalan Interdictor",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/herofx/pak10_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/herofx/Sniper Ardalan Interdictor.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      },
+      {
+        "id": 1310,
+        "name_ru": "Enigma World Chasm Artifact",
+        "name_en": "Enigma World Chasm Artifact",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/herofx/pak11_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/herofx/Enigma World Chasm Artifact.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      }
+    ]
+  },
+  {
+    "id": "hero-sounds",
+    "ru": "Звуки героев",
+    "en": "Hero Sounds",
+    "exclusive": false,
+    "mods": [
+      {
+        "id": 1311,
+        "name_ru": "Largo Serega Pirat",
+        "name_en": "Largo Serega Pirat",
+        "file": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/hero-sounds/pak10_dir.vpk",
+        "img": "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/refs/heads/main/assets/files/previews/hero-sounds/Largo Serega Pirat.webp",
+        "source": "https://h6rd.github.io/Dota2PornFxWeb/"
+      }
+    ]
   }
 ]

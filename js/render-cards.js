@@ -58,7 +58,7 @@ function renderCategories() {
     if (activeFilter === 'all') {
         html += CONFIG.map((cat, i) => `
             <div onclick="renderMods('${cat.id}')" onmouseenter="if(typeof hoverSfx === 'function') hoverSfx()" 
-                 class="glass-card cat-card p-6 cursor-pointer group stagger-item flex flex-col min-h-[360px] border border-white/5 hover:border-[var(--accent)]/50 transition-all" 
+                 class="glass-card cat-card p-6 cursor-pointer group stagger-item flex flex-col min-h-[360px]" 
                  style="animation-delay: ${i*0.06}s">
                 
                 <div class="folder-preview mb-6 flex-shrink-0 pointer-events-none">
@@ -66,15 +66,14 @@ function renderCategories() {
                     <img src="${ASSETS_BASE_URL}${cat.mods[1]?.img || cat.mods[0].img}" loading="lazy" class="folder-img img-2 shadow-2xl">
                 </div>
 
-                <div class="flex flex-col flex-grow justify-between text-center">
-                    <div>
-                        <h3 class="font-heading text-2xl font-black text-white/90 group-hover:text-white tracking-tight transition-colors mb-2">
-                            ${cat[lang]}
-                        </h3>
-                    </div>
-                    <div class="mt-auto">
-                        <div class="inline-block px-4 py-1.5 border-white/10 group-hover:bg-[var(--accent)]/10 transition-all">
-                            <span class="text-[11px] text-neutral-300 font-black uppercase tracking-[0.15em]">
+                <div class="flex flex-col flex-grow">
+                    <h3 class="font-heading text-2xl font-black text-white/90 group-hover:text-white tracking-tight transition-colors mb-2 text-center uppercase">
+                        ${cat[lang]}
+                    </h3>
+                    
+                    <div class="mt-auto flex justify-center">
+                        <div class="px-4 py-1 bg-white/5 rounded-lg border border-white/5">
+                             <span class="text-[11px] text-neutral-400 font-black uppercase tracking-widest">
                                 ${cat.mods.length} ${TR[lang].items}
                             </span>
                         </div>
