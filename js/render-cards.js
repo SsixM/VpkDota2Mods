@@ -12,8 +12,16 @@ function renderSkeletons() {
         </div>`;
 }
 
+const PornfxUrl = "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/";
+const basedurl = "https://ssixm.github.io/VpkDota2Mods/src/";
+
 function createCardHtml(m, catId, idx) {
     const isSel = selected.has(m.id);
+    
+    const previewUrl = m.img.includes("raw.githubusercontent.com/h6rd/Dota2PornFxWeb/") 
+        ? m.img 
+        : `${basedurl}${m.img}`;
+
     const sourceBtn = m.source ? `
         <a href="${m.source}" target="_blank" onclick="event.stopPropagation(); if(typeof hoverSfx === 'function') hoverSfx()" 
            class="p-2.5 bg-black/60 backdrop-blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-all hover:bg-blue-500 hover:scale-110 z-20"
@@ -25,7 +33,7 @@ function createCardHtml(m, catId, idx) {
         <div class="glass-card mod-card p-4 cursor-pointer relative stagger-item ${isSel ? 'mod-selected' : ''}" 
              style="animation-delay: ${idx * 0.05}s" id="mod-${m.id}" onmouseenter="if(typeof hoverSfx === 'function') hoverSfx()">
             <div onclick="toggleMod(${m.id}, '${catId}')" class="aspect-[4/3] rounded-xl overflow-hidden mb-4 relative bg-zinc-900 group">
-                <img src="${ASSETS_BASE_URL}${m.img}" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90 group-hover:opacity-100">
+                <img src="${previewUrl}" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90 group-hover:opacity-100">
                 <div class="check-overlay"><svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg></div>
                 
                 <div class="absolute top-3 right-3 flex gap-2">
@@ -56,14 +64,23 @@ function renderCategories() {
     html += '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">';
     
     if (activeFilter === 'all') {
-        html += CONFIG.map((cat, i) => `
+        html += CONFIG.map((cat, i) => {
+            const getUrl = (img) => img.includes("raw.githubusercontent.com/h6rd/Dota2PornFxWeb/") 
+                ? img 
+                : `${basedurl}${img}`;
+
+            const img1 = getUrl(cat.mods[0].img);
+            const secondImg = cat.mods[1] ? cat.mods[1].img : cat.mods[0].img;
+            const img2 = getUrl(secondImg);
+
+            return `
             <div onclick="renderMods('${cat.id}')" onmouseenter="if(typeof hoverSfx === 'function') hoverSfx()" 
                  class="glass-card cat-card p-6 cursor-pointer group stagger-item flex flex-col min-h-[360px]" 
                  style="animation-delay: ${i*0.06}s">
                 
                 <div class="folder-preview mb-6 flex-shrink-0 pointer-events-none">
-                    <img src="${ASSETS_BASE_URL}${cat.mods[0].img}" loading="lazy" class="folder-img img-1 shadow-2xl">
-                    <img src="${ASSETS_BASE_URL}${cat.mods[1]?.img || cat.mods[0].img}" loading="lazy" class="folder-img img-2 shadow-2xl">
+                    <img src="${img1}" loading="lazy" class="folder-img img-1 shadow-2xl">
+                    <img src="${img2}" loading="lazy" class="folder-img img-2 shadow-2xl">
                 </div>
 
                 <div class="flex flex-col flex-grow">
@@ -79,7 +96,8 @@ function renderCategories() {
                         </div>
                     </div>
                 </div>
-            </div>`).join('');
+            </div>`;
+        }).join('');
     } else {
         html += modsToDisplay.map((m, i) => createCardHtml(m, m.catId, i)).join('');
     }
