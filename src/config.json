@@ -36,6 +36,7 @@
         "name_ru": "Деревья-таблетки",
         "name_en": "Pill Trees",
         "file": "pilltree.vpk",
+        "source": "https://github.com/SsixM/VpkDota2Mods/",
         "img": "pilltree.jpg",
         "desc_ru": "Упрощенные модели деревьев.",
         "desc_en": "Simplified tree models."

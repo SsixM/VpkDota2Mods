@@ -2,27 +2,41 @@ function openPreview(id) {
     const mod = CONFIG.flatMap(c => c.mods).find(m => m.id === id);
     if(!mod) return;
     
-    techSfx();
+    if (typeof techSfx === 'function') techSfx();
     
     const overlay = document.createElement('div');
-    overlay.className = 'modal-overlay active';
+    overlay.className = 'modal-overlay active flex items-center justify-center p-4 md:p-8';
     overlay.id = 'preview-modal';
     overlay.onclick = (e) => { if(e.target === overlay) closePreview(); };
 
-    overlay.innerHTML = `
-        <div class="modal-content !max-w-4xl !p-0 overflow-hidden border border-white/10 bg-[#08090d]">
-            <div class="relative group">
-                <img src="${ASSETS_BASE_URL}${mod.img}" class="w-full h-auto max-h-[80vh] object-contain bg-black/40">
-                
-                <button onclick="closePreview()" class="absolute top-6 right-6 w-12 h-12 bg-black/60 backdrop-blur-xl rounded-full flex items-center justify-center hover:bg-red-500 hover:scale-110 transition-all z-50 group/btn">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path d="M6 18L18 6M6 6l12 12" stroke-width="2.5" stroke-linecap="round"/>
-                    </svg>
-                </button>
+    const sourceLink = mod.source ? `
+        <a href="${mod.source}" target="_blank" class="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-neutral-500 hover:text-blue-400 transition-colors mt-4">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            ${TR[lang].source}
+        </a>` : '';
 
-                <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black via-black/80 to-transparent">
-                    <h2 class="font-heading text-4xl font-black text-white tracking-tighter">${mod['name_'+lang]}</h2>
-                    <p class="text-neutral-400 mt-2 font-medium max-w-2xl">${mod['desc_'+lang] || ''}</p>
+    overlay.innerHTML = `
+        <div class="modal-content !max-w-5xl !p-0 overflow-hidden border border-white/10 bg-[#0c0d12] shadow-[0_0_100px_rgba(0,0,0,0.8)] relative animate-in zoom-in duration-300">
+            <button onclick="closePreview()" class="absolute top-4 right-4 w-10 h-10 bg-black/60 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-red-500 transition-all z-50 text-white">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            
+            <div class="flex flex-col lg:flex-row">
+                <div class="lg:w-2/3 bg-black flex items-center justify-center overflow-hidden">
+                    <img src="${ASSETS_BASE_URL}${mod.img}" class="w-full h-full object-cover min-h-[400px]">
+                </div>
+                <div class="lg:w-1/3 p-8 flex flex-col border-l border-white/5 bg-[#0e1015]">
+                    <div class="mb-6">
+                        <span class="text-[10px] font-black text-[var(--accent)] uppercase tracking-widest mb-2 block">${TR[lang].previewMode}</span>
+                        <h2 class="font-heading text-3xl font-black text-white tracking-tighter leading-tight">${mod['name_'+lang]}</h2>
+                        ${sourceLink}
+                    </div>
+                    <div class="flex-grow">
+                        <p class="text-neutral-400 text-sm leading-relaxed font-medium">${mod['desc_'+lang] || TR[lang].noDesc}</p>
+                    </div>
+                    <button onclick="toggleMod(${mod.id}); closePreview();" class="mt-8 w-full py-4 rounded-xl font-black uppercase text-[11px] tracking-widest transition-all ${selected.has(mod.id) ? 'bg-red-500/10 text-red-500 border border-red-500/20 hover:bg-red-500 hover:text-white' : 'bg-white text-black hover:bg-[var(--accent)] hover:text-white'}">
+                        ${selected.has(mod.id) ? TR[lang].removePack : TR[lang].selectMod}
+                    </button>
                 </div>
             </div>
         </div>`;
@@ -32,8 +46,9 @@ function openPreview(id) {
 function closePreview() {
     const m = document.getElementById('preview-modal');
     if(m) {
-        hoverSfx();
-        m.remove();
+        if (typeof hoverSfx === 'function') hoverSfx();
+        m.classList.remove('active');
+        setTimeout(() => m.remove(), 200);
     }
 }
 
@@ -83,7 +98,7 @@ function openInstructionModal() {
             </div>
             <div class="p-8 pt-0">
                 <button onclick="document.getElementById('inst-modal').remove()" class="w-full py-4 bg-white text-black rounded-2xl font-black uppercase text-xs tracking-[0.2em] hover:bg-[var(--accent)] hover:text-white transition-all">
-                    Понял, за работу
+                    Понял
                 </button>
             </div>
         </div>`;
