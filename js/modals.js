@@ -2,11 +2,23 @@ function openPreview(id) {
     const mod = CONFIG.flatMap(c => c.mods).find(m => m.id === id);
     if(!mod) return;
     
-    // Исправление 9: Установка хэша
-    window.location.hash = id;
+    const newHash = `#mod-${id}`;
+    history.replaceState(null, null, newHash);
 
     if (typeof techSfx === 'function') techSfx();
     
+    const oldModal = document.getElementById('preview-modal');
+    if (oldModal) oldModal.remove();
+
+
+const isVideo = mod.img && (mod.img.endsWith('.mp4') || mod.img.endsWith('.webm'));
+const fullMediaUrl = mod.img.includes("raw.githubusercontent.com") ? mod.img : `${ASSETS_BASE_URL}${mod.img}`;
+
+const modalMediaHtml = isVideo 
+    ? `<video src="${fullMediaUrl}" autoplay muted playsinline loop class="w-full h-full object-contain max-h-[70vh]"></video>`
+    : `<img src="${fullMediaUrl}" class="w-full h-full object-contain max-h-[70vh]">`;
+
+
     const overlay = document.createElement('div');
     overlay.className = 'modal-overlay active flex items-center justify-center p-4 md:p-8';
     overlay.id = 'preview-modal';
@@ -26,7 +38,7 @@ function openPreview(id) {
             
             <div class="flex flex-col lg:flex-row">
                 <div class="lg:w-2/3 bg-black flex items-center justify-center overflow-hidden">
-                    <img src="${ASSETS_BASE_URL}${mod.img}" class="w-full h-full object-cover min-h-[400px]">
+                    ${modalMediaHtml}
                 </div>
                 <div class="lg:w-1/3 p-8 flex flex-col border-l border-white/5 bg-[#0e1015]">
                     <div class="mb-6">
@@ -53,13 +65,8 @@ function closePreview() {
         m.classList.remove('active');
         setTimeout(() => m.remove(), 200);
         
-        // Возвращаем хэш к категории
-        if (currentCat) {
-            window.location.hash = currentCat;
-        } else {
-            window.location.hash = "";
-            history.pushState("", document.title, window.location.pathname + window.location.search);
-        }
+        const backHash = currentCat ? `#${currentCat}` : ' ';
+        history.replaceState(null, null, window.location.pathname + backHash);
     }
 }
 
