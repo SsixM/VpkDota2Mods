@@ -38,7 +38,7 @@ function setFilter(f) {
 function setLang(l) {
     lang = l;
     saveState();
-    
+    fetchLastUpdate()
     const ruBtn = document.getElementById('lang-ru');
     const enBtn = document.getElementById('lang-en');
     if(ruBtn) ruBtn.style.color = l === 'ru' ? 'var(--accent)' : '#555';
