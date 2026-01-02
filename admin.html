@@ -2,148 +2,194 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>VPK.MANAGER | TERMINAL</title>
+    <title>VPK CORE | MASTER TERMINAL</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root { --accent: #818cf8; --bg: #050507; --panel: #0d0e12; }
-        body { background: var(--bg); color: #a1a1aa; font-family: 'Plus Jakarta Sans', sans-serif; }
-        .terminal-border { border: 1px solid rgba(129, 140, 248, 0.1); transition: 0.3s; }
-        .terminal-border:focus-within { border-color: var(--accent); box-shadow: 0 0 20px rgba(129, 140, 248, 0.1); }
-        .input-clean { background: transparent; border: none; outline: none; color: white; width: 100%; }
-        .mod-card { background: var(--panel); border-radius: 16px; border: 1px solid rgba(255,255,255,0.03); }
-        .btn-action { background: var(--accent); color: #000; font-weight: 800; padding: 10px 20px; border-radius: 8px; font-size: 11px; text-transform: uppercase; cursor: pointer; }
-        .loading-bar { height: 2px; width: 0%; background: var(--accent); position: fixed; top: 0; left: 0; transition: 0.3s; z-index: 100; }
-        #admin-panel { display: none; }
-        .loader { display: none; position: fixed; top: 20px; right: 20px; font-family: 'JetBrains Mono'; font-size: 10px; color: var(--accent); }
+        :root { --accent: #6366f1; --bg: #09090b; --card: #121217; --border: rgba(255,255,255,0.06); }
+        body { background: var(--bg); color: #d4d4d8; font-family: 'Plus Jakarta Sans', sans-serif; min-height: 100vh; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .mod-card { background: var(--card); border: 1px solid var(--border); border-radius: 1.5rem; transition: 0.3s; }
+        .mod-card:hover { border-color: var(--accent); }
+        .input-group { background: rgba(0,0,0,0.2); border: 1px solid var(--border); border-radius: 0.75rem; padding: 0.75rem; }
+        input, textarea { background: transparent; border: none; outline: none; color: white; width: 100%; font-size: 0.875rem; }
+        label { font-size: 0.65rem; font-weight: 800; text-transform: uppercase; color: #71717a; display: block; margin-bottom: 0.25rem; }
+        .loading { opacity: 0.5; pointer-events: none; cursor: wait; }
+        #auth-wall { position: fixed; inset: 0; background: var(--bg); z-index: 9999; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(20px); }
+        .hidden { display: none !important; }
     </style>
 </head>
-<body class="p-4 md:p-10">
-    <div class="loading-bar" id="progress"></div>
-    <div class="loader" id="sync-loader">SYNCING_WITH_GITHUB...</div>
+<body class="p-6">
 
-    <div id="login-form" class="max-w-xs mx-auto mt-40">
-        <h1 class="font-black text-2xl text-white mb-6 tracking-tighter italic">VPK.AUTH</h1>
-        <div class="terminal-border p-4 rounded-xl mb-4">
-            <input type="password" id="pass" class="input-clean" placeholder="TERMINAL_KEY">
+    <div id="auth-wall">
+        <div class="bg-zinc-900 border border-white/10 p-10 rounded-[2.5rem] w-full max-w-md text-center shadow-2xl">
+            <h2 class="text-3xl font-black text-white mb-2 uppercase tracking-tighter">Admin Access</h2>
+            <p class="text-zinc-500 text-sm mb-8">Введите пароль для Genterfd3 API</p>
+            <input type="password" id="login-pass" placeholder="••••••••" class="bg-black/40 border border-white/10 rounded-2xl px-6 py-4 text-center text-xl mono w-full focus:border-indigo-500 outline-none mb-4 text-white">
+            <button onclick="login()" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white py-4 rounded-2xl font-bold uppercase tracking-widest transition-all">Вход</button>
         </div>
-        <button onclick="start()" class="btn-action w-full">Access</button>
     </div>
 
-    <div id="admin-panel" class="max-w-6xl mx-auto">
-        <header class="flex justify-between items-end mb-12">
-            <div>
-                <h1 class="font-black text-4xl text-white tracking-tighter">VPK<span class="text-indigo-400">.</span>CORE</h1>
-                <p class="text-[10px] font-mono opacity-40">REMOTE_REPO: github.com/SsixM/VpkDota2Mods</p>
-            </div>
-            <button onclick="sync('add_cat', {id: 'new_'+Date.now()})" class="btn-action">+ New Category</button>
-        </header>
+    <div id="main-ui" class="hidden">
+        <div class="max-w-[1400px] mx-auto">
+            <header class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 bg-zinc-900/50 p-8 rounded-[2rem] border border-white/5">
+                <div>
+                    <h1 class="text-2xl font-black text-white tracking-tighter uppercase mb-1">VPK Master Terminal</h1>
+                    <p class="text-xs mono text-zinc-500">Endpoint: <span class="text-emerald-500">pythonanywhere.com/api</span></p>
+                </div>
+                <div class="flex gap-3">
+                    <button onclick="logout()" class="px-6 py-3 border border-white/10 rounded-xl font-bold text-xs uppercase text-zinc-400 hover:text-red-500">Выйти</button>
+                    <button onclick="addCategory()" class="bg-white text-black hover:bg-indigo-500 hover:text-white px-6 py-3 rounded-xl font-bold text-xs uppercase tracking-widest transition-all">Создать Категорию</button>
+                </div>
+            </header>
 
-        <div id="content" class="space-y-16"></div>
+            <div id="editor-root" class="space-y-16 pb-24"></div>
+        </div>
     </div>
 
     <script>
+        const API = "https://Genterfd3.pythonanywhere.com/api";
         let config = [];
-        let pass = "";
-        const API = "https://genterfd3.pythonanywhere.com/api";
 
-        async function start() {
-            pass = document.getElementById('pass').value;
-            const res = await fetch("https://ssixm.github.io/VpkDota2Mods/src/config.json");
-            config = await res.json();
-            document.getElementById('login-form').style.display = 'none';
-            document.getElementById('admin-panel').style.display = 'block';
-            render();
+        function login() {
+            const pass = document.getElementById('login-pass').value;
+            if (pass) { localStorage.setItem('admin_password', pass); checkAuth(); }
+        }
+
+        function logout() { localStorage.removeItem('admin_password'); location.reload(); }
+
+        function checkAuth() {
+            if (localStorage.getItem('admin_password')) {
+                document.getElementById('auth-wall').classList.add('hidden');
+                document.getElementById('main-ui').classList.remove('hidden');
+                init();
+            }
         }
 
         async function sync(type, payload) {
-            document.getElementById('progress').style.width = '50%';
-            document.getElementById('sync-loader').style.display = 'block';
+            const password = localStorage.getItem('admin_password');
+            const root = document.getElementById('editor-root');
+            root.classList.add('loading');
+
             try {
                 const res = await fetch(`${API}/action`, {
                     method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({password: pass, type, payload})
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ password, type, payload })
                 });
                 const data = await res.json();
-                if(data.success) {
+                if (data.success) {
                     config = data.config;
                     render();
+                } else if (data.error === "403") {
+                    alert("Доступ запрещен (403)");
+                    logout();
                 }
-            } finally {
-                document.getElementById('progress').style.width = '100%';
-                setTimeout(() => {
-                    document.getElementById('progress').style.width = '0%';
-                    document.getElementById('sync-loader').style.display = 'none';
-                }, 500);
-            }
+            } catch (e) { alert("Ошибка бэкенда. Проверь PythonAnywhere."); }
+            root.classList.remove('loading');
         }
 
-        async function upload(input, cIdx, mIdx, type) {
-            const fd = new FormData();
-            fd.append('file', input.files[0]);
-            fd.append('password', pass);
-            fd.append('folder', type === 'img' ? 'src/media' : 'vpk');
-            
-            document.getElementById('sync-loader').innerText = "UPLOADING_FILE...";
-            document.getElementById('sync-loader').style.display = 'block';
+        async function upload(input, field, modId) {
+            const password = localStorage.getItem('admin_password');
+            const file = input.files[0];
+            if (!file) return;
 
-            const res = await fetch(`${API}/upload`, { method: 'POST', body: fd });
-            const data = await res.json();
-            if(data.success) {
-                const finalPath = type === 'img' ? `media/${data.filename}` : data.filename;
-                const mod = config[cIdx].mods[mIdx];
-                mod[type] = finalPath;
-                sync('edit_mod', {id: mod.id, data: {[type]: finalPath}});
-            }
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('password', password);
+
+            input.parentElement.classList.add('loading');
+            try {
+                const res = await fetch(`${API}/upload_proxy`, { method: 'POST', body: formData });
+                const data = await res.json();
+                if (data.success) {
+                    const updateData = {};
+                    updateData[field] = data.filename;
+                    sync('edit_mod', { id: modId, data: updateData });
+                } else { alert("Ошибка загрузки: " + data.error); }
+            } catch (e) { alert("Сервер загрузки недоступен."); }
         }
 
         function render() {
-            const root = document.getElementById('content');
+            const root = document.getElementById('editor-root');
             root.innerHTML = config.map((cat, ci) => `
-                <div class="space-y-6">
-                    <div class="flex items-center gap-6 border-b border-white/5 pb-4">
-                        <input class="font-black text-xl text-white bg-transparent outline-none w-48" value="${cat.ru}" onchange="sync('edit_cat', {old_id: '${cat.id}', id: '${cat.id}', ru: this.value, en: '${cat.en}', exclusive: ${cat.exclusive}})">
-                        <input class="font-mono text-[10px] opacity-30 bg-transparent outline-none w-32" value="${cat.id}" onchange="sync('edit_cat', {old_id: '${cat.id}', id: this.value, ru: '${cat.ru}', en: '${cat.en}', exclusive: ${cat.exclusive}})">
-                        <button onclick="sync('add_mod', {cat_id: '${cat.id}'})" class="text-[10px] text-emerald-400 font-bold hover:underline tracking-widest">+ ADD_MOD</button>
-                        <button onclick="sync('del_cat', {id: '${cat.id}'})" class="text-[10px] text-red-500 font-bold hover:underline tracking-widest ml-auto">DELETE_CAT</button>
+                <section class="space-y-8 animate-in fade-in duration-500">
+                    <div class="flex items-center justify-between border-b border-white/5 pb-6">
+                        <div class="flex gap-6">
+                            <div class="w-64">
+                                <label>Category Name (RU)</label>
+                                <input class="text-xl font-bold text-white" value="${cat.ru}" onchange="sync('edit_cat', {old_id: '${cat.id}', id: '${cat.id}', ru: this.value, en: '${cat.en}', exclusive: ${cat.exclusive}})">
+                            </div>
+                            <div class="w-64">
+                                <label>Category Name (EN)</label>
+                                <input class="text-xl font-bold text-white/40" value="${cat.en}" onchange="sync('edit_cat', {old_id: '${cat.id}', id: '${cat.id}', ru: '${cat.ru}', en: this.value, exclusive: ${cat.exclusive}})">
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="sync('add_mod', {cat_id: '${cat.id}'})" class="px-4 py-2 bg-indigo-500 text-white rounded-xl text-[10px] font-black uppercase tracking-tighter">Add Mod</button>
+                            <button onclick="sync('del_cat', {id: '${cat.id}'})" class="px-4 py-2 bg-white/5 text-red-500 rounded-xl text-[10px] font-black uppercase tracking-tighter">Delete</button>
+                        </div>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        ${cat.mods.map((m, mi) => `
+
+                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+                        ${cat.mods.map(m => `
                             <div class="mod-card p-6 space-y-4">
-                                <div class="flex gap-4">
-                                    <input class="input-clean font-bold text-sm" value="${m.name_ru}" onchange="sync('edit_mod', {id: ${m.id}, data: {name_ru: this.value}})">
-                                    <input class="input-clean font-bold text-sm opacity-50" value="${m.name_en}" onchange="sync('edit_mod', {id: ${m.id}, data: {name_en: this.value}})">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="input-group"><label>Название RU</label><input value="${m.name_ru}" onchange="sync('edit_mod', {id: ${m.id}, data: {name_ru: this.value}})"></div>
+                                    <div class="input-group"><label>Name EN</label><input value="${m.name_en}" class="text-white/60" onchange="sync('edit_mod', {id: ${m.id}, data: {name_en: this.value}})"></div>
                                 </div>
-                                <div class="grid grid-cols-2 gap-4 text-[10px]">
-                                    <div class="terminal-border p-2 rounded-lg">
-                                        <p class="opacity-30 mb-1">VPK 1: ${m.file || 'NONE'}</p>
-                                        <input type="file" onchange="upload(this, ${ci}, ${mi}, 'file')" class="w-full">
+                                
+                                <div class="grid grid-cols-3 gap-3">
+                                    <div class="input-group">
+                                        <label class="text-indigo-400">File 1 (VPK)</label>
+                                        <input class="mono text-xs mb-2" value="${m.file}" onchange="sync('edit_mod', {id: ${m.id}, data: {file: this.value}})">
+                                        <input type="file" class="hidden" id="f1-${m.id}" onchange="upload(this, 'file', ${m.id})">
+                                        <label for="f1-${m.id}" class="text-[9px] bg-white/5 p-1 rounded text-center cursor-pointer hover:bg-white/10">Upload</label>
                                     </div>
-                                    <div class="terminal-border p-2 rounded-lg">
-                                        <p class="opacity-30 mb-1">VPK 2: ${m.file2 || 'NONE'}</p>
-                                        <input type="file" onchange="upload(this, ${ci}, ${mi}, 'file2')" class="w-full">
+                                    <div class="input-group">
+                                        <label class="text-emerald-400">File 2</label>
+                                        <input class="mono text-xs mb-2" value="${m.file2 || ''}" onchange="sync('edit_mod', {id: ${m.id}, data: {file2: this.value}})">
+                                        <input type="file" class="hidden" id="f2-${m.id}" onchange="upload(this, 'file2', ${m.id})">
+                                        <label for="f2-${m.id}" class="text-[9px] bg-white/5 p-1 rounded text-center cursor-pointer hover:bg-white/10">Upload</label>
                                     </div>
-                                    <div class="terminal-border p-2 rounded-lg col-span-2">
-                                        <p class="opacity-30 mb-1">IMG: ${m.img || 'NONE'}</p>
-                                        <input type="file" onchange="upload(this, ${ci}, ${mi}, 'img')" class="w-full">
+                                    <div class="input-group">
+                                        <label>Preview (MP4)</label>
+                                        <input class="mono text-xs mb-2" value="${m.img}" onchange="sync('edit_mod', {id: ${m.id}, data: {img: this.value}})">
+                                        <input type="file" class="hidden" id="img-${m.id}" onchange="upload(this, 'img', ${m.id})">
+                                        <label for="img-${m.id}" class="text-[9px] bg-white/5 p-1 rounded text-center cursor-pointer hover:bg-white/10">Upload</label>
                                     </div>
                                 </div>
-                                <textarea class="input-clean text-xs opacity-60 h-12" placeholder="Desc RU" onchange="sync('edit_mod', {id: ${m.id}, data: {desc_ru: this.value}})">${m.desc_ru}</textarea>
-                                <textarea class="input-clean text-xs opacity-60 h-12" placeholder="Desc EN" onchange="sync('edit_mod', {id: ${m.id}, data: {desc_en: this.value}})">${m.desc_en}</textarea>
-                                <div class="flex justify-between items-center pt-2">
-                                    <select class="bg-white/5 text-[10px] p-1 rounded" onchange="sync('move_mod', {id: ${m.id}, target_id: this.value})">
-                                        <option value="">MOVE_TO...</option>
-                                        ${config.map(c => `<option value="${c.id}">${c.ru}</option>`).join('')}
-                                    </select>
-                                    <button onclick="sync('del_mod', {id: ${m.id}})" class="text-red-500 font-bold text-[10px]">REMOVE</button>
+
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="input-group"><label>Desc RU</label><textarea class="h-16 text-xs" onchange="sync('edit_mod', {id: ${m.id}, data: {desc_ru: this.value}})">${m.desc_ru || ''}</textarea></div>
+                                    <div class="input-group"><label>Desc EN</label><textarea class="h-16 text-xs text-white/50" onchange="sync('edit_mod', {id: ${m.id}, data: {desc_en: this.value}})">${m.desc_en || ''}</textarea></div>
+                                </div>
+
+                                <div class="flex justify-between items-center text-[10px] mono opacity-30">
+                                    <span>MOD_ID: ${m.id}</span>
+                                    <button onclick="sync('del_mod', {id: ${m.id}})" class="text-red-500 font-bold hover:underline">REMOVE MOD</button>
                                 </div>
                             </div>
                         `).join('')}
                     </div>
-                </div>
+                </section>
             `).join('');
         }
+
+        async function init() {
+            try {
+                const res = await fetch("https://ssixm.github.io/VpkDota2Mods/src/config.json", { cache: "no-store" });
+                config = await res.json();
+                render();
+            } catch (e) { alert("Ошибка загрузки конфига с GitHub."); }
+        }
+
+        function addCategory() {
+            const id = prompt("System ID (eng):");
+            if (id) sync('add_cat', { id });
+        }
+
+        checkAuth();
     </script>
 </body>
 </html>
