@@ -33,61 +33,82 @@ async function build() {
     
     try {
         const zip = new JSZip();
-        const selectedMods = CONFIG.flatMap(c => c.mods).filter(m => selected.has(m.id));
-        const filesToDownload = [];
         
-        selectedMods.forEach(m => {
-            if (m.file) filesToDownload.push({ url: m.file, label: m['name_'+lang], id: m.id, type: 'dir' });
-            if (m.file2) filesToDownload.push({ url: m.file2, label: m['name_'+lang], id: m.id, type: '000' });
+        // Мапим выбранные моды, находим их категорию для формирования пути (Пункт 7)
+        const selectedMods = [];
+        CONFIG.forEach(cat => {
+            cat.mods.forEach(m => {
+                if(selected.has(m.id)) {
+                    // Сохраняем ID категории для каждого мода
+                    selectedMods.push({ ...m, catId: cat.id });
+                }
+            });
         });
 
-        const getFullUrl = (u) => u.includes("raw.githubusercontent.com/h6rd/Dota2PornFxWeb") ? u : VPK_BASE_URL + u;
+        // Формируем список файлов
+        const filesToDownload = [];
+        selectedMods.forEach(m => {
+            if (m.file) filesToDownload.push({ url: m.file, label: m['name_'+lang], id: m.id, catId: m.catId, type: 'dir' });
+            if (m.file2) filesToDownload.push({ url: m.file2, label: m['name_'+lang], id: m.id, catId: m.catId, type: '000' });
+        });
 
+        const getFullUrl = (u) => u.startsWith('http') ? u : VPK_BASE_URL + u;
+
+        // Базовые скрипты
         const bats = ['loader_ru.bat', 'loader_en.bat', 'delete_mods.bat'];
         for(let b of bats) {
-            const r = await fetch(getFullUrl(b), { signal });
+            const r = await fetch(VPK_BASE_URL + b, { signal });
             if(r.ok) zip.file('mods/'+ b, await r.arrayBuffer());
         }
 
-        pLabel.textContent = '';
-        let totalBytes = 0;
-        const sizeRequests = await Promise.all(
-            filesToDownload.map(f => fetch(getFullUrl(f.url), { method: 'HEAD', signal }).catch(() => null))
-        );
-        
-        sizeRequests.forEach(res => {
-            if (res && res.ok) totalBytes += parseInt(res.headers.get('content-length') || 0);
-        });
-
         let loadedBytes = 0;
-
-        for(const fileObj of filesToDownload) {
-            const response = await fetch(getFullUrl(fileObj.url), { signal });
+        const totalFiles = filesToDownload.length;
+        
+        for(let i = 0; i < totalFiles; i++) {
+            const fileObj = filesToDownload[i];
+            const url = getFullUrl(fileObj.url);
+            
+            pLabel.textContent = `${Math.round((i / totalFiles) * 100)}% [${fileObj.label}]`;
+            
+            const response = await fetch(url, { signal });
             if (!response.ok) continue;
 
-            const reader = response.body.getReader();
-            const chunks = [];
+            const blob = await response.blob();
             
-            while(true) {
-                const {done, value} = await reader.read();
-                if (done) break;
+            // Логика распаковки
+            if (fileObj.url.endsWith('.zip')) {
+                const zipContent = await JSZip.loadAsync(blob);
                 
-                chunks.push(value);
-                loadedBytes += value.length;
-                
-                if (totalBytes > 0) {
-                    const percent = (loadedBytes / totalBytes) * 100;
-                    pFill.style.width = `${percent}%`;
-                    pLabel.textContent = `${Math.round(percent)}% [${fileObj.label}]`;
+                for (const [filename, fileData] of Object.entries(zipContent.files)) {
+                    if (fileData.dir) continue;
+                    
+                    const content = await fileData.async('arraybuffer');
+                    
+                    if (filename.endsWith('.vpk')) {
+                        // VPK всегда кладем в mods/data
+                        const typeSuffix = filename.includes('_000') ? '000' : 'dir';
+                        const newName = `pak${fileObj.id}_${typeSuffix}.vpk`;
+                        zip.file(`mods/data/${newName}`, content);
+                    } else {
+                        // ИСПРАВЛЕНИЕ: Инструменты летят в mods/tools/[ID_КАТЕГОРИИ]/[ИмяФайла]
+                        const cleanName = filename.split('/').pop(); 
+                        if(cleanName) {
+                            // fileObj.catId - это ID категории (например 'visual', 'cursor' и т.д.)
+                            zip.file(`mods/tools/${fileObj.catId}/${cleanName}`, content);
+                        }
+                    }
                 }
+            } else {
+                // Обычные VPK
+                const fileName = `pak${fileObj.id}_${fileObj.type === '000' ? '000' : 'dir'}.vpk`;
+                zip.file(`mods/data/${fileName}`, await blob.arrayBuffer());
             }
-
-            const blob = new Blob(chunks);
-            const fileName = `pak${fileObj.id}_${fileObj.type === '000' ? '000' : 'dir'}.vpk`;
-            zip.file(`mods/data/${fileName}`, await blob.arrayBuffer());
+            
+            const percent = ((i + 1) / totalFiles) * 100;
+            pFill.style.width = `${percent}%`;
         }
 
-        pLabel.textContent = 'Чык чырык';
+        pLabel.textContent = 'Архивация...';
         if (typeof buildSfx === 'function') buildSfx();
         
         const blob = await zip.generateAsync({type: "blob"});
@@ -105,7 +126,7 @@ async function build() {
             pLabel.textContent = lang === 'ru' ? 'СБОРКА ПРЕРВАНА' : 'BUILD ABORTED';
         } else {
             console.error(err);
-            if (typeof showToast === 'function') showToast("Error", true); 
+            if (typeof showToast === 'function') showToast("Error building pack", true); 
         }
     } finally { 
         buildController = null;

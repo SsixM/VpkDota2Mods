@@ -2,6 +2,9 @@ function openPreview(id) {
     const mod = CONFIG.flatMap(c => c.mods).find(m => m.id === id);
     if(!mod) return;
     
+    // Исправление 9: Установка хэша
+    window.location.hash = id;
+
     if (typeof techSfx === 'function') techSfx();
     
     const overlay = document.createElement('div');
@@ -49,6 +52,14 @@ function closePreview() {
         if (typeof hoverSfx === 'function') hoverSfx();
         m.classList.remove('active');
         setTimeout(() => m.remove(), 200);
+        
+        // Возвращаем хэш к категории
+        if (currentCat) {
+            window.location.hash = currentCat;
+        } else {
+            window.location.hash = "";
+            history.pushState("", document.title, window.location.pathname + window.location.search);
+        }
     }
 }
 

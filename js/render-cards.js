@@ -1,3 +1,6 @@
+let globalObserver = null;
+let currentPlayingVideo = null; // Для отслеживания текущего играющего видео
+
 function renderSkeletons() {
     const content = document.getElementById('app-content');
     content.innerHTML = `
@@ -12,29 +15,80 @@ function renderSkeletons() {
         </div>`;
 }
 
-const PornfxUrl = "https://raw.githubusercontent.com/h6rd/Dota2PornFxWeb/";
 const basedurl = "https://ssixm.github.io/VpkDota2Mods/src/";
+
+// ОПТИМИЗАЦИЯ (Пункт 3 и 6): Загружаем видео ТОЛЬКО когда оно на экране
+// Выгружаем (удаляем src), когда уходит с экрана. Это спасет от краша на 30 видео.
+function initIntersectionObserver() {
+    if (globalObserver) globalObserver.disconnect();
+
+    globalObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const el = entry.target;
+            
+            if (entry.isIntersecting) {
+                const dataSrc = el.getAttribute('data-src');
+                // Если src еще не установлен или был удален
+                if (dataSrc && (!el.src || el.src === '')) {
+                    if (el.tagName === 'VIDEO') {
+                        // ИСПРАВЛЕНИЕ: #t=2 берет кадр со 2-й секунды (середина)
+                        el.src = dataSrc + "#t=2"; 
+                        el.load(); // Важно для видео
+                    } else {
+                        el.src = dataSrc;
+                    }
+                    el.classList.remove('opacity-0');
+                }
+            } else {
+                // Если элемент ушел с экрана - чистим ресурсы
+                if (el.tagName === 'VIDEO') {
+                    el.removeAttribute('src'); // Удаляем src, браузер чистит память
+                    el.load(); // Применяем очистку
+                    // data-src остается, так что мы восстановим его, если вернемся
+                }
+            }
+        });
+    }, { 
+        rootMargin: "200px 0px", // Грузим чуть заранее
+        threshold: 0.01 
+    });
+
+    document.querySelectorAll('.lazy-media').forEach(el => globalObserver.observe(el));
+}
 
 function createCardHtml(m, catId, idx) {
     const isSel = selected.has(m.id);
+    const isFileDownload = m.file && m.file.match(/\.(vpk|zip|rar|7z)$/i);
+    const isExternal = m.file && m.file.startsWith('http') && !isFileDownload;
     
-    const previewUrl = m.img.includes("raw.githubusercontent.com/h6rd/Dota2PornFxWeb/") 
-        ? m.img 
-        : `${basedurl}${m.img}`;
+    const isVideo = m.img && (m.img.endsWith('.mp4') || m.img.endsWith('.webm'));
+    const previewUrl = m.img.includes("raw.githubusercontent.com") ? m.img : `${basedurl}${m.img}`;
+
+    // ИСПРАВЛЕНИЕ: rounded-2xl для скругления, preload="none" для старта
+    const mediaHtml = isVideo 
+        ? `<video data-src="${previewUrl}" preload="none" muted playsinline loop class="lazy-media w-full h-full object-cover rounded-2xl opacity-0 transition-opacity duration-500 bg-black/20"></video>`
+        : `<img data-src="${previewUrl}" loading="lazy" class="lazy-media w-full h-full object-cover rounded-2xl opacity-0 transition-opacity duration-500">`;
+
+    const clickAction = isExternal 
+        ? `window.open('${m.file}', '_blank')` 
+        : `toggleMod(${m.id}, '${catId}')`;
 
     const sourceBtn = m.source ? `
         <a href="${m.source}" target="_blank" onclick="event.stopPropagation(); if(typeof hoverSfx === 'function') hoverSfx()" 
-           class="p-2.5 bg-black/60 backdrop-blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-all hover:bg-blue-500 hover:scale-110 z-20"
+           class="p-2.5 bg-black/60 backdrop-blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-all hover:bg-blue-600 hover:scale-110 z-20"
            title="${TR[lang].source}">
             <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>` : '';
 
     return `
-        <div class="glass-card mod-card p-4 cursor-pointer relative stagger-item ${isSel ? 'mod-selected' : ''}" 
-             style="animation-delay: ${idx * 0.05}s" id="mod-${m.id}" onmouseenter="if(typeof hoverSfx === 'function') hoverSfx()">
-            <div onclick="toggleMod(${m.id}, '${catId}')" class="aspect-[4/3] rounded-xl overflow-hidden mb-4 relative bg-zinc-900 group">
-                <img src="${previewUrl}" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-90 group-hover:opacity-100">
-                <div class="check-overlay"><svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg></div>
+        <div class="glass-card mod-card p-4 cursor-pointer relative stagger-item ${isSel ? 'mod-selected' : ''} gpu-card" 
+             style="animation-delay: ${idx * 0.03}s" id="mod-${m.id}" 
+             onmouseenter="handleCardHover(this, true)" 
+             onmouseleave="handleCardHover(this, false)">
+            
+            <div onclick="${clickAction}" class="aspect-[4/3] rounded-2xl overflow-hidden mb-4 relative bg-zinc-900 group shadow-lg">
+                ${mediaHtml}
+                ${!isExternal ? `<div class="check-overlay"><svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg></div>` : ''}
                 
                 <div class="absolute top-3 right-3 flex gap-2">
                     ${sourceBtn}
@@ -43,7 +97,8 @@ function createCardHtml(m, catId, idx) {
                     </button>
                 </div>
             </div>
-            <div onclick="toggleMod(${m.id}, '${catId}')" class="flex flex-col h-[80px]">
+            
+            <div onclick="${clickAction}" class="flex flex-col h-[80px]">
                 <h4 class="font-heading text-base font-bold leading-tight mb-1.5 text-white/90 group-hover:text-white transition-colors line-clamp-1">${m['name_'+lang]}</h4>
                 <p class="text-[12px] text-neutral-400 leading-snug line-clamp-2 font-medium">${m['desc_'+lang] || ''}</p>
                 <div class="mt-auto flex justify-end">
@@ -53,9 +108,39 @@ function createCardHtml(m, catId, idx) {
         </div>`;
 }
 
+// Воспроизведение только загруженных видео
+window.handleCardHover = function(el, isEnter) {
+    if (typeof hoverSfx === 'function' && isEnter) hoverSfx();
+    const vid = el.querySelector('video');
+    
+    // Пытаемся играть только если есть src
+    if (vid && vid.getAttribute('src')) {
+        if (isEnter) {
+            vid.play().catch(() => {});
+        } else {
+            vid.pause();
+        }
+    }
+};
+
 function renderCategories() {
     isSearching = false; currentCat = null;
+    
+    // ИСПРАВЛЕНИЕ: Восстановление скролла (Пункт 8)
+    if (typeof savedScrollPosition !== 'undefined' && savedScrollPosition > 0) {
+        requestAnimationFrame(() => window.scrollTo(0, savedScrollPosition));
+    } else {
+        window.scrollTo(0, 0);
+    }
+    
+    // Снимаем хеш, но аккуратно
+    if(window.location.hash.length > 1) {
+         history.pushState(null, null, ' ');
+    }
+
     const content = document.getElementById('app-content');
+    
+    let catsToShow = CONFIG;
     let modsToDisplay = CONFIG.flatMap(c => c.mods.map(m => ({...m, catId: c.id})));
     if(activeFilter === 'new') modsToDisplay = modsToDisplay.sort((a,b) => b.id - a.id).slice(0, 12);
     if(activeFilter === 'selected') modsToDisplay = modsToDisplay.filter(m => selected.has(m.id));
@@ -65,22 +150,29 @@ function renderCategories() {
     
     if (activeFilter === 'all') {
         html += CONFIG.map((cat, i) => {
-            const getUrl = (img) => img.includes("raw.githubusercontent.com/h6rd/Dota2PornFxWeb/") 
-                ? img 
-                : `${basedurl}${img}`;
+            const getUrl = (img) => img.includes("raw.githubusercontent.com") ? img : `${basedurl}${img}`;
+            
+            const renderMedia = (img, extraClass) => {
+                const url = getUrl(img);
+                const isV = img.endsWith('.mp4') || img.endsWith('.webm');
+                // В категориях тоже используем lazy-load и превью
+                return isV 
+                    ? `<video data-src="${url}" preload="metadata" muted playsinline class="folder-img ${extraClass} lazy-media object-cover rounded-xl"></video>`
+                    : `<img data-src="${url}" loading="lazy" class="folder-img lazy-media ${extraClass} object-cover rounded-xl">`;
+            };
 
-            const img1 = getUrl(cat.mods[0].img);
+            const img1Html = renderMedia(cat.mods[0].img, 'img-1');
             const secondImg = cat.mods[1] ? cat.mods[1].img : cat.mods[0].img;
-            const img2 = getUrl(secondImg);
+            const img2Html = renderMedia(secondImg, 'img-2');
 
             return `
             <div onclick="renderMods('${cat.id}')" onmouseenter="if(typeof hoverSfx === 'function') hoverSfx()" 
-                 class="glass-card cat-card p-6 cursor-pointer group stagger-item flex flex-col min-h-[360px]" 
-                 style="animation-delay: ${i*0.06}s">
+                 class="glass-card cat-card p-6 cursor-pointer group stagger-item flex flex-col min-h-[360px] gpu-card" 
+                 style="animation-delay: ${i*0.04}s">
                 
                 <div class="folder-preview mb-6 flex-shrink-0 pointer-events-none">
-                    <img src="${img1}" loading="lazy" class="folder-img img-1 shadow-2xl">
-                    <img src="${img2}" loading="lazy" class="folder-img img-2 shadow-2xl">
+                    ${img1Html}
+                    ${img2Html}
                 </div>
 
                 <div class="flex flex-col flex-grow">
@@ -104,33 +196,7 @@ function renderCategories() {
     
     html += '</div>';
     content.innerHTML = html;
-}
-
-function renderFilterBar() {
-    return `
-        <div class="flex flex-wrap gap-3 mb-10 stagger-item">
-            ${Object.entries(FILTERS).map(([key, val]) => `
-                <button onclick="setFilter('${key}')" class="px-5 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all border ${activeFilter === key ? 'bg-[var(--accent)] text-white border-[var(--accent)] shadow-lg shadow-[var(--accent)]/20' : 'bg-white/5 text-neutral-400 border-white/5 hover:border-white/20'}">
-                    ${val[lang]}
-                </button>
-            `).join('')}
-        </div>`;
-}
-
-function renderMods(catId) {
-    currentCat = catId;
-    const cat = CONFIG.find(c => c.id === catId);
-    document.getElementById('app-content').innerHTML = `
-        <div class="stagger-item">
-            <button onclick="renderCategories(); if(typeof hoverSfx === 'function') hoverSfx();" 
-                 class="flex items-center gap-2 mb-8 text-neutral-500 hover:text-white transition-all uppercase font-black text-[10px] tracking-widest group">
-                <svg class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3"><path d="M15 19l-7-7 7-7"/></svg>
-                ${TR[lang].back}
-            </button>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-                ${cat.mods.map((m, i) => createCardHtml(m, catId, i)).join('')}
-            </div>
-        </div>`;
+    setTimeout(initIntersectionObserver, 50);
 }
 
 function renderFilterBar() {
@@ -138,26 +204,40 @@ function renderFilterBar() {
 }
 
 function renderMods(catId) {
+    // ИСПРАВЛЕНИЕ: Сохраняем скролл перед входом в категорию
+    savedScrollPosition = window.scrollY;
+    
     currentCat = catId; isSearching = false;
+    window.location.hash = catId; 
+    window.scrollTo(0, 0); // В категории скролл сверху
+
     const cat = CONFIG.find(c => c.id === catId);
+    
     document.getElementById('app-content').innerHTML = `
-        <div class="stagger-item">
-            <div onclick="renderCategories(); if(typeof hoverSfx === 'function') hoverSfx();" 
-                 class="inline-flex items-center gap-3 mb-12 cursor-pointer text-neutral-500 hover:text-white transition-colors uppercase font-black text-[11px] tracking-[0.3em] group">
-                <svg class="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke-width="3" stroke-linecap="round"/>
-                </svg>
-                ${TR[lang].back}
+        <div class="stagger-item relative min-h-screen">
+            <div class="sticky-wrapper">
+                <button onclick="renderCategories(); if(typeof hoverSfx === 'function') hoverSfx();" 
+                    class="sticky-btn flex items-center px-6 py-3 text-neutral-400 hover:text-white uppercase font-black text-[11px] tracking-[0.2em] group cursor-pointer transition-all hover:border-white/30">
+                    
+                    <svg class="w-5 h-5 mr-3 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke-width="3" stroke-linecap="round"/>
+                    </svg>
+                    
+                    <span>${TR[lang].back}</span>
+                </button>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            
+            <div class="pt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 ${cat.mods.map((m, i) => createCardHtml(m, catId, i)).join('')}
             </div>
         </div>`;
+        
+    setTimeout(initIntersectionObserver, 50);
 }
 
 function renderSearch(q) {
     isSearching = true; currentCat = null;
-    if(!q.trim()) { renderCategories(); return; }
+    
     let html = `<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 stagger-item">`;
     let found = false;
     CONFIG.forEach(cat => {
@@ -170,4 +250,6 @@ function renderSearch(q) {
     });
     if(!found) html += `<div class="col-span-full text-center py-40 opacity-30 font-heading text-2xl uppercase tracking-[0.5em]">${TR[lang].empty}</div>`;
     document.getElementById('app-content').innerHTML = html + `</div>`;
+    
+    setTimeout(initIntersectionObserver, 50);
 }
