@@ -62,33 +62,35 @@ echo     title        "Dota 2"
 echo.
 echo     FileSystem
 echo     {
-echo         SteamAppId				570
-echo         BreakpadAppId			373300
-echo         BreakpadAppId_Tools		375360
+echo         SteamAppId             570
+echo         BreakpadAppId          373300
+echo         BreakpadAppId_Tools    375360
 echo.
 echo         SearchPaths
 echo         {
-echo             Game				VPKCORE
-echo             Mod					VPKCORE
-echo             Game_Language		dota_*LANGUAGE*
-echo             Game_LowViolence	dota_lv
+echo             Game               VPKCORE
+echo             Mod                VPKCORE
+echo             Game_Language      dota_*LANGUAGE*
 echo.
-echo             Game				dota
-echo             Game				core
+echo             Game_LowViolence   dota_lv
 echo.
-echo             Mod					dota
+echo             Game               dota
+echo             Game               core
 echo.
-echo             Write				dota
+echo             Mod                dota
 echo.
-echo             AddonRoot_Language	dota_*LANGUAGE*_addons
-echo             AddonRoot			dota_addons
+echo             Write              dota
 echo.
-echo             PublicContent		dota_core
-echo             PublicContent		core
+echo             AddonRoot_Language dota_*LANGUAGE*_addons
+echo.
+echo             AddonRoot          dota_addons
+echo.
+echo             PublicContent      dota_core
+echo             PublicContent      core
 echo         }
 echo.
-echo         "UserSettingsPathID"	"USRLOCAL"
-echo         "LegacyUserSettingsPathID"	"MOD"
+echo         "UserSettingsPathID"   "USRLOCAL"
+echo         "LegacyUserSettingsPathID" "MOD"
 echo.
 echo         AddonsChangeDefaultWritePath 0
 echo     }

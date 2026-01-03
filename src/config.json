@@ -355,7 +355,7 @@
     "id": "item-effects",
     "ru": "Эффекты предметов",
     "en": "Item Effects",
-    "exclusive": true,
+    "exclusive": false,
     "mods": [
       {
         "id": 2038,
