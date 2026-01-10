@@ -1,5 +1,5 @@
 let globalObserver = null;
-let currentPlayingVideo = null; // Для отслеживания текущего играющего видео
+let currentPlayingVideo = null; 
 
 function renderSkeletons() {
     const content = document.getElementById('app-content');
@@ -17,8 +17,6 @@ function renderSkeletons() {
 
 const basedurl = "https://ssixm.github.io/VpkDota2Mods/src/";
 
-// ОПТИМИЗАЦИЯ (Пункт 3 и 6): Загружаем видео ТОЛЬКО когда оно на экране
-// Выгружаем (удаляем src), когда уходит с экрана. Это спасет от краша на 30 видео.
 function initIntersectionObserver() {
     if (globalObserver) globalObserver.disconnect();
 
@@ -28,28 +26,24 @@ function initIntersectionObserver() {
             
             if (entry.isIntersecting) {
                 const dataSrc = el.getAttribute('data-src');
-                // Если src еще не установлен или был удален
                 if (dataSrc && (!el.src || el.src === '')) {
                     if (el.tagName === 'VIDEO') {
-                        // ИСПРАВЛЕНИЕ: #t=2 берет кадр со 2-й секунды (середина)
                         el.src = dataSrc + "#t=2"; 
-                        el.load(); // Важно для видео
+                        el.load(); 
                     } else {
                         el.src = dataSrc;
                     }
                     el.classList.remove('opacity-0');
                 }
             } else {
-                // Если элемент ушел с экрана - чистим ресурсы
                 if (el.tagName === 'VIDEO') {
-                    el.removeAttribute('src'); // Удаляем src, браузер чистит память
-                    el.load(); // Применяем очистку
-                    // data-src остается, так что мы восстановим его, если вернемся
+                    el.removeAttribute('src'); 
+                    el.load(); 
                 }
             }
         });
     }, { 
-        rootMargin: "200px 0px", // Грузим чуть заранее
+        rootMargin: "200px 0px", 
         threshold: 0.01 
     });
 
@@ -64,7 +58,6 @@ function createCardHtml(m, catId, idx) {
     const isVideo = m.img && (m.img.endsWith('.mp4') || m.img.endsWith('.webm'));
     const previewUrl = m.img.includes("raw.githubusercontent.com") ? m.img : `${basedurl}${m.img}`;
 
-    // ИСПРАВЛЕНИЕ: rounded-2xl для скругления, preload="none" для старта
     const mediaHtml = isVideo 
         ? `<video data-src="${previewUrl}" preload="none" muted playsinline loop class="lazy-media w-full h-full object-cover rounded-2xl opacity-0 transition-opacity duration-500 bg-black/20"></video>`
         : `<img data-src="${previewUrl}" loading="lazy" class="lazy-media w-full h-full object-cover rounded-2xl opacity-0 transition-opacity duration-500">`;
@@ -108,12 +101,10 @@ function createCardHtml(m, catId, idx) {
         </div>`;
 }
 
-// Воспроизведение только загруженных видео
 window.handleCardHover = function(el, isEnter) {
     if (typeof hoverSfx === 'function' && isEnter) hoverSfx();
     const vid = el.querySelector('video');
     
-    // Пытаемся играть только если есть src
     if (vid && vid.getAttribute('src')) {
         if (isEnter) {
             vid.play().catch(() => {});
@@ -126,14 +117,11 @@ window.handleCardHover = function(el, isEnter) {
 function renderCategories() {
     isSearching = false; currentCat = null;
     
-    // ИСПРАВЛЕНИЕ: Восстановление скролла (Пункт 8)
     if (typeof savedScrollPosition !== 'undefined' && savedScrollPosition > 0) {
         requestAnimationFrame(() => window.scrollTo(0, savedScrollPosition));
     } else {
         window.scrollTo(0, 0);
     }
-    
-    // Снимаем хеш, но аккуратно
     if(window.location.hash.length > 1) {
          history.pushState(null, null, ' ');
     }
@@ -204,12 +192,11 @@ function renderFilterBar() {
 }
 
 function renderMods(catId) {
-    // ИСПРАВЛЕНИЕ: Сохраняем скролл перед входом в категорию
     savedScrollPosition = window.scrollY;
     
     currentCat = catId; isSearching = false;
     window.location.hash = catId; 
-    window.scrollTo(0, 0); // В категории скролл сверху
+    window.scrollTo(0, 0); 
 
     const cat = CONFIG.find(c => c.id === catId);
     
