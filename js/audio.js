@@ -1,6 +1,5 @@
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
-// Мастер-шина для предотвращения клиппинга
 const masterGain = audioCtx.createGain();
 masterGain.gain.setValueAtTime(0.8, audioCtx.currentTime);
 masterGain.connect(audioCtx.destination);
@@ -31,7 +30,6 @@ function playSfx(freq, type = 'sine', duration = 0.1, vol = 0.05, sweep = false)
     osc.stop(audioCtx.currentTime + duration);
 }
 
-// Идеальные сеты звуков
 const clickSfx = () => playSfx(600, 'triangle', 0.08, 0.03, true);
 const hoverSfx = () => playSfx(1200, 'sine', 0.04, 0.015);
 const buildSfx = () => {
