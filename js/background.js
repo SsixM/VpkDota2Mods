@@ -23,7 +23,6 @@ function initBackground() {
 
     document.addEventListener('mousemove', e => {
         if (!ticking) {
-            // Оптимизация: обновляем координаты только в следующем кадре отрисовки
             window.requestAnimationFrame(() => {
                 const x = (e.clientX / window.innerWidth) * 100;
                 const y = (e.clientY / window.innerHeight) * 100;
