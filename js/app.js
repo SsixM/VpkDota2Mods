@@ -1,4 +1,3 @@
-// Глобальная переменная для хранения позиции скролла
 let savedScrollPosition = 0; 
 let searchTimeout = null;
 
@@ -6,12 +5,10 @@ function handleSearch(e) {
     const q = e.target.value;
     clearTimeout(searchTimeout);
     
-    // ОПТИМИЗАЦИЯ: Debounce 400ms, чтобы не вызывать лаги при быстром вводе
     searchTimeout = setTimeout(() => {
         if(q.trim().length > 0) {
             renderSearch(q);
         } else {
-            // Если поле очистили - возвращаем категории
             if(isSearching) renderCategories(); 
         }
         if (typeof techSfx === 'function') techSfx();
@@ -53,13 +50,11 @@ function setLang(l) {
     const dlBtn = document.getElementById('dl-btn');
     if(dlBtn) dlBtn.textContent = TR[lang].build;
 
-    // Обновляем текущий вид
     if (isSearching && searchInp) renderSearch(searchInp.value);
     else if (currentCat) renderMods(currentCat);
     else renderCategories();
 }
 
-// Флаг для предотвращения зацикливания
 let isNavigating = false;
 
 async function initApp() {
@@ -73,7 +68,6 @@ async function initApp() {
         const res = await fetch(JSON_URL);
         CONFIG = await res.json();
         
-        // КРИТИЧНО: При первой загрузке проверяем, есть ли аргумент в ссылке
         if (window.location.hash) {
             checkHash();
         } else {
@@ -84,7 +78,6 @@ async function initApp() {
     }
 }
 
-// Слушаем изменения хэша (когда пользователь жмет "Назад" или меняет ссылку)
 window.addEventListener('hashchange', () => {
     if (!isNavigating) {
         checkHash();
@@ -100,14 +93,12 @@ function checkHash() {
         return;
     }
 
-    // Поиск категории
     const cat = CONFIG.find(c => c.id === hash);
     if (cat) {
         renderMods(hash);
         return;
     }
     
-    // Поиск мода
     const modId = parseInt(hash);
     if (!isNaN(modId)) {
         const parentCat = CONFIG.find(c => c.mods.some(m => m.id === modId));
